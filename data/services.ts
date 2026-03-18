@@ -1,0 +1,62 @@
+export type Service = {
+  number: string
+  title: string
+  description: string
+  features: string[]
+}
+
+export type ProcessStep = {
+  step: string
+  title: string
+  description: string
+}
+
+export const services: Service[] = [
+  {
+    number: "01",
+    title: "Full Interior Design",
+    description: "A comprehensive service encompassing every aspect of your project, from initial concept through to final installation. We manage all elements including space planning, material selection, custom furniture design, and coordination with contractors.",
+    features: ["Concept Development", "Space Planning", "Material Selection", "Furniture Design", "Project Management"],
+  },
+  {
+    number: "02",
+    title: "Consultation",
+    description: "For clients seeking expert guidance on specific aspects of their project. Our consultation service provides professional advice on colour schemes, furniture layouts, lighting design, and material choices.",
+    features: ["Design Direction", "Colour Consultation", "Furniture Selection", "Lighting Advice", "Shopping Service"],
+  },
+  {
+    number: "03",
+    title: "Property Styling",
+    description: "Transform your property for sale or rental with our expert styling service. We curate furnishings and accessories to showcase your space at its finest, maximising appeal to potential buyers or tenants.",
+    features: ["Sale Preparation", "Rental Styling", "Photography Styling", "Furniture Rental", "Accessory Curation"],
+  },
+  {
+    number: "04",
+    title: "Bespoke Joinery",
+    description: "Custom-designed and crafted joinery tailored to your exact specifications. From built-in wardrobes to statement kitchen cabinetry, we work with master craftsmen to create pieces of exceptional quality.",
+    features: ["Custom Cabinetry", "Built-in Storage", "Kitchen Design", "Bathroom Vanities", "Statement Pieces"],
+  },
+]
+
+export const designProcess: ProcessStep[] = [
+  {
+    step: "01",
+    title: "Initial Consultation",
+    description: "We begin with a detailed discussion of your vision, requirements, and budget. This allows us to understand your lifestyle and aesthetic preferences.",
+  },
+  {
+    step: "02",
+    title: "Concept Development",
+    description: "Our team develops comprehensive design concepts, including mood boards, floor plans, and preliminary material selections for your review.",
+  },
+  {
+    step: "03",
+    title: "Design Development",
+    description: "Once the concept is approved, we refine every detail, from furniture specifications to lighting plans, creating a complete design package.",
+  },
+  {
+    step: "04",
+    title: "Implementation",
+    description: "We oversee every aspect of the installation, coordinating with contractors and suppliers to ensure flawless execution of the design.",
+  },
+]
