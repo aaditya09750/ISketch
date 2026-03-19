@@ -225,8 +225,10 @@ html.lenis-scrolling .image-hover {
   pointer-events: none;
 }
 
-.image-hover:hover {
-  transform: scale(1.03);
+@media (min-width: 1024px) {
+  .image-hover:hover {
+    transform: scale(1.03);
+  }
 }
 
 /* Earthy depth shadows */
