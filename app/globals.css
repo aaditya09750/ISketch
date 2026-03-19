@@ -212,7 +212,17 @@
 
 /* Smooth image transitions */
 .image-hover {
+  will-change: transform;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Suppress heavy hover effects during active scroll to prevent jank */
+html.lenis-scrolling .group {
+  pointer-events: none;
+}
+
+html.lenis-scrolling .image-hover {
+  pointer-events: none;
 }
 
 .image-hover:hover {
