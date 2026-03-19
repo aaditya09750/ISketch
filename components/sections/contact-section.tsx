@@ -4,48 +4,71 @@ import { contactCategories } from "@/data/contact"
 
 export function ContactSection() {
   return (
-    <section className="py-28 lg:py-40 bg-secondary">
+    <section className="py-16 md:py-20 lg:py-28 bg-secondary">
       <Container>
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="label-uppercase text-accent mb-8">
-            Get In Touch
-          </p>
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-10 lg:mb-14">
+            <p className="label-uppercase text-accent mb-5 md:mb-6 lg:mb-8">
+              Get In Touch
+            </p>
 
-          <h2 className="heading-section text-3xl lg:text-4xl xl:text-5xl text-foreground leading-[1.3] mb-10">
-            We welcome the opportunity to collaborate with you on your next interior design project.
-          </h2>
+            <h2 className="heading-section text-2xl md:text-3xl lg:text-4xl text-foreground leading-[1.35] mb-4 md:mb-5 lg:mb-6">
+              We welcome the opportunity to collaborate with you on your next interior design project.
+            </h2>
 
-          <p className="body-text text-muted-foreground mb-12">
-            Reach out to start the conversation
-          </p>
+            <p className="font-sans text-sm md:text-base text-muted-foreground tracking-wide">
+              Reach out to start the conversation
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-10 lg:gap-16 text-center mb-14">
-            {contactCategories.map((category) => (
-              <div key={category.title}>
-                <h3 className="label-uppercase text-foreground mb-4">
+          {/* Decorative divider */}
+          <div className="flex items-center justify-center mb-10 lg:mb-14">
+            <div className="h-px w-12 md:w-16 bg-accent-decorative/40" />
+          </div>
+
+          {/* Contact Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-8 mb-12 md:mb-16 lg:mb-20">
+            {contactCategories.map((category, index) => (
+              <div
+                key={category.title}
+                className={`animate-fade-up text-center border border-border/50 py-8 md:py-10 px-5 md:px-6 lg:px-8 hover:border-accent-decorative/40 transition-colors duration-500 ${
+                  index === 2 ? "md:col-span-2 md:max-w-sm md:mx-auto lg:col-span-1 lg:max-w-none" : ""
+                }`}
+                style={{ animationDelay: `${0.1 + index * 0.15}s` }}
+              >
+                <h3 className="label-uppercase text-foreground mb-4 md:mb-5 lg:mb-6">
                   {category.title}
                 </h3>
+
                 <Link
                   href={`mailto:${category.email}`}
-                  className="body-text text-muted-foreground hover:text-accent transition-colors block mb-2"
+                  className="footer-link inline-block font-sans text-xs sm:text-sm text-accent-decorative hover:text-foreground transition-colors duration-300 mb-2 md:mb-3 w-fit mx-auto"
                 >
                   {category.email}
                 </Link>
+
                 {category.phone && (
-                  <p className="body-text text-muted-foreground">
+                  <Link
+                    href={`tel:${category.phone.replace(/\s/g, '')}`}
+                    className="block font-sans text-xs sm:text-sm text-muted-foreground hover:text-accent-decorative transition-colors duration-300 mt-1.5 md:mt-2"
+                  >
                     {category.phone}
-                  </p>
+                  </Link>
                 )}
               </div>
             ))}
           </div>
 
-          <Link
-            href="/contact"
-            className="inline-flex items-center label-uppercase text-foreground link-underline hover:text-accent transition-colors duration-300"
-          >
-            Request a Consultation
-          </Link>
+          {/* CTA */}
+          <div className="text-center">
+            <Link
+              href="/#"
+              className="inline-block label-uppercase px-8 md:px-10 py-3.5 md:py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm"
+            >
+              Request a Consultation
+            </Link>
+          </div>
         </div>
       </Container>
     </section>

@@ -9,44 +9,72 @@ interface ProjectCardProps {
   category?: string
   aspectRatio?: string
   variant?: "centered" | "default"
+  index?: number
+  isVisible?: boolean
 }
 
 export function ProjectCard({
   title,
   location,
   image,
-  href,
   category,
   aspectRatio = "aspect-[4/5]",
   variant = "default",
+  index = 0,
+  isVisible = true,
 }: ProjectCardProps) {
+  const delay = `${300 + index * 250}ms`
+
   return (
-    <Link href={href} className="group block">
-      <div className={`relative overflow-hidden ${variant === "centered" ? "mb-6" : ""} ${aspectRatio}`}>
+    <Link href="/#" className="group block">
+      {/* Image with wipe reveal */}
+      <div
+        className={`project-card-reveal relative overflow-hidden transition-shadow duration-700 group-hover:shadow-earthy-lg ${
+          isVisible ? "is-revealed" : ""
+        } ${variant === "centered" ? "mb-5 sm:mb-6" : ""} ${aspectRatio}`}
+        style={{ animationDelay: isVisible ? delay : "0ms" }}
+      >
         <Image
           src={image}
           alt={`${title} - ${location}`}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-[800ms] ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-500" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/15 transition-colors duration-500" />
+        {/* Inner border frame */}
+        <div className="absolute inset-4 sm:inset-5 lg:inset-6 border border-white/0 group-hover:border-white/40 transition-all duration-500" />
+        {/* View Project label */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <span className="label-uppercase text-[10px] sm:text-[11px] tracking-[0.25em] text-white/90">
+            View Project
+          </span>
+        </div>
       </div>
-      <div className={variant === "centered" ? "text-center" : "mt-6"}>
+
+      {/* Text with fade-in */}
+      <div
+        className={`transition-opacity duration-700 ease-out ${
+          isVisible ? "opacity-100" : "opacity-0"
+        } ${variant === "centered" ? "text-center" : "mt-6"}`}
+        style={{ transitionDelay: isVisible ? delay : "0ms" }}
+      >
         {variant === "centered" ? (
           <>
-            <h3 className="font-serif text-xl lg:text-2xl text-foreground mb-2 group-hover:text-accent transition-colors duration-300">
+            <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-foreground mb-1.5 sm:mb-2 group-hover:text-accent transition-colors duration-300">
               {title}
             </h3>
-            <p className="label-uppercase text-[10px] text-muted-foreground">
+            <p className="label-uppercase text-[9px] sm:text-[10px] tracking-[0.2em] text-muted-foreground/70">
               {location}
             </p>
           </>
         ) : (
           <>
-            <p className="label-uppercase text-[10px] text-accent mb-3">
-              {location}{category ? ` | ${category}` : ""}
+            <p className="label-uppercase text-[9px] sm:text-[10px] tracking-[0.2em] text-accent mb-3">
+              {location}
+              {category ? ` | ${category}` : ""}
             </p>
-            <h3 className="font-serif text-xl lg:text-2xl text-foreground group-hover:text-accent transition-colors duration-300">
+            <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-foreground group-hover:text-accent transition-colors duration-300">
               {title}
             </h3>
           </>

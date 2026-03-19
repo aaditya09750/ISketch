@@ -11,7 +11,7 @@ export function PageHero({
   image,
   alt,
   title,
-  overlayOpacity = "bg-[#2c2c2c]/30",
+  overlayOpacity = "bg-surface-dark/30",
 }: PageHeroProps) {
   return (
     <section className="relative h-[60vh] lg:h-[70vh] mt-20 lg:mt-24">

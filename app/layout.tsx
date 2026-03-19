@@ -1,20 +1,29 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Montserrat } from 'next/font/google'
+import localFont from 'next/font/local'
+import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { SmoothScroll } from '@/components/providers/smooth-scroll'
 import './globals.css'
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-serif'
+const iowanOldStyle = localFont({
+  src: [
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bt-586c36a8d7712.ttf', weight: '400', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-italic-bt-586c3740dc396.ttf', weight: '400', style: 'italic' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-bt-586c371d8d669.ttf', weight: '700', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-italic-bt-586c37701cb62.ttf', weight: '700', style: 'italic' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-bt-586c36e930225.ttf', weight: '900', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-italic-bt-586c378f12ca1.ttf', weight: '900', style: 'italic' },
+  ],
+  variable: '--font-iowan',
+  display: 'swap',
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ['300', '400', '500', '600'],
-  variable: '--font-sans'
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -46,13 +55,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${cormorant.variable} ${montserrat.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${iowanOldStyle.variable} ${montserrat.variable}`}>
+      <head>
+        <link rel="preload" href="/videos/hero.mp4" as="video" type="video/mp4" />
+      </head>
       <body className="font-sans antialiased">
-        <main className="min-h-screen bg-background">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <SmoothScroll>
+          <main className="min-h-screen bg-background">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

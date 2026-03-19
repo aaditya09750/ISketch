@@ -63,15 +63,16 @@ export const contactCategories: ContactCategory[] = [
   {
     title: "New Projects",
     email: "enquiries@isketchinteriors.com",
-    phone: "+44 (0)20 7123 4567",
+    phone: "+91 84335 09521",
   },
   {
     title: "General Enquiries",
     email: "info@isketchinteriors.com",
-    phone: "+44 (0)20 7123 4567",
+    phone: "+91 84335 09521",
   },
   {
     title: "Press Enquiries",
     email: "press@isketchinteriors.com",
+    phone: "+91 84335 09521",
   },
 ]

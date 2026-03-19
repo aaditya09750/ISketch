@@ -3,82 +3,103 @@ import { footerLinks, socialLinks } from "@/data/navigation"
 
 export function Footer() {
   return (
-    <footer className="py-16 lg:py-20 bg-[#2c2c2c] text-[#f8f6f3]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <h3 className="font-serif text-2xl tracking-[0.15em] font-semibold mb-3">
-              iSketch
+    <footer className="relative bg-surface-dark/90 text-surface-dark-foreground overflow-hidden">
+      {/* Subtle top border accent */}
+      <div className="h-px bg-gradient-to-r from-transparent via-accent-decorative/30 to-transparent" />
+
+      {/* Main Content */}
+      <div className="max-w-[1300px] mx-auto px-6 md:px-10 lg:px-12 pt-14 md:pt-18 lg:pt-23 pb-8 md:pb-16 lg:pb-10">
+
+        {/* Top: Brand + Nav Grid */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 md:gap-12 lg:gap-8 mb-12 lg:mb-13">
+
+          {/* Brand Column — full width on mobile/tablet, then col-span-3 */}
+          <div className="lg:col-span-3">
+            <h3 className="font-serif text-2xl md:text-3xl tracking-[0.12em] text-surface-dark-foreground mb-1.5">
+              ISketch
             </h3>
-            <p className="label-uppercase text-[10px] text-[#f8f6f3]/50">
-              Interiors
+            <p className="animate-fade-up font-serif text-xs lg:text-sm tracking-[0.03em] text-surface-dark-foreground/70">
+              Crafting timeless interiors with intention
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="label-uppercase text-[#f8f6f3]/70 mb-6">
-              Explore
-            </h4>
-            <nav className="flex flex-col gap-4">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="font-sans text-sm text-[#f8f6f3]/60 hover:text-[#f8f6f3] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          {/* Nav Sections — 3-col row on tablet, integrated into 12-col on desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 lg:contents">
 
-          {/* Connect */}
-          <div>
-            <h4 className="label-uppercase text-[#f8f6f3]/70 mb-6">
-              Connect
-            </h4>
-            <nav className="flex flex-col gap-4">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="font-sans text-sm text-[#f8f6f3]/60 hover:text-[#f8f6f3] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+            {/* Quick Links */}
+            <div className="lg:col-span-2 lg:col-start-6">
+              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+                Explore
+              </h3>
+              <nav className="flex flex-col gap-2.5 md:gap-3">
+                {footerLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="footer-link font-sans text-sm text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="label-uppercase text-[#f8f6f3]/70 mb-6">
-              Contact
-            </h4>
-            <address className="font-sans text-sm text-[#f8f6f3]/60 not-italic leading-relaxed">
-              London & Surrey<br />
-              United Kingdom<br />
-              <Link href="tel:+442071234567" className="hover:text-[#f8f6f3] transition-colors">
-                +44 (0)20 7123 4567
-              </Link>
-            </address>
+            {/* Connect */}
+            <div className="lg:col-span-2">
+              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+                Connect
+              </h3>
+              <nav className="flex flex-col gap-2.5 md:gap-3">
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="footer-link font-sans text-sm text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Contact */}
+            <div className="col-span-2 md:col-span-1 lg:col-span-2">
+              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+                Contact
+              </h3>
+              <address className="font-sans text-sm text-surface-dark-foreground/60 not-italic space-y-1.5">
+                <p>Thane, 321301, Maharashtra, India.</p>
+                <Link
+                  href="tel:+918433509521"
+                  className="footer-link inline-block text-surface-dark-foreground/60 hover:text-accent-light mt-2 w-fit"
+                >
+                  +91 84335 09521
+                </Link>
+              </address>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#f8f6f3]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-sans text-xs text-[#f8f6f3]/40">
-            &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link href="#" className="font-sans text-xs text-[#f8f6f3]/40 hover:text-[#f8f6f3] transition-colors">
+        <div className="border-t border-surface-dark-foreground/10 pt-5 md:pt-5 flex flex-col gap-4">
+          {/* Row 1: Legal links — justified to edges */}
+          <div className="flex justify-between w-full">
+            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 hover:text-surface-dark-foreground/60 w-fit">
               Privacy Policy
             </Link>
-            <Link href="#" className="font-sans text-xs text-[#f8f6f3]/40 hover:text-[#f8f6f3] transition-colors">
+            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 hover:text-surface-dark-foreground/60 w-fit">
               Terms & Conditions
             </Link>
+          </div>
+
+          {/* Row 2: Copyright + Developer credit */}
+          <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+            <p className="font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 tracking-wide">
+              &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
+            </p>
+            <p className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/15 uppercase select-none">
+              Developed by Aaditya Gunjal
+            </p>
           </div>
         </div>
       </div>

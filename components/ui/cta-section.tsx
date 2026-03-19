@@ -14,19 +14,19 @@ const variantStyles = {
     section: "",
     heading: "heading-section text-3xl lg:text-4xl text-foreground mb-8",
     description: "body-text text-muted-foreground max-w-2xl mx-auto mb-12",
-    button: "inline-block label-uppercase px-12 py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors duration-300",
+    button: "inline-block label-uppercase px-12 py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm",
   },
   secondary: {
     section: "bg-secondary",
     heading: "heading-section text-3xl lg:text-4xl text-foreground mb-8",
     description: "body-text text-muted-foreground max-w-2xl mx-auto mb-12",
-    button: "inline-block label-uppercase px-12 py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors duration-300",
+    button: "inline-block label-uppercase px-12 py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm",
   },
   dark: {
-    section: "bg-[#2c2c2c]",
-    heading: "heading-section text-3xl lg:text-4xl text-[#f8f6f3] mb-8",
-    description: "body-text text-[#f8f6f3]/70 max-w-2xl mx-auto mb-12",
-    button: "inline-block label-uppercase px-12 py-4 border border-[#f8f6f3] text-[#f8f6f3] hover:bg-[#f8f6f3] hover:text-[#2c2c2c] transition-colors duration-300",
+    section: "bg-surface-dark",
+    heading: "heading-section text-3xl lg:text-4xl text-surface-dark-foreground mb-8",
+    description: "body-text text-surface-dark-foreground/70 max-w-2xl mx-auto mb-12",
+    button: "inline-block label-uppercase px-12 py-4 border border-surface-dark-foreground text-surface-dark-foreground hover:bg-surface-dark-foreground hover:text-surface-dark transition-all duration-300 hover:shadow-earthy-sm",
   },
 }
 

@@ -17,7 +17,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className={cn(centered && "text-center")}>
-      <p className={cn("label-uppercase text-accent mb-6", labelClassName)}>
+      <p className={cn("label-uppercase text-accent mb-2 lg:mb-4", labelClassName)}>
         {label}
       </p>
       {heading && (

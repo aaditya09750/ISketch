@@ -1,16 +1,41 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
+import { useEffect, useRef, useState } from "react"
 
 export function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-28 lg:py-40 bg-background">
+    <section ref={sectionRef} className="py-24 sm:py-28 lg:py-40 bg-background">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Image */}
-          <div className="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
+          {/* Image with wipe reveal */}
+          <div
+            className={`project-card-reveal relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[3/4] overflow-hidden ${
+              isVisible ? "is-revealed" : ""
+            }`}
+            style={{ animationDelay: isVisible ? "200ms" : "0ms" }}
+          >
             <Image
-              src="/images/about.jpg"
+              src="/images/team2.jpg"
               alt="Interior designer in studio"
               fill
               className="object-cover image-hover"
@@ -18,18 +43,33 @@ export function AboutSection() {
           </div>
 
           {/* Content */}
-          <div className="lg:pl-8">
-            <p className="label-uppercase text-accent mb-6">
+          <div className="lg:pl-8 xl:pl-12">
+            <p
+              className={`label-uppercase text-accent tracking-[0.2em] mb-5 sm:mb-6 transition-all duration-700 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: isVisible ? "400ms" : "0ms" }}
+            >
               The Studio
             </p>
 
-            <h2 className="heading-section text-3xl lg:text-4xl xl:text-5xl text-foreground mb-10">
+            <h2
+              className={`heading-section text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-foreground mb-8 sm:mb-10 leading-[1.15] transition-all duration-700 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: isVisible ? "550ms" : "0ms" }}
+            >
               About the team
               <br />
               behind I Sketch
             </h2>
 
-            <div className="space-y-6 body-text text-muted-foreground">
+            <div
+              className={`space-y-5 sm:space-y-6 body-text text-muted-foreground transition-all duration-700 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: isVisible ? "700ms" : "0ms" }}
+            >
               <p>
                 I Sketch Interiors is a London and Surrey-based design studio
                 specialising in luxury residential interiors throughout the UK and
@@ -43,12 +83,19 @@ export function AboutSection() {
               </p>
             </div>
 
-            <Link
-              href="/about"
-              className="inline-flex items-center mt-12 label-uppercase text-foreground link-underline hover:text-accent transition-colors duration-300"
+            <div
+              className={`mt-10 sm:mt-12 transition-all duration-700 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: isVisible ? "850ms" : "0ms" }}
             >
-              Read More
-            </Link>
+              <Link
+                href="/#"
+                className="inline-block label-uppercase px-8 md:px-10 py-3.5 md:py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm"
+              >
+                Read More
+              </Link>
+            </div>
           </div>
         </div>
       </Container>

@@ -15,7 +15,7 @@ export default function ServicesPage() {
         image="/images/services-hero.jpg"
         alt="I Sketch Interior Design Services"
         title="Our Services"
-        overlayOpacity="bg-[#2c2c2c]/40"
+        overlayOpacity="bg-surface-dark/40"
       />
 
       {/* Introduction */}
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                 }`}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <span className="font-serif text-6xl lg:text-8xl text-accent/20">
+                  <span className="font-serif text-6xl lg:text-8xl text-accent-decorative/20">
                     {service.number}
                   </span>
                   <h3 className="heading-section text-2xl lg:text-3xl text-foreground mt-4 mb-8">
@@ -62,7 +62,7 @@ export default function ServicesPage() {
                   <ul className="space-y-4">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-4">
-                        <span className="w-8 h-px bg-accent" />
+                        <span className="w-8 h-px bg-accent-decorative" />
                         <span className="font-sans text-sm text-foreground tracking-wide">
                           {feature}
                         </span>
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                 </div>
                 <div className={`bg-muted h-80 lg:h-[500px] ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <div className="w-full h-full flex items-center justify-center">
-                    <span className="font-serif text-9xl text-accent/10">
+                    <span className="font-serif text-9xl text-accent-decorative/10">
                       {service.number}
                     </span>
                   </div>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
             {designProcess.map((item) => (
               <div key={item.step} className="text-center">
-                <span className="font-serif text-4xl text-accent mb-6 block">
+                <span className="font-serif text-4xl text-accent-decorative mb-6 block">
                   {item.step}
                 </span>
                 <h3 className="font-serif text-xl text-foreground mb-5">

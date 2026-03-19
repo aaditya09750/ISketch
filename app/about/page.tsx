@@ -92,7 +92,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {values.map((value) => (
               <div key={value.title} className="text-center">
-                <div className="w-px h-12 bg-accent mx-auto mb-8" />
+                <div className="w-px h-12 bg-accent-decorative mx-auto mb-8" />
                 <h3 className="font-serif text-xl text-foreground mb-5">
                   {value.title}
                 </h3>
@@ -114,7 +114,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {awards.map((item, index) => (
               <div key={index} className="text-center py-8 border-t border-border">
-                <p className="font-serif text-3xl text-accent mb-3">{item.year}</p>
+                <p className="font-serif text-3xl text-accent-decorative mb-3">{item.year}</p>
                 <p className="body-text text-foreground">{item.award}</p>
               </div>
             ))}
