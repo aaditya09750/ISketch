@@ -27,9 +27,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'I Sketch Interiors | Luxury Interior Design | London | Surrey',
-  description: 'I Sketch Interiors is a London and Surrey-based design studio specialising in luxury residential interiors throughout the UK and overseas.',
-  generator: 'v0.app',
+  title: 'I Sketch Interiors | Luxury Interior Design',
+  description: 'I Sketch Interiors is a Surrey-based design studio specialising in luxury residential interiors throughout the Mumbai and overseas.',
+  generator: 'Aaditya Gunjal',
   icons: {
     icon: [
       {
