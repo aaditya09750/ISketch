@@ -14,7 +14,7 @@ const HeroVideo = memo(function HeroVideo() {
       loop
       playsInline
       preload="auto"
-      poster="/images/hero2.jpg"
+      poster="/images/hero2.webp"
       className="absolute inset-0 w-full h-full object-cover"
     >
       <source src="/videos/hero.webm" type="video/webm" />

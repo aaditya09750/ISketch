@@ -35,7 +35,7 @@ export function AboutSection() {
             style={{ animationDelay: isVisible ? "200ms" : "0ms" }}
           >
             <Image
-              src="/images/team2.jpg"
+              src="/images/team2.webp"
               alt="Interior designer in studio"
               fill
               className="object-cover image-hover"
