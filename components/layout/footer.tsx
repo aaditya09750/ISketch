@@ -3,7 +3,7 @@ import { footerLinks, socialLinks } from "@/data/navigation"
 
 export function Footer() {
   return (
-    <footer className="relative bg-surface-dark/90 text-surface-dark-foreground overflow-hidden">
+    <footer className="relative bg-surface-dark text-surface-dark-foreground overflow-hidden">
       {/* Subtle top border accent */}
       <div className="h-px bg-gradient-to-r from-transparent via-accent-decorative/30 to-transparent" />
 

@@ -38,11 +38,11 @@ export function HeroSection() {
         <HeroVideo />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
       </div>
 
       {/* Hero Content */}
-      <div className="relative h-full flex flex-col bg-surface-dark/10 justify-end pb-24 sm:pb-28 lg:pb-30">
+      <div className="relative h-full flex flex-col bg-black/10 justify-end pb-24 sm:pb-28 lg:pb-30">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
           <div className="max-w-2xl">
             <p

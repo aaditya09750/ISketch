@@ -15,7 +15,7 @@ export default function ServicesPage() {
         image="/images/services-hero.jpg"
         alt="I Sketch Interior Design Services"
         title="Our Services"
-        overlayOpacity="bg-surface-dark/40"
+        overlayOpacity="bg-black/40"
       />
 
       {/* Introduction */}
