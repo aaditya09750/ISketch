@@ -1,32 +1,12 @@
-"use client"
-
 import Link from "next/link"
 import { ProjectCard } from "@/components/ui/project-card"
 import { Container } from "@/components/ui/container"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { featuredProjects } from "@/data/projects"
-import { useEffect, useRef, useState } from "react"
 
 export function ProjectsSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.15 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section ref={sectionRef} className="py-15 lg:py-25 bg-secondary">
+    <section className="py-15 lg:py-25 bg-secondary">
       <Container>
         {/* Section Header */}
         <div className="mb-10 lg:mb-15">
@@ -44,7 +24,6 @@ export function ProjectsSection() {
               href={project.href}
               variant="centered"
               index={i}
-              isVisible={isVisible}
             />
           ))}
         </div>

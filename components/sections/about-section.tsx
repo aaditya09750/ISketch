@@ -4,10 +4,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { useEffect, useRef, useState } from "react"
+import { useImageReady } from "@/hooks/use-image-ready"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const { imageRef, containerRef, shouldReveal: shouldRevealImage } = useImageReady("/images/team2.webp")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,12 +31,14 @@ export function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
           {/* Image with wipe reveal */}
           <div
+            ref={containerRef}
             className={`project-card-reveal relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[3/4] overflow-hidden ${
-              isVisible ? "is-revealed" : ""
+              shouldRevealImage ? "is-revealed" : ""
             }`}
-            style={{ animationDelay: isVisible ? "200ms" : "0ms" }}
+            style={{ animationDelay: shouldRevealImage ? "200ms" : "0ms" }}
           >
             <Image
+              ref={imageRef}
               src="/images/team2.webp"
               alt="Interior designer in studio"
               fill

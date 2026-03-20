@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useImageReady } from "@/hooks/use-image-ready"
 
 interface ProjectCardProps {
   title: string
@@ -10,7 +13,6 @@ interface ProjectCardProps {
   aspectRatio?: string
   variant?: "centered" | "default"
   index?: number
-  isVisible?: boolean
 }
 
 export function ProjectCard({
@@ -21,20 +23,22 @@ export function ProjectCard({
   aspectRatio = "aspect-[4/5]",
   variant = "default",
   index = 0,
-  isVisible = true,
 }: ProjectCardProps) {
+  const { imageRef, containerRef, shouldReveal } = useImageReady(image)
   const delay = `${300 + index * 250}ms`
 
   return (
     <Link href="/#" className="group block">
       {/* Image with wipe reveal */}
       <div
+        ref={containerRef}
         className={`project-card-reveal relative overflow-hidden transition-shadow duration-700 group-hover:shadow-earthy-lg ${
-          isVisible ? "is-revealed" : ""
+          shouldReveal ? "is-revealed" : ""
         } ${variant === "centered" ? "mb-5 sm:mb-6" : ""} ${aspectRatio}`}
-        style={{ animationDelay: isVisible ? delay : "0ms" }}
+        style={{ animationDelay: shouldReveal ? delay : "0ms" }}
       >
         <Image
+          ref={imageRef}
           src={image}
           alt={`${title} - ${location}`}
           fill
@@ -55,9 +59,9 @@ export function ProjectCard({
       {/* Text with fade-in */}
       <div
         className={`transition-opacity duration-700 ease-out ${
-          isVisible ? "opacity-100" : "opacity-0"
+          shouldReveal ? "opacity-100" : "opacity-0"
         } ${variant === "centered" ? "text-center" : "mt-6"}`}
-        style={{ transitionDelay: isVisible ? delay : "0ms" }}
+        style={{ transitionDelay: shouldReveal ? delay : "0ms" }}
       >
         {variant === "centered" ? (
           <>
