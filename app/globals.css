@@ -82,6 +82,7 @@
   --sidebar-ring: #CBB799;
 }
 
+
 @theme inline {
   --font-sans: var(--font-sans), 'Montserrat', system-ui, sans-serif;
   --font-serif: var(--font-iowan), 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;

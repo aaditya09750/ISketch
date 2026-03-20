@@ -6,7 +6,7 @@ import { featuredProjects } from "@/data/projects"
 
 export function ProjectsSection() {
   return (
-    <section className="py-15 lg:py-25 bg-secondary">
+    <section className="py-15 lg:py-25 bg-background">
       <Container>
         {/* Section Header */}
         <div className="mb-10 lg:mb-15">

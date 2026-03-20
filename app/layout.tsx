@@ -60,13 +60,13 @@ export default function RootLayout({
         <link rel="preload" href="/videos/hero.mp4" as="video" type="video/mp4" />
       </head>
       <body className="font-sans antialiased">
-        <SmoothScroll>
+        {/* <SmoothScroll> */}
           <main className="min-h-screen bg-background">
             <Header />
             {children}
             <Footer />
           </main>
-        </SmoothScroll>
+        {/* </SmoothScroll> */}
         <Analytics />
       </body>
     </html>

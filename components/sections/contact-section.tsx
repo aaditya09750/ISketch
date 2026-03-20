@@ -4,7 +4,7 @@ import { contactCategories } from "@/data/contact"
 
 export function ContactSection() {
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-secondary">
+    <section className="py-16 md:py-20 lg:py-28 bg-background">
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Header */}
