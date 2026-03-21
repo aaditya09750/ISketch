@@ -1,5 +1,5 @@
-import Image from "next/image"
 import { PageHero } from "@/components/ui/page-hero"
+import { RevealImage } from "@/components/ui/reveal-image"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { CTASection } from "@/components/ui/cta-section"
 import { Container } from "@/components/ui/container"
@@ -44,14 +44,12 @@ export default function AboutPage() {
       <section className="py-24 lg:py-36 bg-secondary">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src="/images/team.jpg"
-                alt="I Sketch Interiors Founder"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <RevealImage
+              src="/images/team.jpg"
+              alt="I Sketch Interiors Founder"
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              containerClassName="relative aspect-[4/5] overflow-hidden"
+            />
             <div className="lg:pl-8">
               <p className="label-uppercase text-accent mb-6">
                 The Founder

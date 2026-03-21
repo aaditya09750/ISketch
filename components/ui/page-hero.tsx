@@ -20,7 +20,9 @@ export function PageHero({
         alt={alt}
         fill
         className="object-cover"
-        priority
+        preload
+        sizes="100vw"
+        quality={90}
       />
       <div className={`absolute inset-0 ${overlayOpacity}`} />
       <div className="absolute inset-0 flex items-center justify-center">

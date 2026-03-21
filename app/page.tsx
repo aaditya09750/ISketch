@@ -7,6 +7,7 @@ import { ContactSection } from "@/components/sections/contact-section"
 export default function HomePage() {
   return (
     <>
+      <link rel="preload" href="/videos/hero.mp4" as="video" type="video/mp4" />
       <HeroSection />
       <AboutSection />
       <ProjectsSection />

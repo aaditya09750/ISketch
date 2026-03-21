@@ -1,15 +1,15 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { Container } from "@/components/ui/container"
+import { FancyButton } from "@/components/common/fancy-button"
 import { useEffect, useRef, useState } from "react"
 import { useImageReady } from "@/hooks/use-image-ready"
 
 export function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const { imageRef, containerRef, shouldReveal: shouldRevealImage } = useImageReady("/images/team2.webp")
+  const { imageRef, containerRef, shouldReveal: shouldRevealImage } = useImageReady("/images/team2.jpg")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,10 +39,11 @@ export function AboutSection() {
           >
             <Image
               ref={imageRef}
-              src="/images/team2.webp"
+              src="/images/team2.jpg"
               alt="Interior designer in studio"
               fill
               className="object-cover image-hover"
+              sizes="(max-width: 1023px) 100vw, 50vw"
             />
           </div>
 
@@ -93,12 +94,9 @@ export function AboutSection() {
               }`}
               style={{ transitionDelay: isVisible ? "850ms" : "0ms" }}
             >
-              <Link
-                href="/#"
-                className="inline-block label-uppercase px-8 md:px-10 py-3.5 md:py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm"
-              >
+              <FancyButton href="/#">
                 Read More
-              </Link>
+              </FancyButton>
             </div>
           </div>
         </div>

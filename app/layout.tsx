@@ -56,9 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${iowanOldStyle.variable} ${montserrat.variable}`}>
-      <head>
-        <link rel="preload" href="/videos/hero.mp4" as="video" type="video/mp4" />
-      </head>
+      <head />
       <body className="font-sans antialiased">
         {/* <SmoothScroll> */}
           <main className="min-h-screen bg-background">

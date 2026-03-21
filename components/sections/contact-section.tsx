@@ -1,10 +1,11 @@
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
+import { FancyButton } from "@/components/common/fancy-button"
 import { contactCategories } from "@/data/contact"
 
 export function ContactSection() {
   return (
-    <section className="py-16 md:py-20 lg:py-28 bg-background">
+    <section className="cv-auto py-16 md:py-20 lg:py-28 bg-background">
       <Container>
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -62,12 +63,9 @@ export function ContactSection() {
 
           {/* CTA */}
           <div className="text-center">
-            <Link
-              href="/#"
-              className="inline-block label-uppercase px-8 md:px-10 py-3.5 md:py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm"
-            >
+            <FancyButton href="/#">
               Request a Consultation
-            </Link>
+            </FancyButton>
           </div>
         </div>
       </Container>

@@ -1,12 +1,12 @@
-import Link from "next/link"
 import { ProjectCard } from "@/components/ui/project-card"
 import { Container } from "@/components/ui/container"
+import { FancyButton } from "@/components/common/fancy-button"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { featuredProjects } from "@/data/projects"
 
 export function ProjectsSection() {
   return (
-    <section className="py-15 lg:py-25 bg-background">
+    <section className="cv-auto py-15 lg:py-25 bg-background">
       <Container>
         {/* Section Header */}
         <div className="mb-10 lg:mb-15">
@@ -30,12 +30,9 @@ export function ProjectsSection() {
 
         {/* View All Link */}
         <div className="text-center mt-15 lg:mt-20">
-          <Link
-            href="/#"
-            className="inline-block label-uppercase px-8 md:px-10 py-3.5 md:py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300 hover:shadow-earthy-sm"
-          >
+          <FancyButton href="/#">
             View All Projects
-          </Link>
+          </FancyButton>
         </div>
       </Container>
     </section>

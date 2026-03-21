@@ -43,6 +43,7 @@ export function ProjectCard({
           alt={`${title} - ${location}`}
           fill
           className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-105"
+          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/15 transition-colors duration-500" />

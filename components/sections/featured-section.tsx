@@ -24,7 +24,7 @@ export function FeaturedSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-20 lg:py-25 bg-background overflow-hidden"
+      className="cv-auto py-16 sm:py-20 lg:py-25 bg-background overflow-hidden"
     >
       {/* Section Header */}
       <div

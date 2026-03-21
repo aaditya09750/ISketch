@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { Container } from "@/components/ui/container"
+import { RevealImage } from "@/components/ui/reveal-image"
 import { projectDetails } from "@/data/projects"
 
 export async function generateStaticParams() {
@@ -40,7 +41,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           alt={project.title}
           fill
           className="object-cover"
-          priority
+          preload
+          sizes="100vw"
+          quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-12">
@@ -130,19 +133,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <Container>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {project.images.slice(1).map((image, index) => (
-              <div
+              <RevealImage
                 key={index}
-                className={`relative overflow-hidden ${
+                src={image}
+                alt={`${project.title} - Image ${index + 2}`}
+                sizes={index === 0 ? "100vw" : "(max-width: 767px) 100vw, 50vw"}
+                containerClassName={`relative overflow-hidden ${
                   index === 0 ? 'aspect-[4/3] md:col-span-2' : 'aspect-[4/5]'
                 }`}
-              >
-                <Image
-                  src={image}
-                  alt={`${project.title} - Image ${index + 2}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              />
             ))}
           </div>
         </Container>
