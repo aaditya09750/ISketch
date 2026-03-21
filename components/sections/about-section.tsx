@@ -32,7 +32,7 @@ export function AboutSection() {
           {/* Image with wipe reveal */}
           <div
             ref={containerRef}
-            className={`project-card-reveal relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[3/4] overflow-hidden ${
+            className={`project-card-reveal bg-surface-dark relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[3/4] overflow-hidden ${
               shouldRevealImage ? "is-revealed" : ""
             }`}
             style={{ animationDelay: shouldRevealImage ? "200ms" : "0ms" }}

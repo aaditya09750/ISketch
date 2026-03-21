@@ -35,7 +35,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       {/* Hero Image */}
-      <section className="relative h-[70vh] lg:h-[85vh] mt-20 lg:mt-24">
+      <section className="relative h-[70vh] lg:h-[85vh] mt-20 lg:mt-24 bg-surface-dark">
         <Image
           src={project.images[0]}
           alt={project.title}

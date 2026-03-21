@@ -27,7 +27,7 @@ export function RevealImage({
   return (
     <div
       ref={containerRef}
-      className={`project-card-reveal ${containerClassName} ${shouldReveal ? "is-revealed" : ""}`}
+      className={`project-card-reveal bg-surface-dark ${containerClassName} ${shouldReveal ? "is-revealed" : ""}`}
     >
       <Image
         ref={imageRef}
