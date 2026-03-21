@@ -58,13 +58,13 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className={`${iowanOldStyle.variable} ${montserrat.variable}`}>
       <head />
       <body className="font-sans antialiased">
-        {/* <SmoothScroll> */}
+        <SmoothScroll>
           <main className="min-h-screen bg-background">
             <Header />
             {children}
             <Footer />
           </main>
-        {/* </SmoothScroll> */}
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

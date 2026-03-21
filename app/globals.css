@@ -33,6 +33,7 @@
   --surface-dark-foreground: #413C38;
   --accent-decorative: #A07856;
   --accent-light: #CBB799;
+  --surface-warm: #F8F5F0;
   --sidebar: #F2F0DA;
   --sidebar-foreground: #3D211A;
   --sidebar-primary: #3D211A;
@@ -72,6 +73,7 @@
   --surface-dark-foreground: #F5F5DC;
   --accent-decorative: #A07856;
   --accent-light: #A07856;
+  --surface-warm: #312018;
   --sidebar: #2A1810;
   --sidebar-foreground: #F5F5DC;
   --sidebar-primary: #F5F5DC;
@@ -127,6 +129,7 @@
   --color-surface-dark-foreground: var(--surface-dark-foreground);
   --color-accent-decorative: var(--accent-decorative);
   --color-accent-light: var(--accent-light);
+  --color-surface-warm: var(--surface-warm);
 }
 
 @layer base {

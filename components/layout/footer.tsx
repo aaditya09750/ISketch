@@ -84,20 +84,20 @@ export function Footer() {
         <div className="border-t border-surface-dark-foreground/10 pt-5 md:pt-5 flex flex-col gap-4">
           {/* Row 1: Legal links — justified to edges */}
           <div className="flex justify-between w-full">
-            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 hover:text-surface-dark-foreground/60 w-fit">
+            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65 w-fit">
               Privacy Policy
             </Link>
-            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 hover:text-surface-dark-foreground/60 w-fit">
+            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65 w-fit">
               Terms & Conditions
             </Link>
           </div>
 
           {/* Row 2: Copyright + Developer credit */}
           <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2">
-            <p className="font-sans text-[10px] md:text-xs text-surface-dark-foreground/35 tracking-wide">
+            <p className="font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 tracking-wide">
               &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
             </p>
-            <p className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/15 uppercase select-none">
+            <p className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/45 uppercase select-none">
               Developed by Aaditya Gunjal
             </p>
           </div>

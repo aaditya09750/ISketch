@@ -24,7 +24,7 @@ export function FeaturedSection() {
   return (
     <section
       ref={sectionRef}
-      className="cv-auto py-16 sm:py-20 lg:py-25 bg-background overflow-hidden"
+      className="cv-auto py-16 sm:py-20 lg:py-25 bg-surface-warm overflow-hidden"
     >
       {/* Section Header */}
       <div
@@ -42,8 +42,8 @@ export function FeaturedSection() {
       {/* Marquee */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 lg:w-48 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 lg:w-48 bg-linear-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 lg:w-48 bg-linear-to-r from-surface-warm to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 lg:w-48 bg-linear-to-l from-surface-warm to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee-featured">
           {/* First copy */}
