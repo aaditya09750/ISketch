@@ -28,7 +28,7 @@ export function Footer() {
 
             {/* Quick Links */}
             <div className="lg:col-span-2 lg:col-start-6">
-              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
                 Explore
               </h3>
               <nav className="flex flex-col gap-2.5 md:gap-3">
@@ -46,7 +46,7 @@ export function Footer() {
 
             {/* Connect */}
             <div className="lg:col-span-2">
-              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
                 Connect
               </h3>
               <nav className="flex flex-col gap-2.5 md:gap-3">
@@ -64,7 +64,7 @@ export function Footer() {
 
             {/* Contact */}
             <div className="col-span-2 md:col-span-1 lg:col-span-2">
-              <h3 className="label-uppercase text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/80 mb-5 md:mb-6 lg:mb-8">
                 Contact
               </h3>
               <address className="font-sans text-sm text-surface-dark-foreground/60 not-italic space-y-1.5">
@@ -82,24 +82,29 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-surface-dark-foreground/10 pt-5 md:pt-5 flex flex-col gap-4">
-          {/* Row 1: Legal links — justified to edges */}
-          <div className="flex justify-between w-full">
-            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65 w-fit">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65 w-fit">
-              Terms & Conditions
-            </Link>
-          </div>
-
-          {/* Row 2: Copyright + Developer credit */}
+          {/* Row 1: Copyright (left) + Legal links (right) */}
           <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2">
             <p className="font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 tracking-wide">
               &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
             </p>
-            <p className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/45 uppercase select-none">
+            <div className="flex items-center gap-4 md:gap-6">
+              <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
+
+          {/* Row 2: Developer credits */}
+          <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-2">
+            <a href="https://digitalmarketing1722501367.website3.me/" target="_blank" rel="noopener noreferrer" className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/45 uppercase select-none hover:text-surface-dark-foreground/70 transition-colors">
+              Start with Digital
+            </a>
+            <a href="https://aadityag975pf.netlify.app/" target="_blank" rel="noopener noreferrer" className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/45 uppercase select-none hover:text-surface-dark-foreground/70 transition-colors">
               Developed by Aaditya Gunjal
-            </p>
+            </a>
           </div>
         </div>
       </div>

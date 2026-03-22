@@ -3,6 +3,13 @@
 import { useEffect } from "react"
 import Lenis from "lenis"
 
+// Expose Lenis instance globally so other components can stop/start it
+declare global {
+  interface Window {
+    __lenis?: Lenis
+  }
+}
+
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Respect reduced motion preference
@@ -17,6 +24,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       touchMultiplier: 1.5,
     })
 
+    window.__lenis = lenis
+
     function raf(time: number) {
       lenis.raf(time)
       requestAnimationFrame(raf)
@@ -24,7 +33,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     requestAnimationFrame(raf)
 
-    return () => lenis.destroy()
+    return () => {
+      lenis.destroy()
+      window.__lenis = undefined
+    }
   }, [])
 
   return <>{children}</>

@@ -32,7 +32,7 @@ export function ProjectCard({
       {/* Image with wipe reveal */}
       <div
         ref={containerRef}
-        className={`project-card-reveal bg-surface-dark relative overflow-hidden transition-shadow duration-700 group-hover:shadow-earthy-lg ${
+        className={`project-card-reveal relative overflow-hidden transition-shadow duration-700 group-hover:shadow-earthy-lg ${
           shouldReveal ? "is-revealed" : ""
         } ${variant === "centered" ? "mb-5 sm:mb-6" : ""} ${aspectRatio}`}
         style={{ animationDelay: shouldReveal ? delay : "0ms" }}
