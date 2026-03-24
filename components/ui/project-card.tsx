@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import IsketchLogo from "@/components/common/isketch-logo"
 import { useImageReady } from "@/hooks/use-image-ready"
 
 interface ProjectCardProps {
@@ -55,6 +56,10 @@ export function ProjectCard({
           className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-105"
           sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
         />
+        {/* Logo watermark */}
+        <div className="absolute top-5 right-5 sm:top-6.5 sm:right-6.5 lg:top-8 lg:right-8 z-10 pointer-events-none">
+          <IsketchLogo className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white/70 drop-shadow-md" />
+        </div>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/15 transition-colors duration-500" />
         {/* Inner border frame */}
