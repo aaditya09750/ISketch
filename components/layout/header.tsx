@@ -102,7 +102,7 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
           headerVisible && !lightboxOpen ? "translate-y-0" : "-translate-y-full",
-          scrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-background"
+          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background"
         )}
       >
         {/* Desktop: lg and above — editorial layout */}
