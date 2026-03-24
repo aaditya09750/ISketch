@@ -394,6 +394,22 @@ html.lenis-scrolling .image-hover {
   animation: fadeUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
 }
 
+/* Portfolio grid item entrance */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 /* Footer link hover underline */
 .footer-link {
   position: relative;

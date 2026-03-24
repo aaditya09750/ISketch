@@ -1,9 +1,30 @@
+"use client"
+
+import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
 import { footerLinks, socialLinks } from "@/data/navigation"
+import IsketchLogo from "@/components/common/isketch-logo"
 
 export function Footer() {
+  const footerRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+    if (footerRef.current) observer.observe(footerRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <footer className="relative bg-surface-dark text-surface-dark-foreground overflow-hidden">
+    <footer ref={footerRef} className="relative bg-surface-dark text-surface-dark-foreground overflow-hidden">
       {/* Subtle top border accent */}
       <div className="h-px bg-gradient-to-r from-transparent via-accent-decorative/30 to-transparent" />
 
@@ -15,12 +36,14 @@ export function Footer() {
 
           {/* Brand Column — full width on mobile/tablet, then col-span-3 */}
           <div className="lg:col-span-3">
-            <h3 className="font-serif text-2xl md:text-3xl tracking-[0.12em] text-surface-dark-foreground mb-1.5">
-              ISketch
-            </h3>
-            <p className="animate-fade-up font-serif text-xs lg:text-sm tracking-[0.03em] text-surface-dark-foreground/70">
-              Crafting timeless interiors with intention
-            </p>
+            <div className="flex items-center gap-4 lg:gap-5 text-surface-dark-foreground">
+              <div className="h-10 sm:h-12 lg:h-14 flex items-center overflow-visible shrink-0">
+                <IsketchLogo className="h-15 lg:h-20 xl:h-25 w-auto" />
+              </div>
+              <p className={`${isVisible ? "animate-fade-up" : "opacity-0"} font-serif text-xs lg:text-base tracking-[0.03em] text-surface-dark-foreground/70`}>
+                Crafting timeless interiors with intention
+              </p>
+            </div>
           </div>
 
           {/* Nav Sections — 3-col row on tablet, integrated into 12-col on desktop */}

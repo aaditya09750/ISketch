@@ -13,6 +13,7 @@ interface ProjectCardProps {
   aspectRatio?: string
   variant?: "centered" | "default"
   index?: number
+  onImageClick?: (image: string, alt: string) => void
 }
 
 export function ProjectCard({
@@ -23,12 +24,21 @@ export function ProjectCard({
   aspectRatio = "aspect-[4/5]",
   variant = "default",
   index = 0,
+  onImageClick,
 }: ProjectCardProps) {
   const { imageRef, containerRef, shouldReveal } = useImageReady(image)
   const delay = `${300 + index * 250}ms`
+  const alt = `${title} - ${location}`
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (onImageClick) {
+      e.preventDefault()
+      onImageClick(image, alt)
+    }
+  }
 
   return (
-    <Link href="/#" className="group block">
+    <div className="group block cursor-pointer" onClick={handleClick}>
       {/* Image with wipe reveal */}
       <div
         ref={containerRef}
@@ -40,7 +50,7 @@ export function ProjectCard({
         <Image
           ref={imageRef}
           src={image}
-          alt={`${title} - ${location}`}
+          alt={alt}
           fill
           className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-105"
           sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
@@ -85,6 +95,6 @@ export function ProjectCard({
           </>
         )}
       </div>
-    </Link>
+    </div>
   )
 }

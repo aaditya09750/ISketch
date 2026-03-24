@@ -88,6 +88,34 @@ export const portfolioProjects: ProjectSummary[] = [
     category: "Residential",
     image: "/images/project-6.jpg",
   },
+  {
+    id: "monaco-villa",
+    title: "Monaco Cliffside Villa",
+    location: "Monaco",
+    category: "International",
+    image: "/images/p1.jpg",
+  },
+  {
+    id: "mayfair-kitchen",
+    title: "Mayfair Chef's Kitchen",
+    location: "London",
+    category: "Kitchen",
+    image: "/images/p2.jpg",
+  },
+  {
+    id: "singapore-loft",
+    title: "Singapore Sky Loft",
+    location: "Singapore",
+    category: "International",
+    image: "/images/p3.jpg",
+  },
+  {
+    id: "hampstead-kitchen",
+    title: "Hampstead Garden Kitchen",
+    location: "London",
+    category: "Kitchen",
+    image: "/images/hero2.webp",
+  },
 ]
 
 export const portfolioCategories = ["All", "Residential", "International", "Kitchen"]

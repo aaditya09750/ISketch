@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import { Instagram, Facebook } from "lucide-react"
 import { navigationLinks, socialLinks } from "@/data/navigation"
+import IsketchLogo from "@/components/common/isketch-logo"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -46,13 +47,11 @@ export function Header() {
           {/* Decorative line above content — extends beyond padding */}
           <div className="h-px bg-border -mx-8" />
 
-          <div className="grid grid-cols-12 items-end pt-5 pb-6">
+          <div className="grid grid-cols-12 items-center h-14">
             {/* Logo — left */}
-            <div className="col-span-3">
-              <Link href="/" className="inline-block">
-                <h1 className="font-serif text-xl lg:text-2xl text-foreground leading-none">
-                  ISketch
-                </h1>
+            <div className="col-span-3 overflow-hidden h-full flex items-center">
+              <Link href="/" className="inline-block text-foreground">
+                <IsketchLogo className="h-15 lg:h-10 w-auto" />
               </Link>
             </div>
 
@@ -75,12 +74,10 @@ export function Header() {
       {/* Mobile / Tablet: below lg */}
       <div className="lg:hidden border-b border-border/50">
         <div className="max-w-350 mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 sm:h-20 overflow-hidden">
             {/* Logo */}
-            <Link href="/" className="shrink-0">
-              <h1 className="font-serif text-xl font-semibold tracking-[0.15em] text-foreground">
-                ISketch
-              </h1>
+            <Link href="/" className="shrink-0 text-foreground h-full flex items-center">
+              <IsketchLogo className="h-10 sm:h-12 w-auto" />
             </Link>
 
             {/* Mobile Menu Button — animated hamburger/cross */}
