@@ -68,7 +68,7 @@ export function CTASection({
     <section
       ref={sectionRef}
       className={cn(
-        "py-20 sm:py-28 md:py-36 lg:py-30 overflow-hidden",
+        "py-20 sm:py-28 md:py-15 lg:py-20 overflow-hidden",
         styles.section
       )}
     >

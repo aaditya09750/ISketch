@@ -1,4 +1,4 @@
-import { PageHero } from "@/components/ui/page-hero"
+import { ServiceHero } from "@/components/ui/service-hero"
 import { CTASection } from "@/components/ui/cta-section"
 import { Container } from "@/components/ui/container"
 import { services, designProcess } from "@/data/services"
@@ -11,12 +11,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <PageHero
-        image="/images/services-hero.jpg"
-        alt="I Sketch Interior Design Services"
-        title="Our Services"
-        overlayOpacity="bg-black/40"
-      />
+      <ServiceHero />
 
       {/* Introduction */}
       <section className="py-24 lg:py-36">
