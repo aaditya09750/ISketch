@@ -21,6 +21,7 @@ export function ProjectCard({
   title,
   location,
   image,
+  href,
   category,
   aspectRatio = "aspect-[4/5]",
   variant = "default",
@@ -38,8 +39,11 @@ export function ProjectCard({
     }
   }
 
+  const Wrapper = onImageClick ? "div" : Link
+  const wrapperProps = onImageClick ? { onClick: handleClick } : { href }
+
   return (
-    <div className="group block cursor-pointer" onClick={handleClick}>
+    <Wrapper className="group block cursor-pointer" {...wrapperProps}>
       {/* Image with wipe reveal */}
       <div
         ref={containerRef}
@@ -100,6 +104,6 @@ export function ProjectCard({
           </>
         )}
       </div>
-    </div>
+    </Wrapper>
   )
 }

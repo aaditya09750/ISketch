@@ -1,16 +1,10 @@
-"use client"
-
-import { useState } from "react"
 import { ProjectCard } from "@/components/ui/project-card"
 import { Container } from "@/components/ui/container"
 import { FancyButton } from "@/components/common/fancy-button"
 import { SectionHeading } from "@/components/ui/section-heading"
-import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { featuredProjects } from "@/data/projects"
 
 export function ProjectsSection() {
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string; title: string; location: string; href: string } | null>(null)
-
   return (
     <section className="cv-auto py-15 lg:py-25 bg-background">
       <Container>
@@ -30,7 +24,6 @@ export function ProjectsSection() {
               href={project.href}
               variant="centered"
               index={i}
-              onImageClick={(src, alt) => setLightbox({ src, alt, title: project.title, location: project.location, href: project.href })}
             />
           ))}
         </div>
@@ -42,17 +35,6 @@ export function ProjectsSection() {
           </FancyButton>
         </div>
       </Container>
-
-      {/* Lightbox Modal */}
-      <ImageLightbox
-        src={lightbox?.src ?? ""}
-        alt={lightbox?.alt ?? ""}
-        title={lightbox?.title}
-        location={lightbox?.location}
-        href={lightbox?.href}
-        isOpen={!!lightbox}
-        onClose={() => setLightbox(null)}
-      />
     </section>
   )
 }
