@@ -3,6 +3,7 @@ import { AboutStorySection } from "@/components/sections/about-story-section"
 import { AboutTeamSection } from "@/components/sections/about-team-section"
 import { AboutApproachSection } from "@/components/sections/about-approach-section"
 import { AboutValuesSection } from "@/components/sections/about-values-section"
+import { LatestProjectSection } from "@/components/sections/latest-project-section"
 import { CTASection } from "@/components/ui/cta-section"
 
 export const metadata = {
@@ -22,6 +23,8 @@ export default function AboutPage() {
       <AboutApproachSection />
 
       <AboutValuesSection />
+
+      <LatestProjectSection />
 
       <CTASection
         heading="Begin Your Journey"
