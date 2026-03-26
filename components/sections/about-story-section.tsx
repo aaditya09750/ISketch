@@ -27,8 +27,18 @@ export function AboutStorySection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
 
-          {/* Content column — left */}
-          <div className="lg:col-span-6 order-2 lg:order-1">
+          {/* Image column — left */}
+          <div className="lg:col-span-6">
+            <RevealImage
+              src="/images/team2.jpg"
+              alt="I Sketch Interiors — Our Story"
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              containerClassName="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden"
+            />
+          </div>
+
+          {/* Content column — right */}
+          <div className="lg:col-span-6">
             {/* Label */}
             <p
               className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-4 transition-all duration-[900ms] ease-out ${
@@ -83,16 +93,6 @@ export function AboutStorySection() {
                 their inhabitants.&rdquo;
               </p>
             </div>
-          </div>
-
-          {/* Image column — right */}
-          <div className="lg:col-span-6 order-1 lg:order-2">
-            <RevealImage
-              src="/images/team.jpg"
-              alt="I Sketch Interiors — Our Story"
-              sizes="(max-width: 1023px) 100vw, 50vw"
-              containerClassName="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden"
-            />
           </div>
 
         </div>
