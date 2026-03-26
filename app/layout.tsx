@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
+import { LayoutShell } from '@/components/layout/layout-shell'
 import { SmoothScroll } from '@/components/providers/smooth-scroll'
 import './globals.css'
 
@@ -60,9 +59,9 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <SmoothScroll>
           <main className="min-h-screen bg-background">
-            <Header />
-            {children}
-            <Footer />
+            <LayoutShell>
+              {children}
+            </LayoutShell>
           </main>
         </SmoothScroll>
         <Analytics />
