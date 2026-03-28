@@ -26,8 +26,7 @@ export default function PortfolioPage() {
         heading="Start Your Project"
         description="Ready to transform your space? We would love to discuss your vision and explore how we can bring it to life."
         buttonText="Contact Us"
-        buttonHref="/#"
-        // variant="warm"
+        buttonHref="/contact"
       />
     </>
   )

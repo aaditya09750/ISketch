@@ -111,10 +111,10 @@ export function Footer() {
               &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
             </p>
             <div className="flex items-center gap-4 md:gap-6">
-              <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
+              <Link href="/privacy-policy" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
                 Privacy Policy
               </Link>
-              <Link href="#" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
+              <Link href="/terms-conditions" className="footer-link font-sans text-[10px] md:text-xs text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65">
                 Terms & Conditions
               </Link>
             </div>

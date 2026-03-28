@@ -10,7 +10,7 @@ interface RevealImageProps {
   className?: string
   containerClassName?: string
   quality?: number
-  preload?: boolean
+  priority?: boolean
 }
 
 export function RevealImage({
@@ -20,7 +20,7 @@ export function RevealImage({
   className = "object-cover",
   containerClassName = "relative aspect-[4/5] overflow-hidden",
   quality,
-  preload,
+  priority,
 }: RevealImageProps) {
   const { imageRef, containerRef, shouldReveal } = useImageReady(src)
 
@@ -37,7 +37,7 @@ export function RevealImage({
         sizes={sizes}
         className={className}
         quality={quality}
-        preload={preload}
+        priority={priority}
       />
     </div>
   )

@@ -63,7 +63,7 @@ export function ContactSection() {
 
           {/* CTA */}
           <div className="text-center">
-            <FancyButton href="/#">
+            <FancyButton href="/contact">
               Request a Consultation
             </FancyButton>
           </div>

@@ -126,13 +126,14 @@ export function Header() {
                     key={`${link.label}-${link.href}`}
                     href={link.href}
                     className={cn(
-                      "nav-link-hover label-uppercase text-[0.625rem] xl:text-[0.6875rem] tracking-[0.2em] transition-colors duration-300",
+                      "group relative label-uppercase text-[0.625rem] xl:text-[0.6875rem] tracking-[0.2em] transition-colors duration-300 pb-1",
                       isActiveLink(link.href)
                         ? "text-accent"
                         : "text-foreground/70 hover:text-foreground"
                     )}
                   >
                     {link.label}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-[calc(100%+12px)] bg-current opacity-0 scale-x-0 group-hover:opacity-30 group-hover:scale-x-100 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)] origin-center" />
                   </Link>
                 ))}
               </nav>

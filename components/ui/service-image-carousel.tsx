@@ -77,6 +77,9 @@ export function ServiceImageCarousel({ images, alt }: ServiceImageCarouselProps)
           </div>
         </div>
 
+        {/* Hover overlay */}
+        <div className="absolute inset-0 z-1 bg-black/0 group-hover/carousel:bg-black/10 transition-colors duration-500 pointer-events-none" />
+
         {/* Logo watermark */}
         <div className="absolute top-4 right-4 sm:top-5 sm:right-5 lg:top-6 lg:right-6 z-10 pointer-events-none">
           <IsketchLogo className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white/60 drop-shadow-md" />
@@ -93,7 +96,7 @@ export function ServiceImageCarousel({ images, alt }: ServiceImageCarouselProps)
             cursor-pointer drop-shadow-lg"
           aria-label="Previous image"
         >
-          <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 lg:w-12 lg:h-12" strokeWidth={1} />
+          <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 lg:w-14 lg:h-14" strokeWidth={1} />
         </button>
 
         <button
@@ -106,7 +109,7 @@ export function ServiceImageCarousel({ images, alt }: ServiceImageCarouselProps)
             cursor-pointer drop-shadow-lg"
           aria-label="Next image"
         >
-          <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 lg:w-12 lg:h-12" strokeWidth={1} />
+          <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 lg:w-14 lg:h-14" strokeWidth={1} />
         </button>
 
         {/* Dots indicator */}

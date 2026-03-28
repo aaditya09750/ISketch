@@ -94,7 +94,7 @@ export function AboutSection() {
               }`}
               style={{ transitionDelay: isVisible ? "850ms" : "0ms" }}
             >
-              <FancyButton href="/#">
+              <FancyButton href="/about">
                 Read More
               </FancyButton>
             </div>
