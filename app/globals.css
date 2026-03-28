@@ -136,6 +136,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   html.lenis, html.lenis body {
     height: auto;
   }
@@ -177,10 +178,55 @@
   background: var(--accent-decorative);
 }
 
-/* Selection styling */
+/* Selection styling — bg matches surface, only text darkens */
 ::selection {
-  background: var(--accent-decorative);
-  color: var(--primary-foreground);
+  background: var(--background);
+  color: #000000;
+}
+
+::-moz-selection {
+  background: var(--background);
+  color: #000000;
+}
+
+.bg-surface-warm ::selection,
+.bg-surface-warm::selection {
+  background: var(--surface-warm);
+}
+
+.bg-surface-warm ::-moz-selection,
+.bg-surface-warm::-moz-selection {
+  background: var(--surface-warm);
+}
+
+.bg-surface-dark ::selection,
+.bg-surface-dark::selection {
+  background: var(--surface-dark);
+}
+
+.bg-surface-dark ::-moz-selection,
+.bg-surface-dark::-moz-selection {
+  background: var(--surface-dark);
+}
+
+.bg-secondary ::selection,
+.bg-secondary::selection {
+  background: var(--secondary);
+}
+
+.bg-secondary ::-moz-selection,
+.bg-secondary::-moz-selection {
+  background: var(--secondary);
+}
+
+.bg-card ::selection,
+.bg-card::selection {
+  background: var(--card);
+}
+
+.bg-card ::-moz-selection,
+.bg-card::-moz-selection {
+  background: var(--card);
 }
 
 /* Luxury typography utilities */
