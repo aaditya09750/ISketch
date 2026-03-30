@@ -30,21 +30,10 @@ export const metadata: Metadata = {
   description: 'I Sketch Interiors is a Surrey-based design studio specialising in luxury residential interiors throughout the Mumbai and overseas.',
   generator: 'Aaditya Gunjal',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: {
+      url: '/icon.svg',
+      type: 'image/svg+xml',
+    },
   },
 }
 
