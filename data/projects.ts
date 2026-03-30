@@ -109,13 +109,6 @@ export const portfolioProjects: ProjectSummary[] = [
     category: "International",
     image: "/images/p3.jpg",
   },
-  {
-    id: "hampstead-kitchen",
-    title: "Hampstead Garden Kitchen",
-    location: "London",
-    category: "Kitchen",
-    image: "/images/hero2.webp",
-  },
 ]
 
 export const portfolioCategories = ["All", "Residential", "International", "Kitchen"]

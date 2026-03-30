@@ -242,7 +242,7 @@ function DesktopProcess() {
       className="hidden lg:block relative h-[280vh]"
     >
       <div className="sticky top-0">
-        <div className="relative mx-auto h-screen w-full overflow-hidden bg-secondary">
+        <div className="relative mx-auto h-screen w-full overflow-hidden bg-surface-dark">
           <div className="relative flex h-full flex-col">
 
             {/* ── Header ── */}
@@ -376,7 +376,7 @@ function MobileProcess() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="lg:hidden py-15 bg-secondary overflow-hidden">
+    <section ref={sectionRef} className="lg:hidden py-15 bg-surface-dark overflow-hidden">
       <Container>
         {/* Header */}
         <div className="text-center mb-16">

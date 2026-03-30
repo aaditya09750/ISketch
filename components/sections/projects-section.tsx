@@ -30,7 +30,7 @@ export function ProjectsSection() {
 
         {/* View All Link */}
         <div className="text-center mt-15 lg:mt-20">
-          <FancyButton href="/portfolio">
+          <FancyButton href="/projects">
             View All Projects
           </FancyButton>
         </div>

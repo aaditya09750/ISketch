@@ -103,7 +103,7 @@ function ServiceItem({ service, index }: { service: typeof services[number]; ind
 
 export function ServicesDetailSection() {
   return (
-    <section className="pb-24 lg:pb-36">
+    <section className="py-24 lg:py-36">
       <Container>
         <div className="space-y-24 lg:space-y-36">
           {services.map((service, index) => (
