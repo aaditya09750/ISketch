@@ -3,6 +3,7 @@
 import { type ReactNode } from "react"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { WhatsAppButton } from "@/components/ui/whatsapp-button"
 import { LayoutProvider, useLayout } from "@/components/providers/layout-context"
 
 function LayoutInner({ children }: { children: ReactNode }) {
@@ -13,6 +14,7 @@ function LayoutInner({ children }: { children: ReactNode }) {
       {!hideChrome && <Header />}
       {children}
       {!hideChrome && <Footer />}
+      <WhatsAppButton />
     </>
   )
 }
