@@ -4,7 +4,8 @@ import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
 import { PageHeading } from "@/components/ui/page-heading"
 import { Container } from "@/components/ui/container"
-import { contactDetails, contactCategories } from "@/data/contact"
+import { contactDetails, studioContact } from "@/data/contact"
+import { Mail, Phone } from "lucide-react"
 import { socialLinks } from "@/data/navigation"
 
 export default function ContactPage() {
@@ -182,79 +183,89 @@ export default function ContactPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          Contact Categories
+          Enquiries
           ═══════════════════════════════════════════════════════ */}
       <section
         ref={categoriesRef}
         className="py-20 sm:py-24 lg:py-32 bg-surface-warm"
       >
         <Container>
-          {/* Section header */}
-          <div className="text-center mb-14 sm:mb-18 lg:mb-20">
-            <p
-              className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-              style={delay(100)}
-            >
-              Enquiries
-            </p>
-            <h2
-              className={`heading-display text-[1.65rem] sm:text-3xl lg:text-[2.25rem] text-foreground leading-[1.2] mb-7 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-              style={delay(250)}
-            >
-              How Can We Help?
-            </h2>
-            <div
-              className={`h-px bg-accent-decorative/30 mx-auto transition-all duration-[1.2s] ease-out ${
-                categoriesVisible ? "w-14 opacity-100" : "w-0 opacity-0"
-              }`}
-              style={delay(400)}
-            />
-          </div>
-
-          {/* Category cards */}
-          <div className="grid lg:grid-cols-3 gap-0">
-            {contactCategories.map((category, i) => (
-              <div
-                key={category.title}
-                className={`group relative text-center px-6 sm:px-8 lg:px-12 py-12 md:py-14 lg:py-16 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)} ${
-                  i < contactCategories.length - 1
-                    ? "border-b lg:border-b-0 lg:border-r border-accent-decorative/15"
-                    : ""
-                }`}
-                style={delay(450 + i * 150)}
+          <div className="max-w-3xl mx-auto">
+            {/* Section header */}
+            <div className="text-center mb-10 sm:mb-12 lg:mb-14">
+              <p
+                className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
+                style={delay(100)}
               >
-                {/* Decorative number */}
-                <span className="heading-display text-5xl lg:text-6xl text-accent-decorative/[0.08] leading-none select-none block mb-5 transition-colors duration-700 group-hover:text-accent-decorative/[0.16]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                Enquiries
+              </p>
+              <h2
+                className={`heading-display text-[1.65rem] sm:text-3xl lg:text-[2.25rem] text-foreground leading-[1.2] mb-7 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
+                style={delay(250)}
+              >
+                How Can We Help?
+              </h2>
+              <div
+                className={`h-px bg-accent-decorative/30 mx-auto transition-all duration-[1.2s] ease-out ${
+                  categoriesVisible ? "w-14 opacity-100" : "w-0 opacity-0"
+                }`}
+                style={delay(400)}
+              />
+            </div>
 
-                {/* Separator */}
-                <div className="w-8 h-px bg-accent-decorative/25 mx-auto mb-6 transition-all duration-500 group-hover:w-12 group-hover:bg-accent-decorative/45" />
+            {/* Supportive text */}
+            <p
+              className={`body-text text-center text-muted-foreground leading-[1.85] max-w-lg mx-auto mb-12 sm:mb-14 lg:mb-16 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
+              style={delay(450)}
+            >
+              Whether you&rsquo;re beginning a new project, seeking design
+              guidance, or have a general enquiry, we&rsquo;re here to help.
+              Reach out and we&rsquo;ll respond within 24&nbsp;hours.
+            </p>
 
-                {/* Title */}
-                <h3 className="heading-section text-lg lg:text-xl text-foreground mb-5 tracking-wide">
-                  {category.title}
+            {/* Contact pair */}
+            <div
+              className={`flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 lg:gap-24 py-10 sm:py-12 lg:py-14 border-t border-b border-accent-decorative/15 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
+              style={delay(550)}
+            >
+              {/* Email */}
+              <div className="group text-center">
+                <div className="w-10 h-10 rounded-full border border-accent-decorative/15 flex items-center justify-center mb-5 mx-auto transition-all duration-500 group-hover:border-accent-decorative/40 group-hover:shadow-[0_2px_12px_rgba(160,120,86,0.06)]">
+                  <Mail className="w-4 h-4 text-accent-decorative/50 group-hover:text-accent-decorative transition-colors duration-500" />
+                </div>
+                <h3 className="label-uppercase text-[0.58rem] tracking-[0.22em] text-foreground/60 mb-3">
+                  Email
                 </h3>
-
-                {/* Email */}
+                <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
                 <Link
-                  href={`mailto:${category.email}`}
-                  className="footer-link inline-block body-text text-xs sm:text-sm text-accent-decorative/70 hover:text-accent-decorative transition-colors duration-500 mb-3 break-all sm:break-normal"
+                  href={`mailto:${studioContact.email}`}
+                  className="footer-link inline-block body-text text-xs sm:text-sm text-accent-decorative/70 hover:text-accent-decorative transition-colors duration-500 break-all sm:break-normal"
                 >
-                  {category.email}
+                  {studioContact.email}
                 </Link>
-
-                {/* Phone */}
-                {category.phone && (
-                  <Link
-                    href={`tel:${category.phone.replace(/\s/g, "")}`}
-                    className="block body-text text-sm text-muted-foreground/50 hover:text-accent-decorative transition-colors duration-500 mt-1.5 py-1"
-                  >
-                    {category.phone}
-                  </Link>
-                )}
               </div>
-            ))}
+
+              {/* Separator */}
+              <div className="hidden sm:block w-px h-20 bg-accent-decorative/15" />
+              <div className="sm:hidden h-px w-20 bg-accent-decorative/15" />
+
+              {/* Phone */}
+              <div className="group text-center">
+                <div className="w-10 h-10 rounded-full border border-accent-decorative/15 flex items-center justify-center mb-5 mx-auto transition-all duration-500 group-hover:border-accent-decorative/40 group-hover:shadow-[0_2px_12px_rgba(160,120,86,0.06)]">
+                  <Phone className="w-4 h-4 text-accent-decorative/50 group-hover:text-accent-decorative transition-colors duration-500" />
+                </div>
+                <h3 className="label-uppercase text-[0.58rem] tracking-[0.22em] text-foreground/60 mb-3">
+                  Telephone
+                </h3>
+                <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
+                <Link
+                  href={`tel:${studioContact.phone.replace(/\s/g, "")}`}
+                  className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500"
+                >
+                  {studioContact.phone}
+                </Link>
+              </div>
+            </div>
           </div>
         </Container>
       </section>

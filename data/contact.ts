@@ -12,27 +12,26 @@ export type SelectOption = {
   label: string
 }
 
-export type ContactCategory = {
-  title: string
-  email: string
-  phone?: string
+export const studioContact = {
+  email: "enquiries@isketchinteriors.com",
+  phone: "+91 84335 09521",
 }
 
 export const contactDetails: ContactDetail[] = [
   {
     icon: MapPin,
     title: "Studio Address",
-    content: "123 Design Street\nKensington\nLondon, SW7 1AB",
+    content: "Thane, 321301,\nMaharashtra, India",
   },
   {
     icon: Phone,
     title: "Telephone",
-    content: "+44 (0)20 7123 4567",
+    content: "+91 84335 09521",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "studio@isketchinteriors.com",
+    content: "enquiries@isketchinteriors.com",
   },
   {
     icon: Clock,
@@ -57,22 +56,4 @@ export const budgetRanges: SelectOption[] = [
   { value: "100k-250k", label: "\u00a3100,000 \u2013 \u00a3250,000" },
   { value: "250k-500k", label: "\u00a3250,000 \u2013 \u00a3500,000" },
   { value: "over-500k", label: "Over \u00a3500,000" },
-]
-
-export const contactCategories: ContactCategory[] = [
-  {
-    title: "New Projects",
-    email: "enquiries@isketchinteriors.com",
-    phone: "+91 84335 09521",
-  },
-  {
-    title: "General Enquiries",
-    email: "info@isketchinteriors.com",
-    phone: "+91 84335 09521",
-  },
-  {
-    title: "Press Enquiries",
-    email: "press@isketchinteriors.com",
-    phone: "+91 84335 09521",
-  },
 ]

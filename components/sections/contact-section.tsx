@@ -1,15 +1,15 @@
 import Link from "next/link"
 import { Container } from "@/components/ui/container"
 import { FancyButton } from "@/components/common/fancy-button"
-import { contactCategories } from "@/data/contact"
+import { studioContact } from "@/data/contact"
 
 export function ContactSection() {
   return (
     <section className="cv-auto py-16 md:py-20 lg:py-28 bg-background">
       <Container>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10 lg:mb-14">
+          <div className="text-center mb-10 lg:mb-14 animate-fade-up" style={{ animationDelay: "0.1s" }}>
             <p className="label-uppercase text-accent mb-5 md:mb-6 lg:mb-8">
               Get In Touch
             </p>
@@ -24,45 +24,50 @@ export function ContactSection() {
           </div>
 
           {/* Decorative divider */}
-          <div className="flex items-center justify-center mb-10 lg:mb-14">
+          <div className="flex items-center justify-center mb-10 lg:mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="h-px w-12 md:w-16 bg-accent-decorative/40" />
           </div>
 
-          {/* Contact Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-8 mb-12 md:mb-16 lg:mb-20">
-            {contactCategories.map((category, index) => (
-              <div
-                key={category.title}
-                className={`animate-fade-up text-center border border-border/50 py-8 md:py-10 px-5 md:px-6 lg:px-8 hover:border-accent-decorative/40 transition-colors duration-500 ${
-                  index === 2 ? "md:col-span-2 md:max-w-sm md:mx-auto lg:col-span-1 lg:max-w-none" : ""
-                }`}
-                style={{ animationDelay: `${0.1 + index * 0.15}s` }}
+          {/* Contact Pair */}
+          <div
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12 lg:gap-20 mb-14 md:mb-18 lg:mb-20 animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            {/* Email */}
+            <div className="group text-center">
+              <p className="label-uppercase text-[0.55rem] tracking-[0.22em] text-foreground/60 mb-3">
+                Email
+              </p>
+              <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
+              <Link
+                href={`mailto:${studioContact.email}`}
+                className="footer-link inline-block body-text text-xs sm:text-sm text-accent-decorative/70 hover:text-accent-decorative transition-colors duration-500 break-all sm:break-normal"
               >
-                <h3 className="label-uppercase text-foreground mb-4 md:mb-5 lg:mb-6">
-                  {category.title}
-                </h3>
+                {studioContact.email}
+              </Link>
+            </div>
 
-                <Link
-                  href={`mailto:${category.email}`}
-                  className="footer-link inline-block font-sans text-xs sm:text-sm text-accent-decorative hover:text-foreground transition-colors duration-300 mb-2 md:mb-3 w-fit mx-auto"
-                >
-                  {category.email}
-                </Link>
+            {/* Separator */}
+            <div className="hidden sm:block w-px h-16 bg-accent-decorative/15" />
+            <div className="sm:hidden h-px w-16 bg-accent-decorative/15" />
 
-                {category.phone && (
-                  <Link
-                    href={`tel:${category.phone.replace(/\s/g, '')}`}
-                    className="block font-sans text-xs sm:text-sm text-muted-foreground hover:text-accent-decorative transition-colors duration-300 mt-1.5 md:mt-2"
-                  >
-                    {category.phone}
-                  </Link>
-                )}
-              </div>
-            ))}
+            {/* Phone */}
+            <div className="group text-center">
+              <p className="label-uppercase text-[0.55rem] tracking-[0.22em] text-foreground/60 mb-3">
+                Telephone
+              </p>
+              <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
+              <Link
+                href={`tel:${studioContact.phone.replace(/\s/g, "")}`}
+                className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500"
+              >
+                {studioContact.phone}
+              </Link>
+            </div>
           </div>
 
           {/* CTA */}
-          <div className="text-center">
+          <div className="text-center animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <FancyButton href="/contact">
               Request a Consultation
             </FancyButton>
