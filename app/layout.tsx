@@ -4,6 +4,8 @@ import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { LayoutShell } from '@/components/layout/layout-shell'
 import { SmoothScroll } from '@/components/providers/smooth-scroll'
+import { SpeedInsights } from "@vercel/speed-insights/next"
+// @ts-expect-error -- Next.js handles global CSS side-effect imports at build time
 import './globals.css'
 
 const iowanOldStyle = localFont({
@@ -54,6 +56,7 @@ export default function RootLayout({
           </main>
         </SmoothScroll>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
