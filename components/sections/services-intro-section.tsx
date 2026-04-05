@@ -7,12 +7,12 @@ import { useEffect, useRef, useState } from "react"
 /* ------------------------------------------------------------------ */
 const highlights = [
   {
-    number: "16+",
+    number: "20+",
     label: "Years of Experience",
-    text: "Crafting luxury interiors across the UK and internationally since 2008.",
+    text: "Crafting luxury interiors across Thane, Mumbai and Pune since 2000.",
   },
   {
-    number: "100+",
+    number: "125+",
     label: "Projects Delivered",
     text: "Residential and commercial spaces transformed with meticulous attention to detail.",
   },
@@ -91,10 +91,7 @@ export function ServicesIntroSection() {
               }`}
               style={{ transitionDelay: "550ms" }}
             >
-              Whether you are undertaking a complete renovation or seeking guidance
-              on a specific room, we offer a range of services designed to meet your
-              needs. Each project receives our complete attention and dedication to
-              achieving exceptional results.
+              Whether you are undertaking a complete renovation or seeking guidance on a specific room, we offer a range of services designed to meet your needs. Each project receives our complete attention and dedication to achieving exceptional results.
             </p>
           </div>
 
@@ -110,10 +107,7 @@ export function ServicesIntroSection() {
             >
               <div className="lg:text-right max-w-xl lg:ml-auto">
                 <p className="body-text text-muted-foreground leading-[1.85]">
-                  From initial concept through to the final reveal, our experienced team
-                  of interior and architectural designers provides a personalised service
-                  to create detail-driven, luxury interiors that perfectly suit their
-                  context and stand the test of time.
+                  From initial concept through to the final reveal, our experience provides a personalised service to create detail-driven, luxury interiors that perfectly suit their context and stand the test of time.
                 </p>
               </div>
             </div>

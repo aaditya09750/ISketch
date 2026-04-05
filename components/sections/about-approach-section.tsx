@@ -6,7 +6,7 @@ const pillars = [
   {
     number: "01",
     title: "Understand",
-    text: "We take the time to deeply understand the spaces that form the backdrop to our clients\u2019 lives, ensuring every detail reflects their unique identity.",
+    text: "We take the time to deeply understand the spaces that form the backdrop to our clients’ lives, ensuring every detail reflects their unique identity.",
   },
   {
     number: "02",
@@ -59,10 +59,7 @@ export function AboutApproachSection() {
                 }`}
                 style={{ transitionDelay: "550ms" }}
               >
-                At I Sketch Interiors, our approach is grounded in the belief that every
-                interior should be a true reflection of the client&rsquo;s unique identity.
-                With a refined understanding that comes from dedicating ourselves to our
-                craft, we transform spaces into living expressions of personal style.
+               At I Sketch, our approach is grounded in the belief that every interior should be a true reflection of the client’s unique identity. With a refined understanding that comes from dedicating ourselves to our craft, we transform spaces into living expressions of personal style.
               </p>
             </div>
           </div>

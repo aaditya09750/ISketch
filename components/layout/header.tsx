@@ -269,14 +269,26 @@ export function Header() {
                       Contact
                     </h4>
                     <address className="font-sans text-sm text-foreground/60 not-italic space-y-1.5">
-                      <p>Thane, 321301,</p>
-                      <p>Maharashtra, India.</p>
+                      <p className="leading-relaxed">
+                        The Courtyard, Asteria A/604,
+                        <br />
+                        Pokhran road no. 2, Thane west
+                        <br />
+                        Maharashtra, India.
+                      </p>
                       <Link
-                        href="tel:+918433509521"
+                        href="tel:+919967312203"
                         className="inline-block text-foreground/60 hover:text-accent mt-2 transition-colors duration-300"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        +91 84335 09521
+                        +91 99673 12203
+                      </Link>
+                      <Link
+                        href="tel:+919892515655"
+                        className="inline-block text-foreground/60 hover:text-accent transition-colors duration-300"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        +91 98925 15655
                       </Link>
                     </address>
                   </div>

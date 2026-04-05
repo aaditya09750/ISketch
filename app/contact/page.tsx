@@ -1,47 +1,29 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import Link from "next/link"
 import { PageHeading } from "@/components/ui/page-heading"
 import { Container } from "@/components/ui/container"
 import { contactDetails, studioContact } from "@/data/contact"
-import { Mail, Phone } from "lucide-react"
+import { MapPin, Mail, Phone, Instagram, Facebook, Share2 } from "lucide-react"
 import { socialLinks } from "@/data/navigation"
 
 export default function ContactPage() {
   /* ── Scroll-triggered visibility ── */
   const detailsRef = useRef<HTMLDivElement>(null)
-  const categoriesRef = useRef<HTMLElement>(null)
-  const mapRef = useRef<HTMLElement>(null)
   const [detailsVisible, setDetailsVisible] = useState(false)
-  const [categoriesVisible, setCategoriesVisible] = useState(false)
-  const [mapVisible, setMapVisible] = useState(false)
 
   useEffect(() => {
-    const observe = (
-      ref: React.RefObject<HTMLElement | null>,
-      setter: (v: boolean) => void,
-    ) => {
-      const obs = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting) {
-            setter(true)
-            obs.disconnect()
-          }
-        },
-        { threshold: 0.08 },
-      )
-      if (ref.current) obs.observe(ref.current)
-      return obs
-    }
-    const o1 = observe(detailsRef, setDetailsVisible)
-    const o2 = observe(categoriesRef, setCategoriesVisible)
-    const o3 = observe(mapRef, setMapVisible)
-    return () => {
-      o1.disconnect()
-      o2.disconnect()
-      o3.disconnect()
-    }
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setDetailsVisible(true)
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.08 },
+    )
+    if (detailsRef.current) obs.observe(detailsRef.current)
+    return () => obs.disconnect()
   }, [])
 
   const animIn = (visible: boolean) =>
@@ -58,282 +40,150 @@ export default function ContactPage() {
       />
 
       {/* ═══════════════════════════════════════════════════════
-          Contact Details
+          Contact Details — Unified Section
           ═══════════════════════════════════════════════════════ */}
-      <section className="pb-20 sm:pb-28 lg:pb-36">
+      <section className="pb-24 sm:pb-32 lg:pb-40">
         <Container>
-          <div
-            ref={detailsRef}
-            className="grid lg:grid-cols-12 gap-14 lg:gap-20 xl:gap-28"
-          >
-            {/* ── Left: Heading + Intro + Social ── */}
-            <div className="lg:col-span-5">
-              <p
-                className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
-                style={delay(100)}
-              >
-                Our Studio
-              </p>
-
-              <h2
-                className={`heading-display text-[1.75rem] sm:text-3xl lg:text-[2.25rem] text-foreground leading-[1.2] mb-8 lg:mb-10 transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
-                style={delay(250)}
-              >
-                We&rsquo;d love to hear
-                <br className="hidden sm:block" /> about your project
-              </h2>
-
-              <div
-                className={`h-px bg-accent-decorative/30 mb-8 lg:mb-10 transition-all duration-[1.2s] ease-out ${
-                  detailsVisible ? "w-16 opacity-100" : "w-0 opacity-0"
-                }`}
-                style={delay(400)}
-              />
-
-              <p
-                className={`body-text text-muted-foreground leading-[1.85] max-w-md mb-12 lg:mb-14 transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
-                style={delay(500)}
-              >
-                Whether you have a project in mind or simply wish to explore
-                possibilities, our team is here to guide you. Reach out through
-                any of the channels below and we will respond within 24 hours.
-              </p>
-
-              {/* Social links */}
-              <div
-                className={`transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
-                style={delay(650)}
-              >
-                <p className="label-uppercase text-[0.55rem] tracking-[0.22em] text-accent-decorative/40 mb-5">
-                  Follow Us
+          <div ref={detailsRef}>
+            {/* ── Header ── */}
+            <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 mb-16 sm:mb-20 lg:mb-24">
+              <div className="lg:col-span-7">
+                <p
+                  className={`label-uppercase text-accent-decorative tracking-[0.3em] text-[0.6rem] mb-6 transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
+                  style={delay(100)}
+                >
+                  Our Studio
                 </p>
-                <div className="flex gap-6">
-                  {socialLinks.map((social) => (
+                <h2
+                  className={`heading-display text-[1.85rem] sm:text-[2.25rem] lg:text-[2.75rem] text-foreground leading-[1.15] transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
+                  style={delay(250)}
+                >
+                  We&rsquo;d love to hear
+                  <br className="hidden sm:block" /> about your project
+                </h2>
+              </div>
+              <div className="lg:col-span-5 lg:flex lg:flex-col lg:justify-end">
+                <div
+                  className={`h-px bg-accent-decorative/25 mb-6 lg:mb-7 transition-all duration-[1.4s] ease-out ${
+                    detailsVisible ? "w-12 opacity-100" : "w-0 opacity-0"
+                  }`}
+                  style={delay(400)}
+                />
+                <p
+                  className={`body-text text-muted-foreground/75 leading-[1.9] max-w-md transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
+                  style={delay(500)}
+                >
+                  Whether you have a project in mind or simply wish to explore possibilities, we are here to guide you. Reach out through any of the channels below .
+                </p>
+              </div>
+            </div>
+
+            {/* ── Contact Cards ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-accent-decorative/12">
+
+              {/* Address */}
+              <div
+                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 border-b md:border-r border-accent-decorative/12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                style={delay(600)}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
+                    <MapPin className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  </div>
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                    Address
+                  </h3>
+                </div>
+                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <p className="body-text text-[0.8125rem] text-muted-foreground/65 whitespace-pre-line leading-[1.85]">
+                  {contactDetails[0].content}
+                </p>
+              </div>
+
+              {/* Telephone */}
+              <div
+                className={`group relative py-10 sm:py-12 lg:py-14 pl-0 md:pl-10 lg:pl-8 lg:pr-8 border-b lg:border-r border-accent-decorative/12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                style={delay(740)}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
+                    <Phone className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  </div>
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                    Telephone
+                  </h3>
+                </div>
+                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <div className="flex flex-col gap-1.5">
+                  {studioContact.phones.map((phone) => (
                     <a
-                      key={social.label}
-                      href={social.href}
-                      className="group relative label-uppercase text-[0.6rem] tracking-[0.15em] text-muted-foreground/40 hover:text-accent-decorative transition-colors duration-500"
+                      key={phone}
+                      href={`tel:${phone.replace(/\s/g, "")}`}
+                      className="footer-link body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 w-fit"
                     >
-                      {social.label}
-                      <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent-decorative/40 transition-all duration-400 ease-out group-hover:w-full" />
+                      {phone}
                     </a>
                   ))}
                 </div>
               </div>
-            </div>
 
-            {/* ── Right: Contact Details ── */}
-            <div className="lg:col-span-7 lg:pt-2">
-              <div className="grid sm:grid-cols-2 gap-0">
-                {contactDetails.map((detail, i) => (
-                  <div
-                    key={detail.title}
-                    className={`group relative py-8 sm:py-10 lg:py-12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)} ${
-                      i < contactDetails.length - 1
-                        ? "border-b border-border/15"
-                        : ""
-                    } ${
-                      i === 2 ? "sm:border-b-0" : ""
-                    } ${
-                      i % 2 === 0
-                        ? "sm:pr-8 lg:pr-12 sm:border-r sm:border-border/15"
-                        : "sm:pl-8 lg:pl-12"
-                    }`}
-                    style={delay(300 + i * 130)}
-                  >
-                    {/* Icon */}
-                    <div className="w-10 h-10 rounded-full border border-accent-decorative/15 flex items-center justify-center mb-5 transition-all duration-500 group-hover:border-accent-decorative/40 group-hover:shadow-[0_2px_12px_rgba(160,120,86,0.06)]">
-                      <detail.icon className="w-4 h-4 text-accent-decorative/50 group-hover:text-accent-decorative transition-colors duration-500" />
-                    </div>
-
-                    {/* Label */}
-                    <h3 className="label-uppercase text-[0.58rem] tracking-[0.22em] text-foreground/60 mb-3">
-                      {detail.title}
-                    </h3>
-
-                    {/* Accent line */}
-                    <div className="h-px w-6 bg-accent-decorative/20 mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
-
-                    {/* Content */}
-                    {detail.title === "Email" ? (
-                      <a
-                        href={`mailto:${detail.content}`}
-                        className="footer-link body-text text-xs sm:text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500 inline-block py-1 break-all sm:break-normal"
-                      >
-                        {detail.content}
-                      </a>
-                    ) : detail.title === "Telephone" ? (
-                      <a
-                        href={`tel:${detail.content.replace(/\s/g, "")}`}
-                        className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500 inline-block py-1"
-                      >
-                        {detail.content}
-                      </a>
-                    ) : (
-                      <p className="body-text text-sm text-muted-foreground/70 whitespace-pre-line leading-relaxed">
-                        {detail.content}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════
-          Enquiries
-          ═══════════════════════════════════════════════════════ */}
-      <section
-        ref={categoriesRef}
-        className="py-20 sm:py-24 lg:py-32 bg-surface-warm"
-      >
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            {/* Section header */}
-            <div className="text-center mb-10 sm:mb-12 lg:mb-14">
-              <p
-                className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-                style={delay(100)}
-              >
-                Enquiries
-              </p>
-              <h2
-                className={`heading-display text-[1.65rem] sm:text-3xl lg:text-[2.25rem] text-foreground leading-[1.2] mb-7 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-                style={delay(250)}
-              >
-                How Can We Help?
-              </h2>
-              <div
-                className={`h-px bg-accent-decorative/30 mx-auto transition-all duration-[1.2s] ease-out ${
-                  categoriesVisible ? "w-14 opacity-100" : "w-0 opacity-0"
-                }`}
-                style={delay(400)}
-              />
-            </div>
-
-            {/* Supportive text */}
-            <p
-              className={`body-text text-center text-muted-foreground leading-[1.85] max-w-lg mx-auto mb-12 sm:mb-14 lg:mb-16 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-              style={delay(450)}
-            >
-              Whether you&rsquo;re beginning a new project, seeking design
-              guidance, or have a general enquiry, we&rsquo;re here to help.
-              Reach out and we&rsquo;ll respond within 24&nbsp;hours.
-            </p>
-
-            {/* Contact pair */}
-            <div
-              className={`flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16 lg:gap-24 py-10 sm:py-12 lg:py-14 border-t border-b border-accent-decorative/15 transition-all duration-[900ms] ease-out ${animIn(categoriesVisible)}`}
-              style={delay(550)}
-            >
               {/* Email */}
-              <div className="group text-center">
-                <div className="w-10 h-10 rounded-full border border-accent-decorative/15 flex items-center justify-center mb-5 mx-auto transition-all duration-500 group-hover:border-accent-decorative/40 group-hover:shadow-[0_2px_12px_rgba(160,120,86,0.06)]">
-                  <Mail className="w-4 h-4 text-accent-decorative/50 group-hover:text-accent-decorative transition-colors duration-500" />
+              <div
+                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 lg:pl-8 md:border-r border-accent-decorative/12 border-b md:border-b-0 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                style={delay(880)}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
+                    <Mail className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  </div>
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                    Email
+                  </h3>
                 </div>
-                <h3 className="label-uppercase text-[0.58rem] tracking-[0.22em] text-foreground/60 mb-3">
-                  Email
-                </h3>
-                <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
-                <Link
+                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <a
                   href={`mailto:${studioContact.email}`}
-                  className="footer-link inline-block body-text text-xs sm:text-sm text-accent-decorative/70 hover:text-accent-decorative transition-colors duration-500 break-all sm:break-normal"
+                  className="footer-link body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 inline-block break-all sm:break-normal"
                 >
                   {studioContact.email}
-                </Link>
+                </a>
               </div>
 
-              {/* Separator */}
-              <div className="hidden sm:block w-px h-20 bg-accent-decorative/15" />
-              <div className="sm:hidden h-px w-20 bg-accent-decorative/15" />
-
-              {/* Phone */}
-              <div className="group text-center">
-                <div className="w-10 h-10 rounded-full border border-accent-decorative/15 flex items-center justify-center mb-5 mx-auto transition-all duration-500 group-hover:border-accent-decorative/40 group-hover:shadow-[0_2px_12px_rgba(160,120,86,0.06)]">
-                  <Phone className="w-4 h-4 text-accent-decorative/50 group-hover:text-accent-decorative transition-colors duration-500" />
+              {/* Follow Us */}
+              <div
+                className={`group relative py-10 sm:py-12 lg:py-14 pl-0 md:pl-10 lg:pl-8 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                style={delay(1020)}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
+                    <Share2 className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  </div>
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                    Follow Us
+                  </h3>
                 </div>
-                <h3 className="label-uppercase text-[0.58rem] tracking-[0.22em] text-foreground/60 mb-3">
-                  Telephone
-                </h3>
-                <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
-                <Link
-                  href={`tel:${studioContact.phone.replace(/\s/g, "")}`}
-                  className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500"
-                >
-                  {studioContact.phone}
-                </Link>
+                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <div className="flex flex-col gap-2.5">
+                  {socialLinks.map((social) => {
+                    const Icon = social.label === "Instagram" ? Instagram : Facebook
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="footer-link flex items-center gap-2.5 body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 w-fit"
+                      >
+                        <Icon className="w-3.5 h-3.5" />
+                        {social.label}
+                      </a>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </Container>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════
-          Map Section (unchanged)
-          ═══════════════════════════════════════════════════════ */}
-      <section ref={mapRef}>
-        {/* Label bar above map */}
-        <div className="border-t border-border/15 py-6 sm:py-8 md:py-10 lg:py-12">
-          <Container>
-            <div
-              className={`flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 transition-all duration-700 ease-out ${animIn(mapVisible)}`}
-              style={delay(100)}
-            >
-              <div>
-                <p className="label-uppercase text-[0.55rem] sm:text-[0.6rem] tracking-[0.25em] text-accent-decorative mb-1.5 sm:mb-2">
-                  Visit Our Studio
-                </p>
-                <p className="heading-display text-lg sm:text-xl md:text-[1.375rem] lg:text-2xl text-foreground">
-                  Thane, Maharashtra
-                </p>
-              </div>
-              <a
-                href="https://www.google.com/maps/place/Thane,+Maharashtra/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 sm:gap-2.5 self-start sm:self-auto sm:pb-0.5"
-              >
-                <span className="h-px w-4 sm:w-5 bg-accent-decorative/30 transition-all duration-500 group-hover:w-7 sm:group-hover:w-8 group-hover:bg-accent-decorative/60" />
-                <span className="label-uppercase text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-foreground/40 group-hover:text-accent-decorative transition-colors duration-500">
-                  Get Directions
-                </span>
-                <svg
-                  className="w-3 h-3 text-foreground/25 group-hover:text-accent-decorative group-hover:translate-x-0.5 transition-all duration-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M7 17L17 7M17 7H7M17 7v10"
-                  />
-                </svg>
-              </a>
-            </div>
-          </Container>
-        </div>
-
-        {/* Map embed */}
-        <div
-          className={`relative h-[240px] sm:h-[320px] md:h-[380px] lg:h-[440px] transition-all duration-1000 ease-out ${
-            mapVisible ? "opacity-100" : "opacity-0"
-          }`}
-          style={delay(300)}
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120561.14496345288!2d72.9947325!3d19.21546785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8fcfe76fd59%3A0xcf367d85f7c50283!2sThane%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1774546520652!5m2!1sen!2sin"
-            className="absolute inset-0 w-full h-full"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Studio Location — Thane, Maharashtra"
-          />
-        </div>
       </section>
     </>
   )

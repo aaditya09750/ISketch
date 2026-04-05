@@ -12,7 +12,7 @@ export function AboutHero() {
   }, [])
 
   return (
-    <section className="relative h-[70vh] md:h-[85vh] lg:h-screen w-full overflow-hidden bg-surface-dark">
+    <section className="relative h-screen w-full overflow-hidden bg-surface-dark">
       {/* Background Image */}
       <Image
         src="/images/about-hero.jpg"
@@ -31,7 +31,7 @@ export function AboutHero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
 
       {/* Hero Content */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 select-none flex items-center justify-center">
         <div className="text-center pt-6 px-6">
           {/* Subtle label */}
           <p
@@ -50,7 +50,7 @@ export function AboutHero() {
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            The Studio
+            I Sketch
           </h1>
 
           {/* Decorative line */}
@@ -65,15 +65,15 @@ export function AboutHero() {
 
       {/* Scroll Indicator */}
       <div
-        className={`absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 transition-all duration-700 ease-out ${
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 transition-all duration-700 ease-out ${
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
         }`}
-        style={{ transitionDelay: "1200ms" }}
+        style={{ transitionDelay: "10ms" }}
       >
-        <span className="label-uppercase select-none text-[6px] tracking-[0.3em] text-white/60">
+        <span className="label-uppercase select-none text-[8px]! text-white/80">
           Scroll
         </span>
-        <div className="w-px h-7 bg-white/25 animate-gentle-bounce" />
+        <div className="w-0.5 rounded-full mr-1 h-4 bg-white/25 animate-gentle-bounce" />
       </div>
     </section>
   )

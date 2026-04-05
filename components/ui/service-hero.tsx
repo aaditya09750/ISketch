@@ -12,7 +12,7 @@ export function ServiceHero() {
   }, [])
 
   return (
-    <section className="relative h-[70vh] md:h-[85vh] lg:h-screen w-full overflow-hidden bg-surface-dark">
+    <section className="relative h-screen w-full overflow-hidden bg-surface-dark">
       {/* Background Image */}
       <Image
         src="/images/services-hero.jpg"
@@ -32,7 +32,7 @@ export function ServiceHero() {
 
       {/* Hero Content */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center px-6">
+        <div className="text-center select-none px-6">
           {/* Subtle label */}
           <p
             className={`label-uppercase text-white/70 mb-5 lg:mb-6 tracking-[0.3em] transition-all duration-1000 ease-out ${
@@ -65,15 +65,15 @@ export function ServiceHero() {
 
       {/* Scroll Indicator */}
       <div
-        className={`absolute bottom-8 lg:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 transition-all duration-700 ease-out ${
+        className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 transition-all duration-700 ease-out ${
           isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
         }`}
-        style={{ transitionDelay: "1200ms" }}
+        style={{ transitionDelay: "10ms" }}
       >
-        <span className="label-uppercase select-none text-[6px] tracking-[0.3em] text-white/60">
+        <span className="label-uppercase select-none text-[8px]! text-white/80">
           Scroll
         </span>
-        <div className="w-px h-7 bg-white/25 animate-gentle-bounce" />
+        <div className="w-0.5 rounded-full mr-1 h-4 bg-white/25 animate-gentle-bounce" />
       </div>
     </section>
   )

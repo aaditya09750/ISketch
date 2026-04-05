@@ -19,7 +19,7 @@ export const values: Value[] = [
   },
   {
     title: "Exceptional Quality",
-    description: "From concept to completion, we maintain the highest standards, working with master craftsmen and sourcing the finest materials from around the world.",
+    description: "From concept to completion, we maintain the highest standards, working with master craftsmen and sourcing the finest materials.",
   },
 ]
 

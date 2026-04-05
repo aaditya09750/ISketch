@@ -57,12 +57,17 @@ export function ContactSection() {
                 Telephone
               </p>
               <div className="h-px w-6 bg-accent-decorative/20 mx-auto mb-4 transition-all duration-500 group-hover:w-10 group-hover:bg-accent-decorative/40" />
-              <Link
-                href={`tel:${studioContact.phone.replace(/\s/g, "")}`}
-                className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500"
-              >
-                {studioContact.phone}
-              </Link>
+              <div className="flex flex-col items-center gap-1">
+                {studioContact.phones.map((phone) => (
+                  <Link
+                    key={phone}
+                    href={`tel:${phone.replace(/\s/g, "")}`}
+                    className="body-text text-sm text-muted-foreground/70 hover:text-accent-decorative transition-colors duration-500"
+                  >
+                    {phone}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 

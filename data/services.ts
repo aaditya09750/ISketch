@@ -31,7 +31,7 @@ export const services: Service[] = [
     number: "03",
     title: "Property Styling",
     description: "Transform your property for sale or rental with our expert styling service. We curate furnishings and accessories to showcase your space at its finest, maximising appeal to potential buyers or tenants.",
-    features: ["Sale Preparation", "Rental Styling", "Photography Styling", "Furniture Rental", "Accessory Curation"],
+    features: ["Rental Styling", "Photography Styling", "Accessory Curation"],
     images: ["/images/p1.jpg", "/images/p2.jpg", "/images/p3.jpg"],
   },
   {

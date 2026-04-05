@@ -12,7 +12,7 @@ const feeItems = [
     label: "Full Interior Design",
     pricing: "Percentage-based",
     detail:
-      "A comprehensive service covering every stage of your project — from initial concept through to final installation — reflecting the scope and complexity of your vision.",
+      "A comprehensive service covering every stage of your project  from initial concept through to final installation reflecting the scope and complexity of your vision.",
     includes: ["Concept to completion", "Material sourcing", "Project oversight"],
   },
   {
@@ -36,7 +36,7 @@ const feeItems = [
     label: "Bespoke Joinery",
     pricing: "Per project quote",
     detail:
-      "Custom cabinetry and built-in solutions designed to your exact specifications, crafted by our network of trusted artisans following a thorough site assessment.",
+      "Custom cabinetry and built-in solutions designed to your exact specifications, crafted by our network of trusted workers following a thorough site assessment.",
     includes: ["Custom cabinetry", "Built-in solutions", "Artisan finishing"],
   },
 ]
@@ -182,9 +182,7 @@ export function ServicesFeesSection() {
             }`}
             style={{ transitionDelay: "500ms" }}
           >
-            Our fees are structured to reflect the scope and complexity of each
-            project. We offer transparent pricing and will provide a detailed
-            proposal following our initial consultation.
+            Our fees are structured to reflect the scope and complexity of each project. We offer transparent pricing and will provide a detailed proposal following our initial consultation.
           </p>
         </div>
 

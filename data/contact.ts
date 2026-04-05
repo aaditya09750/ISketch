@@ -13,47 +13,24 @@ export type SelectOption = {
 }
 
 export const studioContact = {
-  email: "enquiries@isketchinteriors.com",
-  phone: "+91 84335 09521",
+  email: "studio@isketchinteriors.com",
+  phones: ["+91 99673 12203", "+91 98925 15655"],
 }
 
 export const contactDetails: ContactDetail[] = [
   {
     icon: MapPin,
-    title: "Studio Address",
-    content: "Thane, 321301,\nMaharashtra, India",
+    title: "Our Address",
+    content: "The Courtyard, Asteria A/604, \nPokhran road no. 2, Thane west\nMaharashtra, India",
   },
   {
     icon: Phone,
     title: "Telephone",
-    content: "+91 84335 09521",
+    content: "+91 99673 12203 \n+91 98925 15655",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "enquiries@isketchinteriors.com",
+    content: "studio@isketchinteriors.com",
   },
-  {
-    icon: Clock,
-    title: "Studio Hours",
-    content: "Monday \u2013 Friday: 9:00 \u2013 18:00\nWeekends: By appointment only",
-  },
-]
-
-export const projectTypes: SelectOption[] = [
-  { value: "", label: "Select project type" },
-  { value: "full-design", label: "Full Interior Design" },
-  { value: "consultation", label: "Consultation" },
-  { value: "property-styling", label: "Property Styling" },
-  { value: "bespoke-joinery", label: "Bespoke Joinery" },
-  { value: "other", label: "Other" },
-]
-
-export const budgetRanges: SelectOption[] = [
-  { value: "", label: "Select budget range" },
-  { value: "under-50k", label: "Under \u00a350,000" },
-  { value: "50k-100k", label: "\u00a350,000 \u2013 \u00a3100,000" },
-  { value: "100k-250k", label: "\u00a3100,000 \u2013 \u00a3250,000" },
-  { value: "250k-500k", label: "\u00a3250,000 \u2013 \u00a3500,000" },
-  { value: "over-500k", label: "Over \u00a3500,000" },
 ]

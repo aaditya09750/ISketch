@@ -43,7 +43,7 @@ export function AboutTeamSection() {
               }`}
               style={{ transitionDelay: "250ms" }}
             >
-              Our Team
+              I Sketch
             </h2>
 
             <div
@@ -100,7 +100,6 @@ export function AboutTeamSection() {
                   "Textile Consulting",
                   "Colour Consulting",
                   "Bespoke Joinery",
-                  "Global Sourcing",
                 ].map((discipline, i) => (
                   <div
                     key={discipline}
