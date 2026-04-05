@@ -1,7 +1,7 @@
 import { PageHeading } from "@/components/ui/page-heading"
 import { CTASection } from "@/components/ui/cta-section"
 import { PortfolioGrid } from "@/components/sections/portfolio-grid"
-import { portfolioProjects, portfolioCategories } from "@/data/projects"
+import { portfolioProjects } from "@/data/projects"
 
 export const metadata = {
   title: "Portfolio | I Sketch Interiors",
@@ -17,10 +17,10 @@ export default function PortfolioPage() {
         description="A curated selection of our finest projects, showcasing our commitment to creating exceptional interiors that combine timeless elegance with contemporary sophistication."
       />
 
-      <PortfolioGrid
-        projects={portfolioProjects}
-        categories={portfolioCategories}
-      />
+      {/* Breathing space between heading and grid */}
+      <div className="pb-6 sm:pb-8 lg:pb-10" />
+
+      <PortfolioGrid projects={portfolioProjects} />
 
       <CTASection
         heading="Start Your Project"

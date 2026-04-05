@@ -2,40 +2,25 @@
 
 import { useState } from "react"
 import { Container } from "@/components/ui/container"
-import { PortfolioFilter } from "@/components/ui/portfolio-filter"
 import { ProjectCard } from "@/components/ui/project-card"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
 import type { ProjectSummary } from "@/data/projects"
 
 interface PortfolioGridProps {
   projects: ProjectSummary[]
-  categories: string[]
+  categories?: string[]
 }
 
-export function PortfolioGrid({ projects, categories }: PortfolioGridProps) {
-  const [activeCategory, setActiveCategory] = useState("All")
+export function PortfolioGrid({ projects }: PortfolioGridProps) {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string; title: string; location: string; category: string } | null>(null)
-
-  const filtered =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory)
 
   return (
     <>
-      {/* Filter — no padding on mobile, Container padding from md up */}
-      <section className="pb-10 md:pb-12 lg:pb-16 md:px-6 lg:px-12">
-        <PortfolioFilter
-          categories={categories}
-          onFilterChange={setActiveCategory}
-        />
-      </section>
-
       {/* Projects Grid */}
       <section>
         <Container>
           <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
-            {filtered.map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
                 className="animate-fade-in-up"
@@ -54,9 +39,9 @@ export function PortfolioGrid({ projects, categories }: PortfolioGridProps) {
             ))}
           </div>
 
-          {filtered.length === 0 && (
+          {projects.length === 0 && (
             <p className="text-center text-muted-foreground font-serif text-lg py-20">
-              No projects found in this category.
+              No projects found.
             </p>
           )}
         </Container>
