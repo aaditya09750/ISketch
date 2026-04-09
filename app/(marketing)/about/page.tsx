@@ -5,15 +5,20 @@ import { AboutApproachSection } from "./_components/about-approach-section"
 import { AboutValuesSection } from "./_components/about-values-section"
 import { LatestProjectSection } from "./_components/latest-project-section"
 import { CTASection } from "@/components/shared/cta-section"
+import { StructuredData } from "@/components/shared/structured-data"
+import { getBreadcrumbSchema } from "@/lib/schema"
 
 export const metadata = {
-  title: "About | I Sketch Interiors",
-  description: "Learn about I Sketch Interiors, a luxury interior design studio based in London and Surrey.",
+  title: "About",
+  description: "Discover I Sketch Interiors — a luxury interior design studio in Thane with 20+ years of experience crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
+  alternates: { canonical: "/about" },
+  openGraph: { url: "/about" },
 }
 
 export default function AboutPage() {
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }])} />
       <AboutHero />
 
       <AboutStorySection />

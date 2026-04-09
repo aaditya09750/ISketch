@@ -2,8 +2,10 @@ import { LegalPageLayout } from "../_components/legal-page-layout"
 import { termsConditionsSections } from "@/data/legal"
 
 export const metadata = {
-  title: "Terms & Conditions | I Sketch Interiors",
+  title: "Terms & Conditions",
   description: "Read the terms and conditions governing the use of I Sketch Interiors website and services.",
+  alternates: { canonical: "/terms-conditions" },
+  robots: { index: false, follow: true },
 }
 
 export default function TermsConditionsPage() {

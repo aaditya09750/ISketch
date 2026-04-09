@@ -5,6 +5,8 @@ import { Analytics } from '@vercel/analytics/next'
 import { LayoutShell } from '@/components/layout/layout-shell'
 import { SmoothScroll } from '@/components/providers/smooth-scroll'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { StructuredData } from '@/components/shared/structured-data'
+import { getOrganizationSchema, getWebSiteSchema } from '@/lib/schema'
 // @ts-expect-error -- Next.js handles global CSS side-effect imports at build time
 import './globals.css'
 
@@ -28,14 +30,32 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'I Sketch Interiors | Luxury Interior Design',
-  description: 'I Sketch Interiors is a Surrey-based design studio specialising in luxury residential interiors throughout the Mumbai and overseas.',
+  metadataBase: new URL("https://isketch.in"),
+  title: {
+    default: "I Sketch Interiors | Luxury Interior Design Studio in Mumbai",
+    template: "%s | I Sketch Interiors",
+  },
+  description: "I Sketch Interiors is a Thane-based luxury interior design studio specialising in bespoke residential interiors across Mumbai, Pune, and internationally.",
   generator: 'Aaditya Gunjal',
   icons: {
-    icon: {
-      url: '/icon.svg',
-      type: 'image/svg+xml',
-    },
+    icon: { url: '/icon.svg', type: 'image/svg+xml' },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "I Sketch Interiors",
+    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "I Sketch Interiors — Luxury Interior Design" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  alternates: {
+    canonical: "https://isketch.in",
   },
 }
 
@@ -57,6 +77,8 @@ export default function RootLayout({
         </SmoothScroll>
         <Analytics />
         <SpeedInsights />
+        <StructuredData data={getOrganizationSchema()} />
+        <StructuredData data={getWebSiteSchema()} />
       </body>
     </html>
   )

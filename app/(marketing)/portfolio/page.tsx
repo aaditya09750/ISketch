@@ -2,15 +2,20 @@ import { PageHeading } from "@/components/shared/page-heading"
 import { CTASection } from "@/components/shared/cta-section"
 import { PortfolioGrid } from "./_components/portfolio-grid"
 import { portfolioProjects } from "@/data/projects"
+import { StructuredData } from "@/components/shared/structured-data"
+import { getBreadcrumbSchema } from "@/lib/schema"
 
 export const metadata = {
-  title: "Portfolio | I Sketch Interiors",
-  description: "Explore our portfolio of luxury interior design projects across London, Surrey, and internationally.",
+  title: "Portfolio",
+  description: "Explore our portfolio of luxury interior design projects across Mumbai, Thane, and internationally — from contemporary apartments to country estates.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: { url: "/portfolio" },
 }
 
 export default function PortfolioPage() {
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "Portfolio", url: "/portfolio" }])} />
       <PageHeading
         label="Our Work"
         title="Portfolio"

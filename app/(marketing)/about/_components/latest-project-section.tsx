@@ -35,7 +35,7 @@ export function LatestProjectSection() {
         {/* Background image */}
         <Image
           src="/images/p2.jpg"
-          alt="Latest project by I Sketch Interiors"
+          alt="Latest luxury residential interior design project by I Sketch Interiors"
           fill
           className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-[1.03]"
           sizes="100vw"

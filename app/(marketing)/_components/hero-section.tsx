@@ -139,7 +139,7 @@ export function HeroSection() {
       <div className="relative h-full flex flex-col bg-black/10 justify-end pb-24 sm:pb-28 lg:pb-30">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 w-full">
           <div className="max-w-2xl">
-            <h2
+            <h1
               className={`heading-display select-none text-3xl sm:text-5xl lg:text-6xl text-white transition-all duration-1000 ease-out ${
                 isLoaded
                   ? "opacity-100 translate-y-0"
@@ -148,7 +148,7 @@ export function HeroSection() {
               style={{ transitionDelay: "500ms" }}
             >
               I SKETCH Your Space
-            </h2>
+            </h1>
             <p
               className={`label-uppercase select-none text-white/80 mt-2 transition-all duration-1000 ease-out ${
                 isLoaded

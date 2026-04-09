@@ -2,8 +2,10 @@ import { LegalPageLayout } from "../_components/legal-page-layout"
 import { privacyPolicySections } from "@/data/legal"
 
 export const metadata = {
-  title: "Privacy Policy | I Sketch Interiors",
+  title: "Privacy Policy",
   description: "Learn how I Sketch Interiors collects, uses, and protects your personal information.",
+  alternates: { canonical: "/privacy-policy" },
+  robots: { index: false, follow: true },
 }
 
 export default function PrivacyPolicyPage() {

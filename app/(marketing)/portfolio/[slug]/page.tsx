@@ -7,6 +7,8 @@ import { ProjectGallery } from "./_components/project-gallery"
 import IsketchLogo from "@/components/shared/isketch-logo"
 import { projectDetails } from "@/data/projects"
 import { CTASection } from "@/components/shared/cta-section"
+import { StructuredData } from "@/components/shared/structured-data"
+import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema"
 
 export async function generateStaticParams() {
   return Object.keys(projectDetails).map((slug) => ({ slug }))
@@ -21,8 +23,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${project.title} | I Sketch Interiors`,
+    title: project.title,
     description: project.description,
+    alternates: { canonical: `/portfolio/${slug}` },
+    openGraph: {
+      title: `${project.title} — Interior Design Project`,
+      description: project.description,
+      url: `/portfolio/${slug}`,
+      images: [{ url: project.images[0], width: 1200, height: 630, alt: `${project.title} by I Sketch Interiors` }],
+      type: "article" as const,
+    },
+    twitter: {
+      title: project.title,
+      description: project.description,
+      images: [project.images[0]],
+    },
   }
 }
 
@@ -36,6 +51,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "Portfolio", url: "/portfolio" }, { name: project.title, url: `/portfolio/${slug}` }])} />
+      <StructuredData data={getProjectSchema(project, slug)} />
       {/* Hero Image */}
       <section className="relative h-[70vh] lg:h-[87vh] mt-16 md:mt-20 lg:mt-24 bg-surface-dark">
         <Image

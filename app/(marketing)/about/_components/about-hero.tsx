@@ -16,7 +16,7 @@ export function AboutHero() {
       {/* Background Image */}
       <Image
         src="/images/about-hero.jpg"
-        alt="I Sketch Interiors Studio"
+        alt="I Sketch Interiors luxury interior design studio"
         fill
         className={`object-cover transition-transform duration-[2s] ease-out ${
           isLoaded ? "scale-100" : "scale-105"
