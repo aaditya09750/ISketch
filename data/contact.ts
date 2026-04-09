@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
+import type { SelectOption } from "@/types"
 
 export type ContactDetail = {
   icon: LucideIcon
@@ -7,10 +8,7 @@ export type ContactDetail = {
   content: string
 }
 
-export type SelectOption = {
-  value: string
-  label: string
-}
+export type { SelectOption }
 
 export const studioContact = {
   email: "studio@isketchinteriors.com",

@@ -1,8 +1,6 @@
-export interface LegalSection {
-  id: string
-  title: string
-  content: string[]
-}
+import type { LegalSection } from "@/types"
+
+export type { LegalSection }
 
 /* ------------------------------------------------------------------ */
 /*  Privacy Policy                                                     */

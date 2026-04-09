@@ -1,0 +1,6 @@
+export { ServiceHero } from "./service-hero"
+export { ServiceImageCarousel } from "./service-image-carousel"
+export { ServicesIntroSection } from "./services-intro-section"
+export { ServicesDetailSection } from "./services-detail-section"
+export { ServicesProcessSection } from "./services-process-section"
+export { ServicesFeesSection } from "./services-fees-section"

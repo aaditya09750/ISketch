@@ -1,12 +1,6 @@
-export type Value = {
-  title: string
-  description: string
-}
+import type { Value, Award } from "@/types"
 
-export type Award = {
-  year: string
-  award: string
-}
+export type { Value, Award }
 
 export const values: Value[] = [
   {

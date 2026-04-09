@@ -1,25 +1,6 @@
-export type ProjectSummary = {
-  id: string
-  title: string
-  location: string
-  category: string
-  image: string
-}
+import type { ProjectSummary, ProjectDetail } from "@/types"
 
-export type ProjectDetail = {
-  title: string
-  location: string
-  category: string
-  year: string
-  scope: string
-  description: string
-  challenge: string
-  solution: string
-  images: string[]
-  details: { label: string; value: string }[]
-  nextProject: { slug: string; title: string }
-  prevProject: { slug: string; title: string }
-}
+export type { ProjectSummary, ProjectDetail }
 
 export const featuredProjects = [
   {

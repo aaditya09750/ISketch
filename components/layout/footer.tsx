@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { footerLinks, socialLinks } from "@/data/navigation";
-import IsketchLogo from "@/components/common/isketch-logo";
+import IsketchLogo from "@/components/shared/isketch-logo";
 
 export function Footer() {
   const footerRef = useRef<HTMLElement>(null);

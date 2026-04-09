@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { Instagram, Facebook } from "lucide-react"
 import { navigationLinks, socialLinks } from "@/data/navigation"
-import IsketchLogo from "@/components/common/isketch-logo"
+import IsketchLogo from "@/components/shared/isketch-logo"
 import { cn } from "@/lib/utils"
 
 export function Header() {

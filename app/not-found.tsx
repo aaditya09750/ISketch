@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import IsketchLogo from "@/components/common/isketch-logo"
+import IsketchLogo from "@/components/shared/isketch-logo"
 import { useLayout } from "@/components/providers/layout-context"
 
 export default function NotFound() {

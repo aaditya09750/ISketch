@@ -1,16 +1,6 @@
-export type Service = {
-  number: string
-  title: string
-  description: string
-  features: string[]
-  images: string[]
-}
+import type { Service, ProcessStep } from "@/types"
 
-export type ProcessStep = {
-  step: string
-  title: string
-  description: string
-}
+export type { Service, ProcessStep }
 
 export const services: Service[] = [
   {
