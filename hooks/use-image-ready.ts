@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback } from "react"
+import { useIntersection } from "./use-intersection"
 
 const FALLBACK_TIMEOUT = 3000
 
@@ -10,23 +11,9 @@ export function useImageReady(src: string, threshold = 0.15) {
   const [isInView, setIsInView] = useState(false)
   const [isImageReady, setIsImageReady] = useState(false)
 
-  // Track when the container enters the viewport
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true)
-          observer.disconnect()
-        }
-      },
-      { threshold }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [threshold])
+  // Use shared IntersectionObserver instead of per-instance observer
+  const handleIntersect = useCallback(() => setIsInView(true), [])
+  useIntersection(containerRef, handleIntersect, { threshold, once: true })
 
   // Track when the image is decoded and ready to paint
   useEffect(() => {

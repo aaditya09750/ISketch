@@ -30,7 +30,7 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
+    <section ref={sectionRef} className="cv-auto py-24 bg-background">
       <Container>
         <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-24 items-center">
           {/* Image with wipe reveal */}

@@ -407,7 +407,6 @@ html.lenis-scrolling .image-hover {
   background: var(--surface-dark);
   z-index: 20;
   transform: translateX(0);
-  will-change: transform;
 }
 
 .project-card-reveal.is-revealed {
@@ -415,7 +414,14 @@ html.lenis-scrolling .image-hover {
 }
 
 .project-card-reveal.is-revealed::before {
+  will-change: transform;
   animation: wipeSlide 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Free GPU memory after wipe animation completes */
+.project-card-reveal.is-revealed::after {
+  content: '';
+  will-change: auto;
 }
 
 @keyframes wipeSlide {

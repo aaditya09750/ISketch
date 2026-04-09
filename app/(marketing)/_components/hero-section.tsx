@@ -88,7 +88,7 @@ export function HeroSection() {
     return () => clearInterval(id);
   }, [isLoaded]);
 
-  // On mount: A plays first clip, B preloads second clip
+  // On mount: A plays first clip; B defers loading until A is halfway played
   useEffect(() => {
     const a = videoARef.current;
     const b = videoBRef.current;
@@ -97,9 +97,18 @@ export function HeroSection() {
       a.load();
       a.play().catch(() => {});
     }
-    if (b) {
-      b.src = HERO_VIDEOS[1];
-      b.load();
+    if (a && b) {
+      let preloaded = false;
+      const onTimeUpdate = () => {
+        if (!preloaded && a.duration && a.currentTime > a.duration * 0.5) {
+          preloaded = true;
+          b.src = HERO_VIDEOS[1];
+          b.load();
+          a.removeEventListener("timeupdate", onTimeUpdate);
+        }
+      };
+      a.addEventListener("timeupdate", onTimeUpdate);
+      return () => a.removeEventListener("timeupdate", onTimeUpdate);
     }
   }, []);
 

@@ -33,27 +33,36 @@ export function Header() {
     }
   }, [])
 
+  const rafRef = useRef<number | null>(null)
+
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY
-      const delta = currentY - lastScrollY.current
+      if (rafRef.current) return
+      rafRef.current = requestAnimationFrame(() => {
+        const currentY = window.scrollY
+        const delta = currentY - lastScrollY.current
 
-      setScrolled(currentY > 20)
+        setScrolled(currentY > 20)
 
-      // Don't hide when menu is open
-      if (!isMenuOpen) {
-        if (delta > scrollThreshold && currentY > 80) {
-          setHeaderVisible(false)
-        } else if (delta < -scrollThreshold || currentY < 80) {
-          setHeaderVisible(true)
+        // Don't hide when menu is open
+        if (!isMenuOpen) {
+          if (delta > scrollThreshold && currentY > 80) {
+            setHeaderVisible(false)
+          } else if (delta < -scrollThreshold || currentY < 80) {
+            setHeaderVisible(true)
+          }
         }
-      }
 
-      lastScrollY.current = currentY
+        lastScrollY.current = currentY
+        rafRef.current = null
+      })
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [isMenuOpen])
 
   useEffect(() => {

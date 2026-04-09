@@ -12,12 +12,12 @@ import './globals.css'
 
 const iowanOldStyle = localFont({
   src: [
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bt-586c36a8d7712.ttf', weight: '400', style: 'normal' },
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-italic-bt-586c3740dc396.ttf', weight: '400', style: 'italic' },
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-bt-586c371d8d669.ttf', weight: '700', style: 'normal' },
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-italic-bt-586c37701cb62.ttf', weight: '700', style: 'italic' },
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-bt-586c36e930225.ttf', weight: '900', style: 'normal' },
-    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-italic-bt-586c378f12ca1.ttf', weight: '900', style: 'italic' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bt-586c36a8d7712.woff2', weight: '400', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-italic-bt-586c3740dc396.woff2', weight: '400', style: 'italic' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-bt-586c371d8d669.woff2', weight: '700', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-bold-italic-bt-586c37701cb62.woff2', weight: '700', style: 'italic' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-bt-586c36e930225.woff2', weight: '900', style: 'normal' },
+    { path: '../public/fonts/iowanoldst-bt/bitstream-iowan-old-style-black-italic-bt-586c378f12ca1.woff2', weight: '900', style: 'italic' },
   ],
   variable: '--font-iowan',
   display: 'swap',
@@ -66,7 +66,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${iowanOldStyle.variable} ${montserrat.variable}`}>
-      <head />
+      <head>
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+      </head>
       <body className="font-sans antialiased">
         <SmoothScroll>
           <main className="min-h-screen bg-background">
