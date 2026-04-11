@@ -182,7 +182,7 @@ export function getProjectSchema(
     images: string[]
     location: string
     year: string
-    category: stringk
+    category: string
   },
   slug: string
 ) {
