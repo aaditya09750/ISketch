@@ -3,42 +3,111 @@ const BASE_URL = "https://isketch.in"
 export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "InteriorDesigner",
-    "@id": `${BASE_URL}/#organization`,
-    name: "I Sketch Interiors",
-    alternateName: "ISketch Interiors",
-    url: BASE_URL,
-    logo: `${BASE_URL}/icon.svg`,
-    image: `${BASE_URL}/images/hero.jpg`,
-    description:
-      "I Sketch Interiors is a luxury interior design studio based in Thane, Maharashtra, specialising in bespoke residential interiors across Mumbai, Pune, and internationally.",
-    telephone: ["+919967312203", "+919892515655"],
-    email: "studio@isketchinteriors.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "The Courtyard, Asteria A/604, Pokhran Road No. 2",
-      addressLocality: "Thane West",
-      addressRegion: "Maharashtra",
-      postalCode: "400601",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 19.2183,
-      longitude: 72.9781,
-    },
-    areaServed: [
-      { "@type": "City", name: "Mumbai" },
-      { "@type": "City", name: "Thane" },
-      { "@type": "City", name: "Pune" },
-    ],
-    priceRange: "$$$$",
-    knowsAbout: [
-      "Interior Design",
-      "Luxury Residential Interiors",
-      "Bespoke Joinery",
-      "Property Styling",
-      "Design Consultation",
+    "@graph": [
+      {
+        "@type": ["InteriorDesigner", "LocalBusiness"],
+        "@id": `${BASE_URL}/#organization`,
+        name: "I Sketch Interiors",
+        alternateName: ["ISketch Interiors", "ISketch", "I Sketch"],
+        legalName: "I Sketch Interiors",
+        url: BASE_URL,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${BASE_URL}/#logo`,
+          url: `${BASE_URL}/icon.svg`,
+          contentUrl: `${BASE_URL}/icon.svg`,
+          caption: "I Sketch Interiors",
+        },
+        image: {
+          "@type": "ImageObject",
+          url: `${BASE_URL}/images/hero.jpg`,
+          width: 1200,
+          height: 630,
+        },
+        slogan: "Creating Timeless Spaces",
+        description:
+          "I Sketch Interiors is a luxury interior design studio based in Thane, Maharashtra, specialising in bespoke residential interiors across Mumbai, Pune, and internationally. Over 20 years of experience and 125+ completed projects.",
+        foundingDate: "2000",
+        foundingLocation: {
+          "@type": "Place",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Thane",
+            addressRegion: "Maharashtra",
+            addressCountry: "IN",
+          },
+        },
+        telephone: ["+919967312203", "+919892515655"],
+        email: "studio@isketchinteriors.com",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "The Courtyard, Asteria A/604, Pokhran Road No. 2",
+          addressLocality: "Thane West",
+          addressRegion: "Maharashtra",
+          postalCode: "400601",
+          addressCountry: "IN",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 19.2183,
+          longitude: 72.9781,
+        },
+        areaServed: [
+          { "@type": "City", name: "Mumbai" },
+          { "@type": "City", name: "Thane" },
+          { "@type": "City", name: "Navi Mumbai" },
+          { "@type": "City", name: "Pune" },
+          { "@type": "State", name: "Maharashtra" },
+          { "@type": "Country", name: "India" },
+        ],
+        serviceArea: {
+          "@type": "GeoCircle",
+          geoMidpoint: {
+            "@type": "GeoCoordinates",
+            latitude: 19.2183,
+            longitude: 72.9781,
+          },
+          geoRadius: 150000,
+        },
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: "+91-99673-12203",
+            contactType: "customer service",
+            areaServed: ["IN"],
+            availableLanguage: ["English", "Hindi", "Marathi"],
+          },
+          {
+            "@type": "ContactPoint",
+            telephone: "+91-98925-15655",
+            contactType: "sales",
+            areaServed: ["IN"],
+            availableLanguage: ["English", "Hindi"],
+          },
+        ],
+        priceRange: "$$$$",
+        currenciesAccepted: "INR",
+        paymentAccepted: "Cash, Bank Transfer, UPI",
+        knowsAbout: [
+          "Interior Design",
+          "Luxury Residential Interiors",
+          "Bespoke Joinery",
+          "Custom Cabinetry",
+          "Property Styling",
+          "Design Consultation",
+          "Space Planning",
+          "Material Selection",
+          "Lighting Design",
+          "Furniture Design",
+        ],
+        knowsLanguage: ["en", "hi", "mr"],
+        makesOffer: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Full Interior Design" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Design Consultation" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Property Styling" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bespoke Joinery" } },
+        ],
+      },
     ],
   }
 }
@@ -81,10 +150,20 @@ export function getServiceSchema(service: {
     description: service.description,
     provider: { "@id": `${BASE_URL}/#organization` },
     serviceType: "Interior Design",
+    category: "Luxury Interior Design",
     areaServed: [
       { "@type": "City", name: "Mumbai" },
       { "@type": "City", name: "Thane" },
+      { "@type": "City", name: "Pune" },
     ],
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      priceRange: "$$$$",
+      availability: "https://schema.org/InStock",
+      url: `${BASE_URL}/services`,
+      seller: { "@id": `${BASE_URL}/#organization` },
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: `${service.title} Features`,
@@ -103,7 +182,7 @@ export function getProjectSchema(
     images: string[]
     location: string
     year: string
-    category: string
+    category: stringk
   },
   slug: string
 ) {

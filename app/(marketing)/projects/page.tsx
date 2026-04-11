@@ -1,12 +1,30 @@
 import { ProjectsContent } from "./_components/projects-content"
+import { StructuredData } from "@/components/shared/structured-data"
+import { getBreadcrumbSchema } from "@/lib/schema"
 
 export const metadata = {
-  title: "Projects",
-  description: "Explore our completed luxury interior design projects — from Belgravia townhouses to Dubai penthouses. 20+ years of crafting bespoke residential spaces.",
+  title: "Recent Interior Design Projects in Mumbai & Thane — I Sketch Interiors",
+  description:
+    "Browse recent luxury interior design projects by I Sketch Interiors across Thane, Mumbai, Pune, and internationally. Residential interiors, bespoke joinery, and property styling.",
   alternates: { canonical: "/projects" },
-  openGraph: { url: "/projects" },
+  openGraph: {
+    url: "/projects",
+    title: "Recent Interior Design Projects — I Sketch Interiors",
+    description:
+      "125+ completed luxury interior design projects across Thane, Mumbai, Pune, and internationally — residential interiors, bespoke joinery, and property styling.",
+  },
 }
 
 export default function ProjectsPage() {
-  return <ProjectsContent />
+  return (
+    <>
+      <StructuredData
+        data={getBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Projects", url: "/projects" },
+        ])}
+      />
+      <ProjectsContent />
+    </>
+  )
 }

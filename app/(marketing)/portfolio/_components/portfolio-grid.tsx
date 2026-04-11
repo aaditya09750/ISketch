@@ -1,10 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import dynamic from "next/dynamic"
 import { Container } from "@/components/shared/container"
 import { ProjectCard } from "@/components/shared/project-card"
-import { ImageLightbox } from "@/components/shared/image-lightbox"
 import type { ProjectSummary } from "@/data/projects"
+
+const ImageLightbox = dynamic(
+  () => import("@/components/shared/image-lightbox").then((m) => m.ImageLightbox),
+  { ssr: false },
+)
 
 interface PortfolioGridProps {
   projects: ProjectSummary[]
@@ -47,16 +52,18 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
         </Container>
       </section>
 
-      {/* Lightbox Modal */}
-      <ImageLightbox
-        src={lightbox?.src ?? ""}
-        alt={lightbox?.alt ?? ""}
-        title={lightbox?.title}
-        location={lightbox?.location}
-        category={lightbox?.category}
-        isOpen={!!lightbox}
-        onClose={() => setLightbox(null)}
-      />
+      {/* Lightbox Modal — chunk only loads once the user opens an image */}
+      {lightbox && (
+        <ImageLightbox
+          src={lightbox.src}
+          alt={lightbox.alt}
+          title={lightbox.title}
+          location={lightbox.location}
+          category={lightbox.category}
+          isOpen={true}
+          onClose={() => setLightbox(null)}
+        />
+      )}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -7,7 +7,6 @@ import { SmoothScroll } from '@/components/providers/smooth-scroll'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { StructuredData } from '@/components/shared/structured-data'
 import { getOrganizationSchema, getWebSiteSchema } from '@/lib/schema'
-// @ts-expect-error -- Next.js handles global CSS side-effect imports at build time
 import './globals.css'
 
 const iowanOldStyle = localFont({
@@ -32,10 +31,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL("https://isketch.in"),
   title: {
-    default: "I Sketch Interiors | Luxury Interior Design Studio in Mumbai",
+    default: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai",
     template: "%s | I Sketch Interiors",
   },
-  description: "I Sketch Interiors is a Thane-based luxury interior design studio specialising in bespoke residential interiors across Mumbai, Pune, and internationally.",
+  description:
+    "I Sketch Interiors is an award-winning luxury interior design studio in Thane and Mumbai. Bespoke residential interiors, custom joinery, and full-service design across Mumbai, Pune, and internationally. 20+ years, 125+ completed projects.",
   generator: 'Aaditya Gunjal',
   icons: {
     icon: { url: '/icon.svg', type: 'image/svg+xml' },
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "I Sketch Interiors",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "I Sketch Interiors — Luxury Interior Design" }],
+    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -59,6 +59,17 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#2a1810" },
+  ],
+  colorScheme: "light dark",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,7 +80,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <SmoothScroll>
           <main className="min-h-screen bg-background">
             <LayoutShell>

@@ -6,8 +6,9 @@ import { StructuredData } from "@/components/shared/structured-data"
 import { getBreadcrumbSchema } from "@/lib/schema"
 
 export const metadata = {
-  title: "Portfolio",
-  description: "Explore our portfolio of luxury interior design projects across Mumbai, Thane, and internationally — from contemporary apartments to country estates.",
+  title: "Luxury Interior Design Portfolio — Residential Projects in Mumbai, Thane & Beyond",
+  description:
+    "Explore the I Sketch Interiors portfolio — curated case studies of luxury residential interior design, bespoke joinery, and international projects from Mumbai townhouses to London residences.",
   alternates: { canonical: "/portfolio" },
   openGraph: { url: "/portfolio" },
 }

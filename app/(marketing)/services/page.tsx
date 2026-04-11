@@ -8,8 +8,9 @@ import { getBreadcrumbSchema, getServiceSchema } from "@/lib/schema"
 import { services } from "@/data/services"
 
 export const metadata = {
-  title: "Interior Design Services",
-  description: "Full interior design, consultation, property styling, and bespoke joinery services by I Sketch Interiors. From concept development to project management — 125+ projects delivered.",
+  title: "Interior Design Services in Thane & Mumbai — Full Design, Consultation, Joinery",
+  description:
+    "Luxury interior design services in Thane and Mumbai. Full interior design, expert consultation, property styling, and bespoke joinery. From concept through installation — 125+ projects delivered by I Sketch Interiors.",
   alternates: { canonical: "/services" },
   openGraph: { url: "/services" },
 }

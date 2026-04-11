@@ -23,18 +23,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: project.title,
+    title: `${project.title} — ${project.scope} in ${project.location}`,
     description: project.description,
     alternates: { canonical: `/portfolio/${slug}` },
     openGraph: {
-      title: `${project.title} — Interior Design Project`,
+      title: `${project.title} — Luxury Interior Design Project by I Sketch Interiors`,
       description: project.description,
       url: `/portfolio/${slug}`,
-      images: [{ url: project.images[0], width: 1200, height: 630, alt: `${project.title} by I Sketch Interiors` }],
+      images: [{ url: project.images[0], width: 1200, height: 630, alt: `${project.title} — ${project.scope} in ${project.location} by I Sketch Interiors` }],
       type: "article" as const,
     },
     twitter: {
-      title: project.title,
+      title: `${project.title} — Luxury Interior Design Project`,
       description: project.description,
       images: [project.images[0]],
     },

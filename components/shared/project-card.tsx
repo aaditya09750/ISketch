@@ -32,18 +32,16 @@ export function ProjectCard({
   const delay = `${300 + index * 250}ms`
   const alt = `${title} - ${location}`
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = () => {
     if (onImageClick) {
-      e.preventDefault()
       onImageClick(image, alt)
     }
   }
 
-  const Wrapper = onImageClick ? "div" : Link
-  const wrapperProps = onImageClick ? { onClick: handleClick } : { href }
+  const wrapperClassName = "group block cursor-pointer"
 
-  return (
-    <Wrapper className="group block cursor-pointer" {...wrapperProps}>
+  const inner = (
+    <>
       {/* Image with wipe reveal */}
       <div
         ref={containerRef}
@@ -104,6 +102,20 @@ export function ProjectCard({
           </>
         )}
       </div>
-    </Wrapper>
+    </>
+  )
+
+  if (onImageClick) {
+    return (
+      <div className={wrapperClassName} onClick={handleClick} role="button" tabIndex={0}>
+        {inner}
+      </div>
+    )
+  }
+
+  return (
+    <Link className={wrapperClassName} href={href}>
+      {inner}
+    </Link>
   )
 }

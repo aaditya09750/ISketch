@@ -22,6 +22,7 @@ export function NotFoundContent() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Services", href: "/services" },
     { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
     { label: "Contact", href: "/contact" },
   ]
 

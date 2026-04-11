@@ -9,8 +9,9 @@ import { StructuredData } from "@/components/shared/structured-data"
 import { getBreadcrumbSchema } from "@/lib/schema"
 
 export const metadata = {
-  title: "About",
-  description: "Discover I Sketch Interiors — a luxury interior design studio in Thane with 20+ years of experience crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
+  title: "About I Sketch Interiors — Luxury Interior Designers in Thane & Mumbai",
+  description:
+    "Meet I Sketch Interiors — a Thane-based luxury interior design studio with 20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally. 125+ completed projects.",
   alternates: { canonical: "/about" },
   openGraph: { url: "/about" },
 }

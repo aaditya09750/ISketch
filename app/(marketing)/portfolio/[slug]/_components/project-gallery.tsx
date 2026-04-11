@@ -1,12 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import { Container } from "@/components/shared/container"
-import { ImageLightbox } from "@/components/shared/image-lightbox"
 import IsketchLogo from "@/components/shared/isketch-logo"
 import { useImageReady } from "@/hooks/use-image-ready"
 import type { LightboxItem } from "@/components/shared/image-lightbox"
+
+const ImageLightbox = dynamic(
+  () => import("@/components/shared/image-lightbox").then((m) => m.ImageLightbox),
+  { ssr: false },
+)
 
 /* ------------------------------------------------------------------ */
 /*  Single gallery image with reveal, watermark, and hover overlay     */
@@ -127,14 +132,16 @@ export function ProjectGallery({
         </Container>
       </section>
 
-      {/* Lightbox */}
-      <ImageLightbox
-        gallery={lightboxGallery}
-        currentIndex={lightboxIndex ?? 0}
-        onNavigate={setLightboxIndex}
-        isOpen={lightboxIndex !== null}
-        onClose={() => setLightboxIndex(null)}
-      />
+      {/* Lightbox — chunk only loads once the user opens an image */}
+      {lightboxIndex !== null && (
+        <ImageLightbox
+          gallery={lightboxGallery}
+          currentIndex={lightboxIndex}
+          onNavigate={setLightboxIndex}
+          isOpen={lightboxIndex !== null}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </>
   )
 }

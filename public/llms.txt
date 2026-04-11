@@ -1,32 +1,52 @@
 # I Sketch Interiors
 
-> Luxury interior design studio based in Thane, Maharashtra, India. Specialising in bespoke residential interiors across Mumbai, Pune, and internationally.
+> Luxury interior design studio based in Thane, Maharashtra, India. Specialising in bespoke residential interiors across Mumbai, Pune, and internationally. Founded in 2000, over 20 years of experience, 125+ completed projects.
 
-## About
-- Founded: Est. 2000
+## Key facts
+
+- Brand name: I Sketch Interiors
+- Alternate names: ISketch Interiors, ISketch, I Sketch
+- Founded: 2000
 - Experience: 20+ years, 125+ completed projects
-- Services: Full Interior Design, Consultation, Property Styling, Bespoke Joinery
-- Location: The Courtyard, Asteria A/604, Pokhran Road No. 2, Thane West, Maharashtra, India
-- Contact: studio@isketchinteriors.com | +91 99673 12203
+- Studio: The Courtyard, Asteria A/604, Pokhran Road No. 2, Thane West, Maharashtra 400601, India
+- Phone: +91 99673 12203, +91 98925 15655
+- Email: studio@isketchinteriors.com
+- Website: https://isketch.in
+- Price range: Luxury / high-end ($$$$)
+- Languages: English, Hindi, Marathi
+
+## Service area
+
+- Primary: Thane, Mumbai, Navi Mumbai
+- Secondary: Pune, wider Maharashtra
+- International: projects across India and internationally on a selective basis
 
 ## Services
-- Full Interior Design: Comprehensive service from concept to installation including space planning, material selection, furniture design, and project management.
-- Consultation: Expert guidance on colour schemes, furniture layouts, lighting design, and material choices.
-- Property Styling: Transform properties for sale or rental with curated furnishings and accessories.
-- Bespoke Joinery: Custom-designed cabinetry, built-in storage, kitchen design, and statement pieces.
 
-## Featured Projects
-- Belgravia Townhouse, London — 6,500 sq ft Georgian townhouse renovation
-- Surrey Country Estate — 12,000 sq ft country estate redesign
-- Dubai Penthouse — 8,000 sq ft contemporary luxury penthouse
-- Chelsea Apartment, London — 2,200 sq ft pied-à-terre
-- Kensington Kitchen, London — 450 sq ft bespoke kitchen
-- Notting Hill Residence, London — 4,800 sq ft townhouse transformation
+- **Full Interior Design** — Comprehensive service from initial concept through to final installation. Includes space planning, material selection, custom furniture design, and coordination with contractors. Pricing: percentage-based on project scope.
+- **Consultation** — Expert guidance on specific areas of your interior: colour schemes, furniture layouts, lighting design, material choices. Pricing: hourly rate.
+- **Property Styling** — Staging solutions for pre-sale or rental properties. Curated furnishings and accessories to maximise appeal to buyers or tenants. Pricing: fixed fee.
+- **Bespoke Joinery** — Custom-designed cabinetry, built-in storage, kitchen cabinetry, bathroom vanities, and statement pieces. Made by master craftsmen. Pricing: per project quote.
+
+## Featured projects
+
+- **Belgravia Townhouse**, London — 6,500 sq ft Georgian townhouse renovation
+- **Surrey Country Estate** — 12,000 sq ft country estate redesign
+- **Dubai Penthouse** — 8,000 sq ft contemporary luxury penthouse
+- **Chelsea Apartment**, London — 2,200 sq ft pied-à-terre
+- **Kensington Kitchen**, London — 450 sq ft bespoke kitchen
+- **Notting Hill Residence**, London — 4,800 sq ft townhouse transformation
 
 ## Pages
+
 - [Home](https://isketch.in/)
 - [About](https://isketch.in/about)
 - [Services](https://isketch.in/services)
 - [Portfolio](https://isketch.in/portfolio)
 - [Projects](https://isketch.in/projects)
 - [Contact](https://isketch.in/contact)
+
+## Canonical resources
+
+- Sitemap: https://isketch.in/sitemap.xml
+- Robots: https://isketch.in/robots.txt
