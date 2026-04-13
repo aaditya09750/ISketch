@@ -1,7 +1,8 @@
+import type { Metadata } from "next"
 import { LegalPageLayout } from "../_components/legal-page-layout"
 import { privacyPolicySections } from "@/data/legal"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn how I Sketch Interiors collects, uses, and protects your personal information.",
   alternates: { canonical: "/privacy-policy" },

@@ -8,7 +8,7 @@ import IsketchLogo from "@/components/shared/isketch-logo"
 import { projectDetails } from "@/data/projects"
 import { CTASection } from "@/components/shared/cta-section"
 import { StructuredData } from "@/components/shared/structured-data"
-import { getBreadcrumbSchema, getProjectSchema } from "@/lib/schema"
+import { getBreadcrumbSchema, getProjectSchema, getWebPageSchema } from "@/lib/schema"
 
 export async function generateStaticParams() {
   return Object.keys(projectDetails).map((slug) => ({ slug }))
@@ -51,6 +51,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <StructuredData data={getWebPageSchema({
+        name: `${project.title} — ${project.scope} in ${project.location}`,
+        description: project.description,
+        url: `/portfolio/${slug}`,
+        type: "ItemPage",
+      })} />
       <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "Portfolio", url: "/portfolio" }, { name: project.title, url: `/portfolio/${slug}` }])} />
       <StructuredData data={getProjectSchema(project, slug)} />
       {/* Hero Image */}

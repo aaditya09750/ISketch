@@ -123,6 +123,25 @@ export function getWebSiteSchema() {
   }
 }
 
+export function getWebPageSchema(page: {
+  name: string
+  description: string
+  url: string
+  type?: "WebPage" | "AboutPage" | "ContactPage" | "CollectionPage" | "ItemPage"
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": page.type ?? "WebPage",
+    "@id": `${BASE_URL}${page.url}#webpage`,
+    name: page.name,
+    description: page.description,
+    url: `${BASE_URL}${page.url}`,
+    isPartOf: { "@id": `${BASE_URL}/#website` },
+    about: { "@id": `${BASE_URL}/#organization` },
+    inLanguage: "en",
+  }
+}
+
 export function getBreadcrumbSchema(
   items: { name: string; url: string }[]
 ) {
