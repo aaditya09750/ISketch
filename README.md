@@ -188,7 +188,7 @@ ISketch/
 ├── next.config.mjs                         # Image optimization, headers, caching
 ├── postcss.config.mjs                      # @tailwindcss/postcss plugin
 ├── components.json                         # shadcn/ui configuration
-├── CLAUDE.md                               # AI development context
+├── AGENTS.md                               # Agent-agnostic instructions for AI coding tools
 ├── .env.example                            # Environment variable documentation
 └── .gitignore                              # Git ignore rules
 ```
