@@ -576,7 +576,7 @@ calls on edge cases:
 ## 17. Contacts
 
 - **Developer:** aadigunjal0975@gmail.com
-- **Project owner email (Claude Code env):** team@metaminds.studio
+- **Project owner email:** aadigunjal0975@gmail.com
 - **WhatsApp:** +91 84335 09521
 - **Issues:** file in the repository tracker
 
