@@ -15,6 +15,14 @@ A production-grade, fully responsive luxury interior design studio portfolio bui
 
 ---
 
+## Documentation
+
+- [ARCHITECTURE.md](ARCHITECTURE.md) — system context, request flow, and static data model.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — local setup and contribution rules.
+- [SECURITY.md](SECURITY.md) — disclosure policy and supported surface.
+- [CHANGELOG.md](CHANGELOG.md) — tracked release notes.
+- [docs/API.md](docs/API.md) — route reference for the current static site.
+
 ## Core Features
 
 - **Cinematic Hero Section:** Double-buffered video switching with seamless crossfade between four hero videos, rotating tagline animation via Framer Motion AnimatePresence, and a staggered fade-in content reveal.
@@ -237,6 +245,8 @@ ISketch/
 pnpm build
 pnpm start
 ```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development checklist and repo conventions.
 
 ### Available Scripts
 
