@@ -6,7 +6,9 @@ Accepted
 
 ## Context
 
-ISketch is a luxury interior design marketing site. The existing repository already ships as a Next.js App Router site with static content modules, static assets, and SEO-first rendering. The business does not require live user accounts, editable CMS content, or transactional backend flows for the current scope.
+ISketch is a luxury interior design marketing site. The repository already ships as a Next.js App Router application with static content modules, static assets, and SEO-first rendering.
+
+The business does not require live user accounts, editable CMS content, transactional backend flows, or queue-driven processing for the current scope.
 
 ## Decision
 
@@ -25,6 +27,7 @@ Keep the application static and content-driven:
 - Small attack surface.
 - Straightforward deployment.
 - Type-safe content updates.
+- SEO metadata stays colocated with the rendered content.
 
 ### Negative
 
@@ -34,6 +37,6 @@ Keep the application static and content-driven:
 
 ### Follow-up Paths
 
-- If content editing becomes frequent, introduce a CMS adapter.
+- If content editing becomes frequent, introduce a CMS adapter behind `data/`.
 - If lead capture becomes necessary, add a small server-side form workflow.
-- If multi-language expansion becomes necessary, add locale-aware content modules.
+- If multilingual expansion becomes necessary, add locale-aware content modules.

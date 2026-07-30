@@ -1,7 +1,12 @@
 export { navigationLinks, footerLinks, socialLinks } from "./navigation"
 export type { NavLink } from "./navigation"
 
-export { featuredProjects, portfolioProjects, portfolioCategories, projectDetails } from "./projects"
+export {
+  featuredProjects,
+  portfolioProjects,
+  portfolioCategories,
+  projectDetails,
+} from "./projects"
 export type { ProjectSummary, ProjectDetail } from "./projects"
 
 export { studioContact, contactDetails } from "./contact"

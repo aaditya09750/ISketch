@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect, useCallback } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Container } from "@/components/shared/container"
 import { cn } from "@/lib/utils"
 import type { LegalSection } from "@/data/legal"
@@ -23,7 +23,7 @@ function MobileSection({
     <div
       className={cn(
         "border-b border-border/20 transition-all duration-700 ease-out",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
       )}
       style={{ transitionDelay: `${150 + index * 80}ms` }}
     >
@@ -40,7 +40,7 @@ function MobileSection({
             "shrink-0 w-8 h-8 rounded-full border border-border/30 flex items-center justify-center transition-all duration-400 ease-out",
             isOpen
               ? "bg-accent-decorative/10 border-accent-decorative/30 rotate-180"
-              : "group-hover:border-accent-decorative/40"
+              : "group-hover:border-accent-decorative/40",
           )}
         >
           <svg
@@ -64,16 +64,13 @@ function MobileSection({
       <div
         className={cn(
           "grid transition-all duration-500 ease-out",
-          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
         <div className="overflow-hidden">
           <div className="pb-6 sm:pb-8 space-y-4">
             {section.content.map((paragraph, i) => (
-              <p
-                key={i}
-                className="body-text text-sm text-muted-foreground leading-[1.85]"
-              >
+              <p key={i} className="body-text text-sm text-muted-foreground leading-[1.85]">
                 {paragraph}
               </p>
             ))}
@@ -87,13 +84,7 @@ function MobileSection({
 /* ------------------------------------------------------------------ */
 /*  Desktop section with scroll-triggered animation                    */
 /* ------------------------------------------------------------------ */
-function DesktopSection({
-  section,
-  index,
-}: {
-  section: LegalSection
-  index: number
-}) {
+function DesktopSection({ section, index }: { section: LegalSection; index: number }) {
   const ref = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -105,39 +96,33 @@ function DesktopSection({
           observer.disconnect()
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section
-      ref={ref}
-      id={section.id}
-      className="scroll-mt-32"
-    >
+    <section ref={ref} id={section.id} className="scroll-mt-32">
       {/* Section number + title */}
       <div
         className={cn(
           "flex items-center gap-4 mb-6 transition-all duration-700 ease-out",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
         )}
         style={{ transitionDelay: "100ms" }}
       >
         <span className="heading-display text-3xl lg:text-4xl text-accent-decorative/15 leading-none select-none">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <h2 className="heading-section text-xl lg:text-2xl text-foreground">
-          {section.title}
-        </h2>
+        <h2 className="heading-section text-xl lg:text-2xl text-foreground">{section.title}</h2>
       </div>
 
       {/* Decorative line */}
       <div
         className={cn(
           "h-px bg-accent-decorative/25 mb-6 transition-all duration-1000 ease-out",
-          isVisible ? "w-10 opacity-100" : "w-0 opacity-0"
+          isVisible ? "w-10 opacity-100" : "w-0 opacity-0",
         )}
         style={{ transitionDelay: "250ms" }}
       />
@@ -149,7 +134,7 @@ function DesktopSection({
             key={i}
             className={cn(
               "body-text text-[0.9375rem] text-muted-foreground leading-[1.85] transition-all duration-700 ease-out",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
             )}
             style={{ transitionDelay: `${350 + i * 100}ms` }}
           >
@@ -164,13 +149,7 @@ function DesktopSection({
 /* ------------------------------------------------------------------ */
 /*  Sticky Table of Contents (desktop sidebar)                         */
 /* ------------------------------------------------------------------ */
-function TableOfContents({
-  sections,
-  activeId,
-}: {
-  sections: LegalSection[]
-  activeId: string
-}) {
+function TableOfContents({ sections, activeId }: { sections: LegalSection[]; activeId: string }) {
   const handleClick = (id: string) => {
     const el = document.getElementById(id)
     if (el) {
@@ -183,7 +162,7 @@ function TableOfContents({
       <p className="label-uppercase text-[0.6rem] tracking-[0.22em] text-accent-decorative/50 mb-5">
         Contents
       </p>
-      {sections.map((section, i) => {
+      {sections.map((section) => {
         const isActive = activeId === section.id
         return (
           <button
@@ -191,7 +170,7 @@ function TableOfContents({
             type="button"
             onClick={() => handleClick(section.id)}
             className={cn(
-              "flex items-center gap-3 w-full text-left py-2 transition-all duration-300 cursor-pointer group"
+              "flex items-center gap-3 w-full text-left py-2 transition-all duration-300 cursor-pointer group",
             )}
           >
             <span
@@ -199,7 +178,7 @@ function TableOfContents({
                 "h-px transition-all duration-400 ease-out",
                 isActive
                   ? "w-5 bg-accent-decorative"
-                  : "w-2.5 bg-accent-decorative/20 group-hover:w-4 group-hover:bg-accent-decorative/40"
+                  : "w-2.5 bg-accent-decorative/20 group-hover:w-4 group-hover:bg-accent-decorative/40",
               )}
             />
             <span
@@ -207,7 +186,7 @@ function TableOfContents({
                 "font-sans text-[0.8rem] tracking-wide transition-colors duration-300",
                 isActive
                   ? "text-foreground"
-                  : "text-muted-foreground/50 group-hover:text-muted-foreground/80"
+                  : "text-muted-foreground/50 group-hover:text-muted-foreground/80",
               )}
             >
               {section.title}
@@ -248,7 +227,7 @@ export function LegalPageLayout({
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
     if (heroRef.current) observer.observe(heroRef.current)
     return () => observer.disconnect()
@@ -263,7 +242,7 @@ export function LegalPageLayout({
           observer.disconnect()
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.05 },
     )
     if (mobileRef.current) observer.observe(mobileRef.current)
     return () => observer.disconnect()
@@ -305,7 +284,7 @@ export function LegalPageLayout({
           <p
             className={cn(
               "label-uppercase text-accent mb-4 sm:mb-5 md:mb-6 transition-all duration-600 ease-out",
-              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
             style={{ transitionDelay: heroVisible ? "100ms" : "0ms" }}
           >
@@ -315,7 +294,7 @@ export function LegalPageLayout({
           <h1
             className={cn(
               "heading-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-foreground tracking-[0.08em] uppercase transition-all duration-700 ease-out",
-              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5",
             )}
             style={{ transitionDelay: heroVisible ? "250ms" : "0ms" }}
           >
@@ -325,7 +304,7 @@ export function LegalPageLayout({
           <div
             className={cn(
               "mx-auto h-px w-10 sm:w-12 md:w-14 bg-accent-decorative/40 mt-6 sm:mt-8 md:mt-10 transition-all duration-1000 ease-out",
-              heroVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+              heroVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0",
             )}
             style={{ transitionDelay: heroVisible ? "450ms" : "0ms" }}
           />
@@ -333,7 +312,7 @@ export function LegalPageLayout({
           <p
             className={cn(
               "font-sans text-xs sm:text-sm text-muted-foreground/50 tracking-wide mt-5 sm:mt-6 transition-all duration-700 ease-out",
-              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+              heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
             )}
             style={{ transitionDelay: heroVisible ? "600ms" : "0ms" }}
           >

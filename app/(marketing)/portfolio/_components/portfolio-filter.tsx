@@ -79,9 +79,7 @@ export function PortfolioFilter({ categories, onFilterChange }: PortfolioFilterP
                 onClick={() => handleClick(category)}
                 className={cn(
                   "px-4 sm:px-6 py-3.5 text-[0.6rem] sm:text-[0.65rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 select-none text-center whitespace-nowrap",
-                  isActive
-                    ? "text-foreground"
-                    : "text-muted-foreground/50"
+                  isActive ? "text-foreground" : "text-muted-foreground/50",
                 )}
               >
                 {category}
@@ -98,7 +96,7 @@ export function PortfolioFilter({ categories, onFilterChange }: PortfolioFilterP
               "absolute bottom-0 h-0.5 bg-foreground rounded-full",
               ready
                 ? "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                : "opacity-0"
+                : "opacity-0",
             )}
             style={{
               left: mobileIndicator.left,
@@ -120,7 +118,7 @@ export function PortfolioFilter({ categories, onFilterChange }: PortfolioFilterP
               "absolute top-1.5 bottom-1.5 rounded-full bg-foreground shadow-sm",
               ready
                 ? "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                : "opacity-0"
+                : "opacity-0",
             )}
             style={{
               left: desktopIndicator.left,
@@ -140,9 +138,7 @@ export function PortfolioFilter({ categories, onFilterChange }: PortfolioFilterP
                 onClick={() => handleClick(category)}
                 className={cn(
                   "relative z-10 whitespace-nowrap px-6 lg:px-8 py-2.5 rounded-full text-[0.6875rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 select-none",
-                  isActive
-                    ? "text-background"
-                    : "text-muted-foreground hover:text-foreground"
+                  isActive ? "text-background" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {category}

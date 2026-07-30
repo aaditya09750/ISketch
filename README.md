@@ -19,9 +19,12 @@ A production-grade, fully responsive luxury interior design studio portfolio bui
 
 - [ARCHITECTURE.md](ARCHITECTURE.md) — system context, request flow, and static data model.
 - [CONTRIBUTING.md](CONTRIBUTING.md) — local setup and contribution rules.
+- [CLAUDE.md](CLAUDE.md) — terse agent guide for repo conventions and file ownership.
 - [SECURITY.md](SECURITY.md) — disclosure policy and supported surface.
 - [CHANGELOG.md](CHANGELOG.md) — tracked release notes.
+- [docs/SETUP.md](docs/SETUP.md) — local setup and third-party service notes.
 - [docs/API.md](docs/API.md) — route reference for the current static site.
+- [docs/ADRs/0001-static-nextjs-architecture.md](docs/ADRs/0001-static-nextjs-architecture.md) — static architecture decision record.
 
 ## Core Features
 
@@ -50,39 +53,39 @@ A production-grade, fully responsive luxury interior design studio portfolio bui
 
 ### Core Framework & Runtime
 
-| Technology | Version | Purpose |
-| ---------- | ------- | ------- |
-| Next.js | 16.1.6 | App Router, SSR/SSG, Image Optimization, Metadata API |
-| React | 19.2.4 | UI Library with Server Components |
-| TypeScript | 5.7.3 | Type Safety (strict mode) |
-| Node.js | 22+ | Runtime |
+| Technology | Version | Purpose                                               |
+| ---------- | ------- | ----------------------------------------------------- |
+| Next.js    | 16.1.6  | App Router, SSR/SSG, Image Optimization, Metadata API |
+| React      | 19.2.4  | UI Library with Server Components                     |
+| TypeScript | 5.7.3   | Type Safety (strict mode)                             |
+| Node.js    | 22+     | Runtime                                               |
 
 ### Styling & Animation
 
-| Technology | Version | Purpose |
-| ---------- | ------- | ------- |
-| Tailwind CSS | 4.2.0 | Utility-first CSS (v4 engine with @tailwindcss/postcss) |
-| Framer Motion | 12.38.0 | Declarative animations, AnimatePresence, scroll-driven motion |
-| Lenis | 1.3.19 | Premium smooth scrolling with reduced-motion awareness |
-| tw-animate-css | 1.3.3 | Animation utility classes |
-| class-variance-authority | 0.7.1 | Component variant management |
-| clsx | 2.1.1 | Conditional class composition |
-| tailwind-merge | 3.3.1 | Intelligent Tailwind class merging |
+| Technology               | Version | Purpose                                                       |
+| ------------------------ | ------- | ------------------------------------------------------------- |
+| Tailwind CSS             | 4.2.0   | Utility-first CSS (v4 engine with @tailwindcss/postcss)       |
+| Framer Motion            | 12.38.0 | Declarative animations, AnimatePresence, scroll-driven motion |
+| Lenis                    | 1.3.19  | Premium smooth scrolling with reduced-motion awareness        |
+| tw-animate-css           | 1.3.3   | Animation utility classes                                     |
+| class-variance-authority | 0.7.1   | Component variant management                                  |
+| clsx                     | 2.1.1   | Conditional class composition                                 |
+| tailwind-merge           | 3.3.1   | Intelligent Tailwind class merging                            |
 
 ### UI Components & Icons
 
-| Technology | Version | Purpose |
-| ---------- | ------- | ------- |
-| shadcn/ui | Latest | Component system (new-york style, RSC enabled) |
-| Lucide React | 0.564.0 | Icon library |
-| Embla Carousel | 8.6.0 | Touch-friendly carousel for service images |
+| Technology     | Version | Purpose                                        |
+| -------------- | ------- | ---------------------------------------------- |
+| shadcn/ui      | Latest  | Component system (new-york style, RSC enabled) |
+| Lucide React   | 0.564.0 | Icon library                                   |
+| Embla Carousel | 8.6.0   | Touch-friendly carousel for service images     |
 
 ### Analytics & Monitoring
 
-| Technology | Version | Purpose |
-| ---------- | ------- | ------- |
-| @vercel/analytics | 1.6.1 | Page view analytics |
-| @vercel/speed-insights | 2.0.0 | Core Web Vitals monitoring |
+| Technology             | Version | Purpose                    |
+| ---------------------- | ------- | -------------------------- |
+| @vercel/analytics      | 1.6.1   | Page view analytics        |
+| @vercel/speed-insights | 2.0.0   | Core Web Vitals monitoring |
 
 ### Package Manager
 
@@ -250,42 +253,42 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development checklist and re
 
 ### Available Scripts
 
-| Script | Command | Purpose |
-| ------ | ------- | ------- |
-| `dev` | `pnpm dev` | Start development server with hot reload |
-| `build` | `pnpm build` | Create optimized production build |
-| `start` | `pnpm start` | Serve production build locally |
-| `lint` | `pnpm lint` | Run ESLint checks |
+| Script  | Command      | Purpose                                  |
+| ------- | ------------ | ---------------------------------------- |
+| `dev`   | `pnpm dev`   | Start development server with hot reload |
+| `build` | `pnpm build` | Create optimized production build        |
+| `start` | `pnpm start` | Serve production build locally           |
+| `lint`  | `pnpm lint`  | Run ESLint checks                        |
 
 ---
 
 ## Site Routes
 
-| Route | URL | Description |
-| ----- | --- | ----------- |
-| Home | `/` | Hero video, studio intro, featured projects, contact CTA |
-| About | `/about` | Studio story, team, design approach, core values |
-| Services | `/services` | 4 service offerings, design process, pricing framework |
-| Portfolio | `/portfolio` | 9-project filterable grid with lightbox gallery |
-| Project Detail | `/portfolio/[slug]` | Individual project page with challenge/solution narrative |
-| Projects | `/projects` | Cinematic parallax showcase + compact grid |
-| Contact | `/contact` | Address, phone, email, social links |
-| Privacy Policy | `/privacy-policy` | 8-section privacy policy |
-| Terms & Conditions | `/terms-conditions` | 10-section terms document |
+| Route              | URL                 | Description                                               |
+| ------------------ | ------------------- | --------------------------------------------------------- |
+| Home               | `/`                 | Hero video, studio intro, featured projects, contact CTA  |
+| About              | `/about`            | Studio story, team, design approach, core values          |
+| Services           | `/services`         | 4 service offerings, design process, pricing framework    |
+| Portfolio          | `/portfolio`        | 9-project filterable grid with lightbox gallery           |
+| Project Detail     | `/portfolio/[slug]` | Individual project page with challenge/solution narrative |
+| Projects           | `/projects`         | Cinematic parallax showcase + compact grid                |
+| Contact            | `/contact`          | Address, phone, email, social links                       |
+| Privacy Policy     | `/privacy-policy`   | 8-section privacy policy                                  |
+| Terms & Conditions | `/terms-conditions` | 10-section terms document                                 |
 
 **Dynamic Project Pages (SSG):**
 
-| Project | Slug | Location | Category |
-| ------- | ---- | -------- | -------- |
-| Belgravia Townhouse | `belgravia-townhouse` | London | Residential |
-| Surrey Country Estate | `surrey-country-estate` | Surrey | Residential |
-| Dubai Penthouse | `dubai-penthouse` | Dubai, UAE | International |
-| Chelsea Apartment | `chelsea-apartment` | London | Residential |
-| Kensington Kitchen | `kensington-kitchen` | London | Kitchen |
-| Notting Hill Residence | `notting-hill-dining` | London | Residential |
-| Monaco Cliffside Villa | `monaco-villa` | Monaco | International |
-| Mayfair Chef's Kitchen | `mayfair-kitchen` | London | Kitchen |
-| Singapore Sky Loft | `singapore-loft` | Singapore | International |
+| Project                | Slug                    | Location   | Category      |
+| ---------------------- | ----------------------- | ---------- | ------------- |
+| Belgravia Townhouse    | `belgravia-townhouse`   | London     | Residential   |
+| Surrey Country Estate  | `surrey-country-estate` | Surrey     | Residential   |
+| Dubai Penthouse        | `dubai-penthouse`       | Dubai, UAE | International |
+| Chelsea Apartment      | `chelsea-apartment`     | London     | Residential   |
+| Kensington Kitchen     | `kensington-kitchen`    | London     | Kitchen       |
+| Notting Hill Residence | `notting-hill-dining`   | London     | Residential   |
+| Monaco Cliffside Villa | `monaco-villa`          | Monaco     | International |
+| Mayfair Chef's Kitchen | `mayfair-kitchen`       | London     | Kitchen       |
+| Singapore Sky Loft     | `singapore-loft`        | Singapore  | International |
 
 ---
 
@@ -343,15 +346,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development checklist and re
 
 ## SEO & Structured Data
 
-| Schema Type | Location | Purpose |
-| ----------- | -------- | ------- |
-| InteriorDesigner | Root layout (all pages) | Local Pack, Knowledge Panel |
-| WebSite | Root layout (all pages) | Sitelinks |
-| BreadcrumbList | About, Services, Portfolio, Portfolio/[slug] | Breadcrumb rich results |
-| Service (×4) | Services page | Semantic service clarity |
-| CreativeWork (×6) | Portfolio/[slug] pages | Image search, semantic |
+| Schema Type       | Location                                     | Purpose                     |
+| ----------------- | -------------------------------------------- | --------------------------- |
+| InteriorDesigner  | Root layout (all pages)                      | Local Pack, Knowledge Panel |
+| WebSite           | Root layout (all pages)                      | Sitelinks                   |
+| BreadcrumbList    | About, Services, Portfolio, Portfolio/[slug] | Breadcrumb rich results     |
+| Service (×4)      | Services page                                | Semantic service clarity    |
+| CreativeWork (×6) | Portfolio/[slug] pages                       | Image search, semantic      |
 
 **Metadata Features:**
+
 - Canonical URLs on every page
 - Open Graph images (1200×630) with per-project images on portfolio detail pages
 - Twitter `summary_large_image` cards
@@ -376,12 +380,12 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full development checklist and re
 
 ### Caching Strategy
 
-| Asset Type | Cache Duration | Strategy |
-| ---------- | -------------- | -------- |
-| Images | 1 year | `immutable` — versioned by Next.js |
-| Videos | 1 year | `immutable` — static hero content |
-| Fonts | 1 year | `immutable` — WOFF2 with swap |
-| JS/CSS chunks | Hashed | Automatic cache busting by Next.js |
+| Asset Type    | Cache Duration | Strategy                           |
+| ------------- | -------------- | ---------------------------------- |
+| Images        | 1 year         | `immutable` — versioned by Next.js |
+| Videos        | 1 year         | `immutable` — static hero content  |
+| Fonts         | 1 year         | `immutable` — WOFF2 with swap      |
+| JS/CSS chunks | Hashed         | Automatic cache busting by Next.js |
 
 ### Optimization Techniques
 
@@ -449,7 +453,7 @@ Edit CSS custom properties in `app/globals.css`:
 /* from */
 --primary: oklch(0.28 0.08 30);
 /* to */
---primary: oklch(0.30 0.10 200);
+--primary: oklch(0.3 0.1 200);
 ```
 
 ### Add a New Service

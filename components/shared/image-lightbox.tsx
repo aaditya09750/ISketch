@@ -49,14 +49,21 @@ export function ImageLightbox({
   const [visible, setVisible] = useState(false)
   const [animating, setAnimating] = useState(false)
   const [loaded, setLoaded] = useState(false)
-  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(null)
+  const [, setSlideDirection] = useState<"left" | "right" | null>(null)
 
   // Resolve current item from gallery or legacy props
   const currentItem: LightboxItem | null = gallery
-    ? gallery[currentIndex] ?? null
+    ? (gallery[currentIndex] ?? null)
     : legacySrc
-    ? { src: legacySrc, alt: legacyAlt ?? "", title: legacyTitle ?? "", location: legacyLocation ?? "", category: legacyCategory, href: legacyHref }
-    : null
+      ? {
+          src: legacySrc,
+          alt: legacyAlt ?? "",
+          title: legacyTitle ?? "",
+          location: legacyLocation ?? "",
+          category: legacyCategory,
+          href: legacyHref,
+        }
+      : null
 
   const hasGallery = gallery && gallery.length > 1
   const canGoPrev = hasGallery && currentIndex > 0
@@ -157,32 +164,35 @@ export function ImageLightbox({
     swipeAxisRef.current = null
   }, [])
 
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (!touchStartRef.current) return
-    const touch = e.touches[0]
-    const dx = touch.clientX - touchStartRef.current.x
-    const dy = touch.clientY - touchStartRef.current.y
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent) => {
+      if (!touchStartRef.current) return
+      const touch = e.touches[0]
+      const dx = touch.clientX - touchStartRef.current.x
+      const dy = touch.clientY - touchStartRef.current.y
 
-    // Determine axis on first significant movement
-    if (!swipeAxisRef.current) {
-      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
-        swipeAxisRef.current = Math.abs(dx) > Math.abs(dy) ? "horizontal" : "vertical"
-      } else {
-        return
+      // Determine axis on first significant movement
+      if (!swipeAxisRef.current) {
+        if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
+          swipeAxisRef.current = Math.abs(dx) > Math.abs(dy) ? "horizontal" : "vertical"
+        } else {
+          return
+        }
       }
-    }
 
-    if (swipeAxisRef.current === "vertical" && dy > 0) {
-      swipeOffsetRef.current = dy
-      setSwipeOffset(dy)
-    } else if (swipeAxisRef.current === "horizontal" && hasGallery) {
-      // Limit horizontal swipe with resistance at edges
-      let clampedDx = dx
-      if (dx > 0 && !canGoPrev) clampedDx = dx * 0.2
-      if (dx < 0 && !canGoNext) clampedDx = dx * 0.2
-      setHorizontalSwipe(clampedDx)
-    }
-  }, [hasGallery, canGoPrev, canGoNext])
+      if (swipeAxisRef.current === "vertical" && dy > 0) {
+        swipeOffsetRef.current = dy
+        setSwipeOffset(dy)
+      } else if (swipeAxisRef.current === "horizontal" && hasGallery) {
+        // Limit horizontal swipe with resistance at edges
+        let clampedDx = dx
+        if (dx > 0 && !canGoPrev) clampedDx = dx * 0.2
+        if (dx < 0 && !canGoNext) clampedDx = dx * 0.2
+        setHorizontalSwipe(clampedDx)
+      }
+    },
+    [hasGallery, canGoPrev, canGoNext],
+  )
 
   const handleTouchEnd = useCallback(() => {
     if (!touchStartRef.current) return
@@ -219,7 +229,7 @@ export function ImageLightbox({
   if (!isOpen && !animating) return null
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center"
+      className="fixed inset-0 z-100 flex items-center justify-center"
       role="dialog"
       aria-modal="true"
       aria-label={currentItem?.alt ?? "Image lightbox"}
@@ -231,7 +241,7 @@ export function ImageLightbox({
       <div
         className={cn(
           "absolute inset-0 bg-foreground/90 backdrop-blur-md transition-opacity duration-350 ease-out",
-          visible ? "opacity-100" : "opacity-0"
+          visible ? "opacity-100" : "opacity-0",
         )}
         style={{ opacity: visible ? backdropOpacity : 0 }}
         onClick={handleClose}
@@ -245,7 +255,7 @@ export function ImageLightbox({
           "w-11 h-11 sm:w-11 sm:h-11 rounded-full",
           "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white",
           "active:scale-95 transition-all duration-300",
-          visible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+          visible ? "opacity-100 scale-100" : "opacity-0 scale-90",
         )}
         style={{ transitionDelay: visible ? "200ms" : "0ms" }}
         aria-label="Close lightbox"
@@ -258,7 +268,7 @@ export function ImageLightbox({
         <div
           className={cn(
             "absolute top-3.5 left-3 sm:top-5.5 sm:left-5 lg:top-7.5 lg:left-7 z-30 transition-all duration-300",
-            visible ? "opacity-100" : "opacity-0"
+            visible ? "opacity-100" : "opacity-0",
           )}
           style={{ transitionDelay: visible ? "250ms" : "0ms" }}
         >
@@ -280,7 +290,7 @@ export function ImageLightbox({
               "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white",
               "active:scale-95 transition-all duration-300",
               canGoPrev ? "opacity-100" : "opacity-0 pointer-events-none",
-              visible ? "scale-100" : "scale-90 opacity-0"
+              visible ? "scale-100" : "scale-90 opacity-0",
             )}
             style={{ transitionDelay: visible ? "300ms" : "0ms" }}
             aria-label="Previous image"
@@ -296,7 +306,7 @@ export function ImageLightbox({
               "bg-white/10 text-white/80 hover:bg-white/20 hover:text-white",
               "active:scale-95 transition-all duration-300",
               canGoNext ? "opacity-100" : "opacity-0 pointer-events-none",
-              visible ? "scale-100" : "scale-90 opacity-0"
+              visible ? "scale-100" : "scale-90 opacity-0",
             )}
             style={{ transitionDelay: visible ? "300ms" : "0ms" }}
             aria-label="Next image"
@@ -310,7 +320,7 @@ export function ImageLightbox({
       <div
         className={cn(
           "absolute top-2 left-1/2 -translate-x-1/2 z-20 w-8 h-1 rounded-full bg-white/30 sm:hidden transition-opacity duration-300",
-          visible ? "opacity-100" : "opacity-0"
+          visible ? "opacity-100" : "opacity-0",
         )}
         style={{ transitionDelay: visible ? "400ms" : "0ms" }}
       />
@@ -322,9 +332,7 @@ export function ImageLightbox({
           "relative z-10 flex flex-col items-center w-full px-4 sm:px-16 md:px-20 lg:px-24",
           "transition-all ease-out",
           swipeOffset > 0 || horizontalSwipe !== 0 ? "duration-0" : "duration-350",
-          visible
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-[0.97] translate-y-3"
+          visible ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-[0.97] translate-y-3",
         )}
         style={{
           transform: visible
@@ -337,13 +345,12 @@ export function ImageLightbox({
         <div className="relative inline-block">
           {/* Loading skeleton */}
           {!loaded && (
-            <div className="absolute inset-0 flex items-center justify-center min-h-[200px] min-w-[200px]">
+            <div className="absolute inset-0 flex items-center justify-center min-h-50 min-w-50">
               <div className="w-8 h-8 border-2 border-white/20 border-t-white/60 rounded-full animate-spin" />
             </div>
           )}
 
           {/* Main image */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={currentItem?.src ?? ""}
             alt={currentItem?.alt ?? ""}
@@ -355,7 +362,7 @@ export function ImageLightbox({
               "max-h-[55vh] sm:max-h-[65vh] md:max-h-[72vh] lg:max-h-[78vh]",
               "w-auto h-auto object-contain",
               "transition-opacity duration-500",
-              loaded ? "opacity-100" : "opacity-0"
+              loaded ? "opacity-100" : "opacity-0",
             )}
           />
 
@@ -363,7 +370,7 @@ export function ImageLightbox({
           <div
             className={cn(
               "absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-10 pointer-events-none transition-opacity duration-500",
-              loaded ? "opacity-100" : "opacity-0"
+              loaded ? "opacity-100" : "opacity-0",
             )}
             style={{ transitionDelay: loaded ? "200ms" : "0ms" }}
           >
@@ -376,7 +383,7 @@ export function ImageLightbox({
           <div
             className={cn(
               "mt-4 sm:mt-5 md:mt-6 text-center transition-all duration-500 w-full max-w-lg px-4",
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
             )}
             style={{ transitionDelay: visible ? "300ms" : "0ms" }}
           >
@@ -393,11 +400,14 @@ export function ImageLightbox({
                 className={cn(
                   "inline-flex items-center gap-1.5 mt-3 sm:mt-4",
                   "label-uppercase text-[9px] sm:text-[10px] tracking-[0.2em] text-white/50 hover:text-white/90",
-                  "transition-all duration-300 group/link"
+                  "transition-all duration-300 group/link",
                 )}
               >
                 View Project
-                <ArrowRight size={12} className="transition-transform duration-300 group-hover/link:translate-x-0.5" />
+                <ArrowRight
+                  size={12}
+                  className="transition-transform duration-300 group-hover/link:translate-x-0.5"
+                />
               </Link>
             )}
           </div>
@@ -408,7 +418,7 @@ export function ImageLightbox({
           <div
             className={cn(
               "flex items-center justify-center gap-1.5 mt-4 sm:mt-5 transition-all duration-500",
-              visible ? "opacity-100" : "opacity-0"
+              visible ? "opacity-100" : "opacity-0",
             )}
             style={{ transitionDelay: visible ? "400ms" : "0ms" }}
           >
@@ -427,7 +437,7 @@ export function ImageLightbox({
                   "rounded-full transition-all duration-300",
                   i === currentIndex
                     ? "w-2 h-2 bg-white/80"
-                    : "w-1.5 h-1.5 bg-white/30 hover:bg-white/50"
+                    : "w-1.5 h-1.5 bg-white/30 hover:bg-white/50",
                 )}
                 aria-label={`Go to image ${i + 1}`}
               />

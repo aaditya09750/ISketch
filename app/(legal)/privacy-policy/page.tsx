@@ -4,7 +4,8 @@ import { privacyPolicySections } from "@/data/legal"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Learn how I Sketch Interiors collects, uses, and protects your personal information.",
+  description:
+    "Learn how I Sketch Interiors collects, uses, and protects your personal information.",
   alternates: { canonical: "/privacy-policy" },
   robots: { index: false, follow: true },
 }

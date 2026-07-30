@@ -17,7 +17,7 @@ export function LatestProjectSection() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
@@ -25,13 +25,9 @@ export function LatestProjectSection() {
   }, [])
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full overflow-hidden group cursor-pointer"
-    >
+    <section ref={sectionRef} className="relative w-full overflow-hidden group cursor-pointer">
       {/* Responsive height with comfortable touch targets on mobile */}
       <div className="relative h-[45vh] min-h-[280px] sm:h-[50vh] sm:min-h-[340px] md:h-[60vh] lg:h-[70vh] lg:min-h-[480px]">
-
         {/* Background image */}
         <Image
           src="/images/p2.jpg"
@@ -69,7 +65,6 @@ export function LatestProjectSection() {
         {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
           <div className="text-center px-6 sm:px-8">
-
             {/* Text with lines */}
             <div
               className={`transition-all duration-[900ms] ease-out ${
@@ -95,10 +90,8 @@ export function LatestProjectSection() {
                 <span className="w-6 sm:w-8 lg:w-10 h-px bg-white/40 transition-all duration-500 group-hover:w-10 sm:group-hover:w-12 lg:group-hover:w-16 group-hover:bg-white/80" />
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   )

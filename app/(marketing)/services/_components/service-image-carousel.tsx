@@ -55,15 +55,11 @@ export function ServiceImageCarousel({ images, alt }: ServiceImageCarouselProps)
     >
       {/* Aspect ratio container */}
       <div className="relative aspect-[4/5] lg:aspect-square w-full overflow-hidden bg-surface-warm">
-
         {/* Embla viewport — absolute fill so it inherits concrete pixel dimensions */}
         <div ref={emblaRef} className="absolute inset-0 overflow-hidden">
           <div className="flex h-full touch-pan-y">
             {images.map((src, i) => (
-              <div
-                key={`${src}-${i}`}
-                className="flex-[0_0_100%] min-w-0 h-full"
-              >
+              <div key={`${src}-${i}`} className="flex-[0_0_100%] min-w-0 h-full">
                 {/* Native img — avoids Next.js Image fill sizing issues inside flex */}
                 <img
                   src={src}
@@ -128,7 +124,6 @@ export function ServiceImageCarousel({ images, alt }: ServiceImageCarouselProps)
             />
           ))}
         </div>
-
       </div>
     </div>
   )

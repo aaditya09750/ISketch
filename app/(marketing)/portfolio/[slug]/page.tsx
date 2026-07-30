@@ -30,7 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${project.title} — Luxury Interior Design Project by I Sketch Interiors`,
       description: project.description,
       url: `/portfolio/${slug}`,
-      images: [{ url: project.images[0], width: 1200, height: 630, alt: `${project.title} — ${project.scope} in ${project.location} by I Sketch Interiors` }],
+      images: [
+        {
+          url: project.images[0],
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — ${project.scope} in ${project.location} by I Sketch Interiors`,
+        },
+      ],
       type: "article" as const,
     },
     twitter: {
@@ -51,13 +58,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <StructuredData data={getWebPageSchema({
-        name: `${project.title} — ${project.scope} in ${project.location}`,
-        description: project.description,
-        url: `/portfolio/${slug}`,
-        type: "ItemPage",
-      })} />
-      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "Portfolio", url: "/portfolio" }, { name: project.title, url: `/portfolio/${slug}` }])} />
+      <StructuredData
+        data={getWebPageSchema({
+          name: `${project.title} — ${project.scope} in ${project.location}`,
+          description: project.description,
+          url: `/portfolio/${slug}`,
+          type: "ItemPage",
+        })}
+      />
+      <StructuredData
+        data={getBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Portfolio", url: "/portfolio" },
+          { name: project.title, url: `/portfolio/${slug}` },
+        ])}
+      />
       <StructuredData data={getProjectSchema(project, slug)} />
       {/* Hero Image */}
       <section className="relative h-[70vh] lg:h-[87vh] mt-16 md:mt-20 lg:mt-24 bg-surface-dark">
@@ -93,7 +108,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <section className="py-20 lg:py-32">
         <Container>
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12">
-
             {/* Left — Sticky details sidebar */}
             <div className="lg:col-span-4 xl:col-span-3">
               <div className="lg:sticky lg:top-32 space-y-0">
@@ -163,7 +177,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </div>
               </div>
             </div>
-
           </div>
         </Container>
       </section>
@@ -185,7 +198,6 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
             {/* Nav cards — compact horizontal on mobile, tall cards on md+ */}
             <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-6 lg:gap-8 pb-16 sm:pb-20 lg:pb-28">
-
               {/* Previous */}
               <Link
                 href={`/portfolio/${project.prevProject.slug}`}
@@ -206,7 +218,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <IsketchLogo className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/70 drop-shadow-md" />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
-                    <span className="label-uppercase text-[10px] sm:text-[11px] tracking-[0.25em] text-white/90">View Project</span>
+                    <span className="label-uppercase text-[10px] sm:text-[11px] tracking-[0.25em] text-white/90">
+                      View Project
+                    </span>
                   </div>
                 </div>
 
@@ -246,7 +260,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                     <IsketchLogo className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white/70 drop-shadow-md" />
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden md:flex">
-                    <span className="label-uppercase text-[10px] sm:text-[11px] tracking-[0.25em] text-white/90">View Project</span>
+                    <span className="label-uppercase text-[10px] sm:text-[11px] tracking-[0.25em] text-white/90">
+                      View Project
+                    </span>
                   </div>
                 </div>
 
@@ -265,11 +281,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   </div>
                 </div>
               </Link>
-
             </div>
           </Container>
         </div>
-
       </section>
 
       {/* CTA */}

@@ -5,7 +5,7 @@ import { Container } from "@/components/shared/container"
 import { ServiceImageCarousel } from "./service-image-carousel"
 import { services } from "@/data/services"
 
-function ServiceItem({ service, index }: { service: typeof services[number]; index: number }) {
+function ServiceItem({ service, index }: { service: (typeof services)[number]; index: number }) {
   const itemRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -17,7 +17,7 @@ function ServiceItem({ service, index }: { service: typeof services[number]; ind
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (itemRef.current) observer.observe(itemRef.current)
@@ -27,10 +27,7 @@ function ServiceItem({ service, index }: { service: typeof services[number]; ind
   const isReversed = index % 2 === 1
 
   return (
-    <div
-      ref={itemRef}
-      className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start"
-    >
+    <div ref={itemRef} className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
       {/* Content */}
       <div className={isReversed ? "lg:order-2" : ""}>
         <span
@@ -77,9 +74,7 @@ function ServiceItem({ service, index }: { service: typeof services[number]; ind
               style={{ transitionDelay: `${600 + i * 80}ms` }}
             >
               <span className="w-8 h-px bg-accent-decorative/50" />
-              <span className="body-text text-sm text-foreground/80 tracking-wide">
-                {feature}
-              </span>
+              <span className="body-text text-sm text-foreground/80 tracking-wide">{feature}</span>
             </li>
           ))}
         </ul>
@@ -107,11 +102,7 @@ export function ServicesDetailSection() {
       <Container>
         <div className="space-y-24 lg:space-y-36">
           {services.map((service, index) => (
-            <ServiceItem
-              key={service.number}
-              service={service}
-              index={index}
-            />
+            <ServiceItem key={service.number} service={service} index={index} />
           ))}
         </div>
       </Container>

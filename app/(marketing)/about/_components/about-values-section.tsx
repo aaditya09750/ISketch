@@ -15,7 +15,7 @@ export function AboutValuesSection() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
@@ -25,7 +25,6 @@ export function AboutValuesSection() {
   return (
     <section ref={sectionRef} className="py-15 lg:py-25 bg-surface-warm">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-
         {/* Section header */}
         <div className="text-center mb-16 lg:mb-20">
           <p
@@ -74,7 +73,6 @@ export function AboutValuesSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

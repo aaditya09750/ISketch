@@ -142,9 +142,7 @@ export function getWebPageSchema(page: {
   }
 }
 
-export function getBreadcrumbSchema(
-  items: { name: string; url: string }[]
-) {
+export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -203,7 +201,7 @@ export function getProjectSchema(
     year: string
     category: string
   },
-  slug: string
+  slug: string,
 ) {
   return {
     "@context": "https://schema.org",
@@ -211,9 +209,7 @@ export function getProjectSchema(
     name: project.title,
     description: project.description,
     url: `${BASE_URL}/portfolio/${slug}`,
-    image: project.images.map((img) =>
-      img.startsWith("http") ? img : `${BASE_URL}${img}`
-    ),
+    image: project.images.map((img) => (img.startsWith("http") ? img : `${BASE_URL}${img}`)),
     dateCreated: project.year,
     locationCreated: { "@type": "Place", name: project.location },
     creator: { "@id": `${BASE_URL}/#organization` },

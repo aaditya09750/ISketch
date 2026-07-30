@@ -72,7 +72,7 @@ function FeaturedProject({
         const rect = el.getBoundingClientRect()
         const vh = window.innerHeight
         /* progress: 0 when section enters bottom, 1 when it leaves top */
-        const progress = 1 - (rect.bottom / (vh + rect.height))
+        const progress = 1 - rect.bottom / (vh + rect.height)
         /* translate image by ±80px based on scroll position */
         const offset = (progress - 0.5) * 160
         img.style.transform = `translate3d(0, ${offset}px, 0) scale(1.25)`
@@ -121,7 +121,10 @@ function FeaturedProject({
 
         {/* Scroll hint — first card only */}
         {index === 0 && (
-          <div className="absolute top-6 sm:top-8 lg:top-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 pointer-events-none animate-fade-up" style={{ animationDelay: "0.8s" }}>
+          <div
+            className="absolute top-6 sm:top-8 lg:top-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 pointer-events-none animate-fade-up"
+            style={{ animationDelay: "0.8s" }}
+          >
             <span className="label-uppercase select-none text-[6px] tracking-[0.3em] text-white/50">
               Scroll
             </span>
@@ -136,9 +139,7 @@ function FeaturedProject({
               {/* Number */}
               <span
                 className={`heading-display text-5xl sm:text-6xl lg:text-7xl text-white/[0.08] leading-none select-none block mb-3 sm:mb-4 transition-all duration-[900ms] ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${100 + index * 100}ms` }}
               >
@@ -148,9 +149,7 @@ function FeaturedProject({
               {/* Category + Year */}
               <div
                 className={`flex items-center gap-3 mb-3 sm:mb-4 transition-all duration-[900ms] ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: `${200 + index * 100}ms` }}
               >
@@ -166,9 +165,7 @@ function FeaturedProject({
               {/* Title */}
               <h2
                 className={`heading-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] text-white leading-tight mb-2 sm:mb-3 transition-all duration-[900ms] ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-5"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
                 style={{ transitionDelay: `${300 + index * 100}ms` }}
               >
@@ -178,9 +175,7 @@ function FeaturedProject({
               {/* Location */}
               <p
                 className={`label-uppercase text-[0.55rem] sm:text-[0.6rem] tracking-[0.2em] text-white/45 mb-5 sm:mb-6 transition-all duration-[900ms] ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
@@ -191,9 +186,7 @@ function FeaturedProject({
               <Link
                 href={project.href}
                 className={`group/btn inline-flex items-center gap-2.5 relative z-10 label-uppercase text-[0.6rem] sm:text-[0.65rem] tracking-[0.2em] px-7 sm:px-9 py-3.5 sm:py-4 border border-white/25 text-white/70 hover:bg-white hover:text-foreground hover:border-white transition-all duration-150 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: `${500 + index * 100}ms` }}
               >
@@ -205,11 +198,7 @@ function FeaturedProject({
                   stroke="currentColor"
                   strokeWidth={1.5}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
             </div>
@@ -225,13 +214,11 @@ function FeaturedProject({
 /* ------------------------------------------------------------------ */
 export function ProjectsContent() {
   const gridRef = useRef<HTMLDivElement>(null)
-  const [gridVisible, setGridVisible] = useState(false)
 
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          setGridVisible(true)
           obs.disconnect()
         }
       },

@@ -14,13 +14,22 @@ export const metadata: Metadata = {
   openGraph: {
     url: "/portfolio",
     title: "Luxury Interior Design Portfolio — I Sketch Interiors",
-    description: "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
-    images: [{ url: "/images/project-1.jpg", width: 1200, height: 630, alt: "I Sketch Interiors — Luxury Interior Design Portfolio" }],
+    description:
+      "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
+    images: [
+      {
+        url: "/images/project-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "I Sketch Interiors — Luxury Interior Design Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Luxury Interior Design Portfolio — I Sketch Interiors",
-    description: "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
+    description:
+      "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
     images: ["/images/project-1.jpg"],
   },
 }
@@ -28,13 +37,21 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <StructuredData data={getWebPageSchema({
-        name: "Luxury Interior Design Portfolio — I Sketch Interiors",
-        description: "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
-        url: "/portfolio",
-        type: "CollectionPage",
-      })} />
-      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "Portfolio", url: "/portfolio" }])} />
+      <StructuredData
+        data={getWebPageSchema({
+          name: "Luxury Interior Design Portfolio — I Sketch Interiors",
+          description:
+            "Curated case studies of luxury residential interior design, bespoke joinery, and international projects.",
+          url: "/portfolio",
+          type: "CollectionPage",
+        })}
+      />
+      <StructuredData
+        data={getBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "Portfolio", url: "/portfolio" },
+        ])}
+      />
       <PageHeading
         label="Our Work"
         title="Portfolio"

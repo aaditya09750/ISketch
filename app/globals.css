@@ -1,94 +1,95 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #3D211A;
-  --card: #FAF8EE;
-  --card-foreground: #3D211A;
-  --popover: #FAF8EE;
-  --popover-foreground: #3D211A;
-  --primary: #3D211A;
-  --primary-foreground: #F5F5DC;
-  --secondary: #EDE8D0;
-  --secondary-foreground: #3D211A;
-  --muted: #E0D9C4;
-  --muted-foreground: #6F4D38;
-  --accent: #6F4D38;
-  --accent-foreground: #F5F5DC;
+  --background: #ffffff;
+  --foreground: #3d211a;
+  --card: #faf8ee;
+  --card-foreground: #3d211a;
+  --popover: #faf8ee;
+  --popover-foreground: #3d211a;
+  --primary: #3d211a;
+  --primary-foreground: #f5f5dc;
+  --secondary: #ede8d0;
+  --secondary-foreground: #3d211a;
+  --muted: #e0d9c4;
+  --muted-foreground: #6f4d38;
+  --accent: #6f4d38;
+  --accent-foreground: #f5f5dc;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #CBB799;
-  --input: #CBB799;
-  --ring: #A07856;
+  --border: #cbb799;
+  --input: #cbb799;
+  --ring: #a07856;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0;
-  --surface-dark: #F2EFE9;
-  --surface-dark-foreground: #413C38;
-  --accent-decorative: #A07856;
-  --accent-light: #CBB799;
-  --surface-warm: #F8F5F0;
-  --sidebar: #F2F0DA;
-  --sidebar-foreground: #3D211A;
-  --sidebar-primary: #3D211A;
-  --sidebar-primary-foreground: #F5F5DC;
-  --sidebar-accent: #EDE8D0;
-  --sidebar-accent-foreground: #3D211A;
-  --sidebar-border: #CBB799;
-  --sidebar-ring: #A07856;
+  --surface-dark: #f2efe9;
+  --surface-dark-foreground: #413c38;
+  --accent-decorative: #a07856;
+  --accent-light: #cbb799;
+  --surface-warm: #f8f5f0;
+  --sidebar: #f2f0da;
+  --sidebar-foreground: #3d211a;
+  --sidebar-primary: #3d211a;
+  --sidebar-primary-foreground: #f5f5dc;
+  --sidebar-accent: #ede8d0;
+  --sidebar-accent-foreground: #3d211a;
+  --sidebar-border: #cbb799;
+  --sidebar-ring: #a07856;
 }
 
 .dark {
-  --background: #2A1810;
-  --foreground: #F5F5DC;
-  --card: #3D211A;
-  --card-foreground: #F5F5DC;
-  --popover: #3D211A;
-  --popover-foreground: #F5F5DC;
-  --primary: #F5F5DC;
-  --primary-foreground: #2A1810;
-  --secondary: #3D211A;
-  --secondary-foreground: #F5F5DC;
-  --muted: #3D211A;
-  --muted-foreground: #CBB799;
-  --accent: #CBB799;
-  --accent-foreground: #3D211A;
+  --background: #2a1810;
+  --foreground: #f5f5dc;
+  --card: #3d211a;
+  --card-foreground: #f5f5dc;
+  --popover: #3d211a;
+  --popover-foreground: #f5f5dc;
+  --primary: #f5f5dc;
+  --primary-foreground: #2a1810;
+  --secondary: #3d211a;
+  --secondary-foreground: #f5f5dc;
+  --muted: #3d211a;
+  --muted-foreground: #cbb799;
+  --accent: #cbb799;
+  --accent-foreground: #3d211a;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: #6F4D38;
-  --input: #6F4D38;
-  --ring: #CBB799;
+  --border: #6f4d38;
+  --input: #6f4d38;
+  --ring: #cbb799;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --surface-dark: #1E0F0A;
-  --surface-dark-foreground: #F5F5DC;
-  --accent-decorative: #A07856;
-  --accent-light: #A07856;
+  --surface-dark: #1e0f0a;
+  --surface-dark-foreground: #f5f5dc;
+  --accent-decorative: #a07856;
+  --accent-light: #a07856;
   --surface-warm: #312018;
-  --sidebar: #2A1810;
-  --sidebar-foreground: #F5F5DC;
-  --sidebar-primary: #F5F5DC;
-  --sidebar-primary-foreground: #2A1810;
-  --sidebar-accent: #3D211A;
-  --sidebar-accent-foreground: #F5F5DC;
-  --sidebar-border: #6F4D38;
-  --sidebar-ring: #CBB799;
+  --sidebar: #2a1810;
+  --sidebar-foreground: #f5f5dc;
+  --sidebar-primary: #f5f5dc;
+  --sidebar-primary-foreground: #2a1810;
+  --sidebar-accent: #3d211a;
+  --sidebar-accent-foreground: #f5f5dc;
+  --sidebar-border: #6f4d38;
+  --sidebar-ring: #cbb799;
 }
 
-
 @theme inline {
-  --font-sans: var(--font-sans), 'Montserrat', system-ui, sans-serif;
-  --font-serif: var(--font-iowan), 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: var(--font-sans), "Montserrat", system-ui, sans-serif;
+  --font-serif:
+    var(--font-iowan), "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia,
+    serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -137,7 +138,8 @@
     @apply border-border outline-ring/50;
   }
 
-  html.lenis, html.lenis body {
+  html.lenis,
+  html.lenis body {
     height: auto;
   }
   .lenis.lenis-smooth {
@@ -153,7 +155,9 @@
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -262,7 +266,7 @@
 
 .body-text2 {
   font-family: var(--font-sans);
-  font-size: 0.750rem;
+  font-size: 0.75rem;
   font-weight: 400;
   line-height: 1.75;
   letter-spacing: 0.01em;
@@ -291,15 +295,21 @@ html.lenis-scrolling .image-hover {
 
 /* Earthy depth shadows */
 .shadow-earthy-sm {
-  box-shadow: 0 1px 3px rgba(61, 33, 26, 0.08), 0 1px 2px rgba(61, 33, 26, 0.06);
+  box-shadow:
+    0 1px 3px rgba(61, 33, 26, 0.08),
+    0 1px 2px rgba(61, 33, 26, 0.06);
 }
 
 .shadow-earthy-md {
-  box-shadow: 0 4px 12px rgba(61, 33, 26, 0.1), 0 2px 4px rgba(61, 33, 26, 0.06);
+  box-shadow:
+    0 4px 12px rgba(61, 33, 26, 0.1),
+    0 2px 4px rgba(61, 33, 26, 0.06);
 }
 
 .shadow-earthy-lg {
-  box-shadow: 0 10px 30px rgba(61, 33, 26, 0.12), 0 4px 10px rgba(61, 33, 26, 0.08);
+  box-shadow:
+    0 10px 30px rgba(61, 33, 26, 0.12),
+    0 4px 10px rgba(61, 33, 26, 0.08);
 }
 
 /* Marquee animation */
@@ -335,7 +345,7 @@ html.lenis-scrolling .image-hover {
 }
 
 .featured-publication::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 50%;
@@ -343,7 +353,9 @@ html.lenis-scrolling .image-hover {
   height: 1px;
   background: var(--accent-decorative);
   opacity: 0.4;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .featured-publication:hover::after {
@@ -363,7 +375,8 @@ html.lenis-scrolling .image-hover {
 
 /* Hero scroll indicator gentle bounce */
 @keyframes gentleBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
     opacity: 0.3;
   }
@@ -401,7 +414,7 @@ html.lenis-scrolling .image-hover {
 }
 
 .project-card-reveal::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--surface-dark);
@@ -420,7 +433,7 @@ html.lenis-scrolling .image-hover {
 
 /* Free GPU memory after wipe animation completes */
 .project-card-reveal.is-revealed::after {
-  content: '';
+  content: "";
   will-change: auto;
 }
 
@@ -472,7 +485,7 @@ html.lenis-scrolling .image-hover {
 }
 
 .footer-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -493,7 +506,7 @@ html.lenis-scrolling .image-hover {
 }
 
 .link-underline::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -551,7 +564,9 @@ html.lenis-scrolling .image-hover {
     position: absolute;
     transform: translateY(-50%);
     transform-origin: center;
-    transition: background 0.3s linear, width 0.3s linear;
+    transition:
+      background 0.3s linear,
+      width 0.3s linear;
   }
 
   .fancy-button__text {
@@ -570,7 +585,9 @@ html.lenis-scrolling .image-hover {
     left: 0.625rem;
     position: absolute;
     background: var(--background);
-    transition: width 0.5s ease-out, left 0.3s ease-out;
+    transition:
+      width 0.5s ease-out,
+      left 0.3s ease-out;
   }
 
   .fancy-button__bottom-key-1 {
@@ -580,7 +597,9 @@ html.lenis-scrolling .image-hover {
     bottom: -2px;
     position: absolute;
     background: var(--background);
-    transition: width 0.5s ease-out, right 0.3s ease-out;
+    transition:
+      width 0.5s ease-out,
+      right 0.3s ease-out;
   }
 
   .fancy-button__bottom-key-2 {
@@ -590,7 +609,9 @@ html.lenis-scrolling .image-hover {
     bottom: -2px;
     position: absolute;
     background: var(--background);
-    transition: width 0.5s ease-out, right 0.3s ease-out;
+    transition:
+      width 0.5s ease-out,
+      right 0.3s ease-out;
   }
 
   .fancy-button:hover {

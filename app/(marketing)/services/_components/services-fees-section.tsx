@@ -84,9 +84,7 @@ function FeeRow({
 
         {/* Description column */}
         <div className="lg:col-span-5 xl:col-span-5 xl:col-start-5 lg:pt-3">
-          <p className="body-text text-muted-foreground leading-[1.85]">
-            {item.detail}
-          </p>
+          <p className="body-text text-muted-foreground leading-[1.85]">{item.detail}</p>
         </div>
 
         {/* Includes column */}
@@ -99,9 +97,7 @@ function FeeRow({
               <li
                 key={feature}
                 className={`flex items-center gap-3 transition-all duration-[700ms] ease-out ${
-                  isVisible
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-3"
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3"
                 }`}
                 style={{ transitionDelay: `${delay + 200 + i * 80}ms` }}
               >
@@ -150,9 +146,7 @@ export function ServicesFeesSection() {
         <div className="text-center max-w-2xl mx-auto mb-20 sm:mb-24 lg:mb-28">
           <p
             className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "100ms" }}
           >
@@ -160,9 +154,7 @@ export function ServicesFeesSection() {
           </p>
           <h2
             className={`heading-display text-[2rem] sm:text-4xl lg:text-[2.75rem] text-foreground leading-[1.15] mb-7 transition-all duration-[900ms] ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
             style={{ transitionDelay: "250ms" }}
           >
@@ -176,34 +168,27 @@ export function ServicesFeesSection() {
           />
           <p
             className={`body-text text-muted-foreground leading-[1.85] transition-all duration-[900ms] ease-out ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: "500ms" }}
           >
-            Our fees are structured to reflect the scope and complexity of each project. We offer transparent pricing and will provide a detailed proposal following our initial consultation.
+            Our fees are structured to reflect the scope and complexity of each project. We offer
+            transparent pricing and will provide a detailed proposal following our initial
+            consultation.
           </p>
         </div>
 
         {/* ── Fee rows ── */}
         <div className="border-t border-border/12">
           {feeItems.map((item, i) => (
-            <FeeRow
-              key={item.number}
-              item={item}
-              index={i}
-              isVisible={isVisible}
-            />
+            <FeeRow key={item.number} item={item} index={i} isVisible={isVisible} />
           ))}
         </div>
 
         {/* ── CTA ── */}
         <div
           className={`mt-24 sm:mt-28 lg:mt-32 text-center max-w-xl mx-auto transition-all duration-[900ms] ease-out ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-5"
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
           style={{ transitionDelay: "1150ms" }}
         >
@@ -219,9 +204,8 @@ export function ServicesFeesSection() {
           </h3>
 
           <p className="body-text text-muted-foreground leading-[1.85] mb-10 sm:mb-12">
-            Every project is unique — contact us to schedule a consultation
-            and discover how we can transform your space into something
-            extraordinary.
+            Every project is unique — contact us to schedule a consultation and discover how we can
+            transform your space into something extraordinary.
           </p>
 
           <FancyButton href="/contact">Get in Touch</FancyButton>

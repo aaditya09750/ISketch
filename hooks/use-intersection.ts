@@ -16,7 +16,7 @@ function getObserver(threshold: number): IntersectionObserver {
           if (cb) cb(entry)
         })
       },
-      { threshold }
+      { threshold },
     )
     observers.set(threshold, observer)
   }
@@ -30,7 +30,7 @@ function getObserver(threshold: number): IntersectionObserver {
 export function useIntersection(
   ref: React.RefObject<Element | null>,
   onIntersect: () => void,
-  options: { threshold?: number; once?: boolean } = {}
+  options: { threshold?: number; once?: boolean } = {},
 ) {
   const { threshold = 0.1, once = true } = options
   const onIntersectRef = useRef(onIntersect)

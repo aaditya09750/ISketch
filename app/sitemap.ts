@@ -73,9 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ([slug, project]) => {
       const yearNumber = Number.parseInt(project.year, 10)
       const projectDate =
-        Number.isFinite(yearNumber) && yearNumber > 1990
-          ? new Date(yearNumber, 11, 31)
-          : now
+        Number.isFinite(yearNumber) && yearNumber > 1990 ? new Date(yearNumber, 11, 31) : now
 
       return {
         url: `${BASE_URL}/portfolio/${slug}`,

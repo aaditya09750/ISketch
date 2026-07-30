@@ -26,7 +26,6 @@ export function MaintenanceContent() {
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-between overflow-hidden py-8 sm:py-10 lg:py-12">
-
       {/* ─── Top: Logo ─── */}
       <div
         className={`relative z-20 flex-shrink-0 transition-all duration-[1.2s] ease-out ${
@@ -41,7 +40,6 @@ export function MaintenanceContent() {
 
       {/* ─── Center: Main content ─── */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 sm:px-8 w-full max-w-md sm:max-w-lg lg:max-w-xl">
-
         {/* 503 watermark — positioned absolutely behind content */}
         <div
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] pointer-events-none select-none transition-all duration-[1.8s] ease-out ${
@@ -92,9 +90,8 @@ export function MaintenanceContent() {
             }`}
             style={{ transitionDelay: "650ms" }}
           >
-            Our studio is undergoing thoughtful enhancements to better
-            serve our clientele. We will return shortly. For immediate
-            enquiries, our team remains available.
+            Our studio is undergoing thoughtful enhancements to better serve our clientele. We will
+            return shortly. For immediate enquiries, our team remains available.
           </p>
 
           {/* CTA */}
@@ -141,7 +138,6 @@ export function MaintenanceContent() {
           ))}
         </nav>
       </div>
-
     </section>
   )
 }

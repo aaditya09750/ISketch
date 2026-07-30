@@ -70,9 +70,7 @@ export function AboutHero() {
         }`}
         style={{ transitionDelay: "10ms" }}
       >
-        <span className="label-uppercase select-none text-[8px]! text-white/80">
-          Scroll
-        </span>
+        <span className="label-uppercase select-none text-[8px]! text-white/80">Scroll</span>
         <div className="w-0.5 rounded-full mr-1 h-4 bg-white/25 animate-gentle-bounce" />
       </div>
     </section>

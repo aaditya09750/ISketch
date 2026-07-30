@@ -5,15 +5,18 @@ export type { Value, Award }
 export const values: Value[] = [
   {
     title: "Timeless Design",
-    description: "We create interiors that transcend fleeting trends, focusing on quality, proportion, and enduring elegance that will remain beautiful for generations.",
+    description:
+      "We create interiors that transcend fleeting trends, focusing on quality, proportion, and enduring elegance that will remain beautiful for generations.",
   },
   {
     title: "Bespoke Approach",
-    description: "Every project is unique. We tailor our designs to reflect your individual style, needs, and aspirations, ensuring spaces that feel authentically yours.",
+    description:
+      "Every project is unique. We tailor our designs to reflect your individual style, needs, and aspirations, ensuring spaces that feel authentically yours.",
   },
   {
     title: "Exceptional Quality",
-    description: "From concept to completion, we maintain the highest standards, working with master craftsmen and sourcing the finest materials.",
+    description:
+      "From concept to completion, we maintain the highest standards, working with master craftsmen and sourcing the finest materials.",
   },
 ]
 

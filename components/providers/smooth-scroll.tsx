@@ -13,9 +13,7 @@ declare global {
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Respect reduced motion preference
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReducedMotion) return
 
     const lenis = new Lenis({

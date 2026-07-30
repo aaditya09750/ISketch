@@ -4,7 +4,8 @@ import { termsConditionsSections } from "@/data/legal"
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Read the terms and conditions governing the use of I Sketch Interiors website and services.",
+  description:
+    "Read the terms and conditions governing the use of I Sketch Interiors website and services.",
   alternates: { canonical: "/terms-conditions" },
   robots: { index: false, follow: true },
 }

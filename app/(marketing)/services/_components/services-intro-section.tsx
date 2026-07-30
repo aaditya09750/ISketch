@@ -54,9 +54,7 @@ export function ServicesIntroSection() {
           <div className="lg:col-span-5">
             <p
               className={`label-uppercase text-accent-decorative tracking-[0.25em] mb-5 transition-all duration-[900ms] ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: "100ms" }}
             >
@@ -65,15 +63,12 @@ export function ServicesIntroSection() {
 
             <h2
               className={`heading-display text-3xl sm:text-4xl lg:text-[2.8rem] text-foreground leading-[1.15] mb-8 lg:mb-10 transition-all duration-[900ms] ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "250ms" }}
             >
               Tailored services
-              <br className="hidden sm:block" />
-              {" "}to suit every project
+              <br className="hidden sm:block" /> to suit every project
             </h2>
 
             <div
@@ -85,13 +80,13 @@ export function ServicesIntroSection() {
 
             <p
               className={`body-text text-muted-foreground leading-[1.85] max-w-md transition-all duration-[900ms] ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "550ms" }}
             >
-              Whether you are undertaking a complete renovation or seeking guidance on a specific room, we offer a range of services designed to meet your needs. Each project receives our complete attention and dedication to achieving exceptional results.
+              Whether you are undertaking a complete renovation or seeking guidance on a specific
+              room, we offer a range of services designed to meet your needs. Each project receives
+              our complete attention and dedication to achieving exceptional results.
             </p>
           </div>
 
@@ -99,15 +94,15 @@ export function ServicesIntroSection() {
           <div className="lg:col-span-7 lg:pt-2">
             <div
               className={`lg:flex lg:items-end lg:justify-end lg:h-full transition-all duration-[900ms] ease-out ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "650ms" }}
             >
               <div className="lg:text-right max-w-xl lg:ml-auto">
                 <p className="body-text text-muted-foreground leading-[1.85]">
-                  From initial concept through to the final reveal, our experience provides a personalised service to create detail-driven, luxury interiors that perfectly suit their context and stand the test of time.
+                  From initial concept through to the final reveal, our experience provides a
+                  personalised service to create detail-driven, luxury interiors that perfectly suit
+                  their context and stand the test of time.
                 </p>
               </div>
             </div>
@@ -123,11 +118,7 @@ export function ServicesIntroSection() {
                 i < highlights.length - 1
                   ? "border-b md:border-b-0 md:border-r border-accent-decorative/20"
                   : ""
-              } ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
-              }`}
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
               style={{ transitionDelay: `${700 + i * 150}ms` }}
             >
               {/* Number */}

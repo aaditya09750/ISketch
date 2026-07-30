@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import type { SelectOption } from "@/types"
 

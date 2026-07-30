@@ -73,14 +73,14 @@ export function ContactContent() {
                   className={`body-text text-muted-foreground/75 leading-[1.9] max-w-md transition-all duration-[900ms] ease-out ${animIn(detailsVisible)}`}
                   style={delay(500)}
                 >
-                  Whether you have a project in mind or simply wish to explore possibilities, we are here to guide you. Reach out through any of the channels below .
+                  Whether you have a project in mind or simply wish to explore possibilities, we are
+                  here to guide you. Reach out through any of the channels below .
                 </p>
               </div>
             </div>
 
             {/* ── Contact Cards ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-accent-decorative/12">
-
               {/* Address */}
               <div
                 className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 border-b md:border-r border-accent-decorative/12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}

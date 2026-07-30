@@ -8,7 +8,7 @@ export const navigationLinks: NavLink[] = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Contact", href: "/contact" },
-];
+]
 
 export const footerLinks: NavLink[] = [
   { label: "About", href: "/about" },
@@ -16,9 +16,9 @@ export const footerLinks: NavLink[] = [
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Contact", href: "/contact" },
-];
+]
 
 export const socialLinks: NavLink[] = [
   { label: "Instagram", href: "#" },
   { label: "Facebook", href: "#" },
-];
+]

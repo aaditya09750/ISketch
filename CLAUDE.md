@@ -1,15 +1,23 @@
 # Claude Guide
 
+## Purpose
+
+This file is the agent-facing map for the existing ISketch repository. Treat it as the shortest path to the right file, the right scope, and the right constraints.
+
 ## Repo Map
 
-- `app/` contains all routes.
-- `app/(marketing)/` contains the public studio pages.
-- `app/(legal)/` contains privacy and terms pages.
-- `components/` contains shared shell and UI pieces.
-- `data/` is the canonical content source.
-- `hooks/` holds browser interaction helpers.
-- `lib/` holds pure helpers and schema builders.
-- `types/` defines shared contracts.
+| Path                    | Owns                                                              |
+| ----------------------- | ----------------------------------------------------------------- |
+| `app/`                  | all routes, layouts, metadata, robots, sitemap, and page-level UI |
+| `app/(marketing)/`      | the public studio pages                                           |
+| `app/(legal)/`          | privacy and terms pages                                           |
+| `components/layout/`    | app shell, header, footer, and WhatsApp CTA                       |
+| `components/providers/` | layout and scroll providers                                       |
+| `components/shared/`    | cross-page reusable UI pieces                                     |
+| `data/`                 | canonical content source                                          |
+| `hooks/`                | browser-interaction helpers                                       |
+| `lib/`                  | pure helpers and schema builders                                  |
+| `types/`                | shared contracts                                                  |
 
 ## Commands
 
@@ -17,21 +25,32 @@
 pnpm install
 pnpm dev
 pnpm lint
-npx tsc --noEmit
+pnpm format:check
+pnpm typecheck
 pnpm build
 ```
 
-## Conventions
+## Working Rules
 
 - Keep the site static.
-- Keep content in `data/*.ts`.
+- Keep canonical content in `data/*.ts`.
 - Keep route changes reflected in `app/sitemap.ts`.
-- Keep legal pages `noindex`.
-- Keep docs honest about the lack of backend, database, auth, and API routes.
+- Keep legal pages noindex.
+- Keep `README.md`, `ARCHITECTURE.md`, and `SECURITY.md` aligned with the actual code.
+- Do not invent backend, auth, database, or queue workflows.
+
+## Where to Look First
+
+- Public page content: `app/(marketing)/**`
+- Legal copy: `data/legal.ts`
+- Contact/NAP: `data/contact.ts`
+- Navigation: `data/navigation.ts`
+- Project records: `data/projects.ts`
+- Service records: `data/services.ts`
 
 ## Avoid
 
 - Inventing a monorepo layout.
 - Adding backend infrastructure.
 - Adding database or auth scaffolding.
-- Adding docs that claim features not present in the repo.
+- Writing docs that claim unsupported features.

@@ -99,7 +99,7 @@ export function Header() {
       if (href === "/" || href === "/#") return pathname === "/"
       return pathname.startsWith(href.replace("/#", "").replace("#", ""))
     },
-    [pathname]
+    [pathname],
   )
 
   const navItemCount = navigationLinks.length
@@ -111,7 +111,7 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
           headerVisible && !lightboxOpen ? "translate-y-0" : "-translate-y-full",
-          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background"
+          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background",
         )}
       >
         {/* Desktop: lg and above — editorial layout */}
@@ -138,7 +138,7 @@ export function Header() {
                       "group relative label-uppercase text-[0.625rem] xl:text-[0.6875rem] tracking-[0.2em] transition-colors duration-300 pb-1",
                       isActiveLink(link.href)
                         ? "text-accent"
-                        : "text-foreground/70 hover:text-foreground"
+                        : "text-foreground/70 hover:text-foreground",
                     )}
                   >
                     {link.label}
@@ -165,9 +165,7 @@ export function Header() {
                 className="relative p-2 text-foreground w-10 h-10"
                 aria-label="Toggle menu"
               >
-                <span
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-6 h-6"
-                >
+                <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center w-6 h-6">
                   {/* Top bar */}
                   <span
                     className="absolute h-0.5 w-5 bg-current transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]"
@@ -217,15 +215,11 @@ export function Header() {
                     href={link.href}
                     className={cn(
                       "label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
-                      isActiveLink(link.href)
-                        ? "text-accent"
-                        : "text-foreground hover:text-accent"
+                      isActiveLink(link.href) ? "text-accent" : "text-foreground hover:text-accent",
                     )}
                     style={{
                       opacity: isMenuOpen ? 1 : 0,
-                      transform: isMenuOpen
-                        ? "translateY(0px)"
-                        : "translateY(12px)",
+                      transform: isMenuOpen ? "translateY(0px)" : "translateY(12px)",
                       transitionDelay: isMenuOpen ? `${150 + index * 50}ms` : "0ms",
                     }}
                     onClick={() => setIsMenuOpen(false)}
@@ -243,15 +237,11 @@ export function Header() {
                     href={link.href}
                     className={cn(
                       "label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
-                      isActiveLink(link.href)
-                        ? "text-accent"
-                        : "text-foreground hover:text-accent"
+                      isActiveLink(link.href) ? "text-accent" : "text-foreground hover:text-accent",
                     )}
                     style={{
                       opacity: isMenuOpen ? 1 : 0,
-                      transform: isMenuOpen
-                        ? "translateY(0px)"
-                        : "translateY(12px)",
+                      transform: isMenuOpen ? "translateY(0px)" : "translateY(12px)",
                       transitionDelay: isMenuOpen ? `${150 + index * 50}ms` : "0ms",
                     }}
                     onClick={() => setIsMenuOpen(false)}
@@ -331,7 +321,6 @@ export function Header() {
             </div>
           </div>
         </div>
-
       </header>
 
       {/* Backdrop overlay — blur background content */}

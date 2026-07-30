@@ -9,13 +9,15 @@ export function ContactSection() {
       <Container>
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-10 lg:mb-14 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            <p className="label-uppercase text-accent mb-5 md:mb-6 lg:mb-8">
-              Get In Touch
-            </p>
+          <div
+            className="text-center mb-10 lg:mb-14 animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            <p className="label-uppercase text-accent mb-5 md:mb-6 lg:mb-8">Get In Touch</p>
 
             <h2 className="heading-section text-2xl md:text-3xl lg:text-4xl text-foreground leading-[1.35] mb-4 md:mb-5 lg:mb-6">
-              We welcome the opportunity to collaborate with you on your next interior design project.
+              We welcome the opportunity to collaborate with you on your next interior design
+              project.
             </h2>
 
             <p className="font-sans text-sm md:text-base text-muted-foreground tracking-wide">
@@ -24,7 +26,10 @@ export function ContactSection() {
           </div>
 
           {/* Decorative divider */}
-          <div className="flex items-center justify-center mb-10 lg:mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="flex items-center justify-center mb-10 lg:mb-14 animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="h-px w-12 md:w-16 bg-accent-decorative/40" />
           </div>
 
@@ -73,9 +78,7 @@ export function ContactSection() {
 
           {/* CTA */}
           <div className="text-center animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            <FancyButton href="/contact">
-              Request a Consultation
-            </FancyButton>
+            <FancyButton href="/contact">Request a Consultation</FancyButton>
           </div>
         </div>
       </Container>

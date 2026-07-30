@@ -1,9 +1,9 @@
 // Shared type definitions extracted from data files
 
 export type NavLink = {
-  label: string;
-  href: string;
-};
+  label: string
+  href: string
+}
 
 export type ProjectSummary = {
   id: string

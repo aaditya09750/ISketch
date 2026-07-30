@@ -1,0 +1,8 @@
+.next
+node_modules
+pnpm-lock.yaml
+public/fonts
+public/images
+public/logos
+public/videos
+tsconfig.tsbuildinfo

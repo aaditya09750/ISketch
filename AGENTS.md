@@ -33,21 +33,21 @@ accessibility, and SEO** — in that order.
 
 ## 2. Tech Stack (authoritative versions)
 
-| Layer | Tool | Version | Notes |
-| --- | --- | --- | --- |
-| Framework | Next.js | `16.1.6` | App Router only — no `pages/` directory |
-| UI runtime | React | `19.2.4` | Server Components by default |
-| Language | TypeScript | `5.7.3` | `strict: true` in [tsconfig.json](tsconfig.json) |
-| Styling | Tailwind CSS | `4.2.0` | v4 engine via `@tailwindcss/postcss` |
-| Animation | Framer Motion | `12.38.0` | Declarative + scroll-driven |
-| Smooth scroll | Lenis | `1.3.19` | Disabled under `prefers-reduced-motion` |
-| UI primitives | Radix UI + shadcn/ui | latest | `new-york` style, RSC enabled |
-| Forms (if needed) | React Hook Form + Zod | latest | Currently unused — no forms shipped |
-| Icons | Lucide React | `0.564.0` | Tree-shakeable |
-| Carousel | Embla Carousel React | `8.6.0` | Touch-friendly |
-| Analytics | `@vercel/analytics`, `@vercel/speed-insights` | `1.6.1`, `2.0.0` | Auto-injected in [app/layout.tsx](app/layout.tsx) |
-| Package manager | **pnpm** | — | Lockfile is [pnpm-lock.yaml](pnpm-lock.yaml). **Do not** use npm/yarn. |
-| Node | — | `>= 22` | Required by Next 16 |
+| Layer             | Tool                                          | Version          | Notes                                                                  |
+| ----------------- | --------------------------------------------- | ---------------- | ---------------------------------------------------------------------- |
+| Framework         | Next.js                                       | `16.1.6`         | App Router only — no `pages/` directory                                |
+| UI runtime        | React                                         | `19.2.4`         | Server Components by default                                           |
+| Language          | TypeScript                                    | `5.7.3`          | `strict: true` in [tsconfig.json](tsconfig.json)                       |
+| Styling           | Tailwind CSS                                  | `4.2.0`          | v4 engine via `@tailwindcss/postcss`                                   |
+| Animation         | Framer Motion                                 | `12.38.0`        | Declarative + scroll-driven                                            |
+| Smooth scroll     | Lenis                                         | `1.3.19`         | Disabled under `prefers-reduced-motion`                                |
+| UI primitives     | Radix UI + shadcn/ui                          | latest           | `new-york` style, RSC enabled                                          |
+| Forms (if needed) | React Hook Form + Zod                         | latest           | Currently unused — no forms shipped                                    |
+| Icons             | Lucide React                                  | `0.564.0`        | Tree-shakeable                                                         |
+| Carousel          | Embla Carousel React                          | `8.6.0`          | Touch-friendly                                                         |
+| Analytics         | `@vercel/analytics`, `@vercel/speed-insights` | `1.6.1`, `2.0.0` | Auto-injected in [app/layout.tsx](app/layout.tsx)                      |
+| Package manager   | **pnpm**                                      | —                | Lockfile is [pnpm-lock.yaml](pnpm-lock.yaml). **Do not** use npm/yarn. |
+| Node              | —                                             | `>= 22`          | Required by Next 16                                                    |
 
 When upgrading any dependency, update this table in the same commit.
 
@@ -152,18 +152,18 @@ ISketch/
 
 ### Where to put new things
 
-| You are adding… | Put it in… |
-| --- | --- |
-| A new top-level page | `app/(marketing)/<route>/page.tsx` |
-| Components used **only** by one page | `app/(marketing)/<route>/_components/` |
-| Components reused across pages | `components/shared/` |
-| App-shell chrome (nav, footer, FAB) | `components/layout/` |
-| A React Context provider | `components/providers/` |
-| Static content (projects, copy) | `data/<topic>.ts` and export from `data/index.ts` |
-| A shared type | `types/index.ts` |
-| A custom hook | `hooks/use-<name>.ts` (kebab-case file, camelCase export) |
-| A pure helper or schema generator | `lib/` |
-| A legal page | `app/(legal)/<route>/page.tsx` + section data in `data/legal.ts` |
+| You are adding…                      | Put it in…                                                       |
+| ------------------------------------ | ---------------------------------------------------------------- |
+| A new top-level page                 | `app/(marketing)/<route>/page.tsx`                               |
+| Components used **only** by one page | `app/(marketing)/<route>/_components/`                           |
+| Components reused across pages       | `components/shared/`                                             |
+| App-shell chrome (nav, footer, FAB)  | `components/layout/`                                             |
+| A React Context provider             | `components/providers/`                                          |
+| Static content (projects, copy)      | `data/<topic>.ts` and export from `data/index.ts`                |
+| A shared type                        | `types/index.ts`                                                 |
+| A custom hook                        | `hooks/use-<name>.ts` (kebab-case file, camelCase export)        |
+| A pure helper or schema generator    | `lib/`                                                           |
+| A legal page                         | `app/(legal)/<route>/page.tsx` + section data in `data/legal.ts` |
 
 ---
 
@@ -208,7 +208,7 @@ ISketch/
 
   ```tsx
   import { cn } from "@/lib/utils"
-  <div className={cn("base-class", isActive && "active-class", className)} />
+  ;<div className={cn("base-class", isActive && "active-class", className)} />
   ```
 
 - **Design tokens live in [`app/globals.css`](app/globals.css)** as CSS
@@ -234,8 +234,8 @@ ISketch/
 
 ### Comments
 
-- **Default to no comments.** Well-named identifiers explain the *what*.
-- Write a comment only when the *why* is non-obvious: a subtle invariant, a
+- **Default to no comments.** Well-named identifiers explain the _what_.
+- Write a comment only when the _why_ is non-obvious: a subtle invariant, a
   perf workaround, a browser quirk. The hero section and `useImageReady`
   hook are good examples of warranted comments.
 - Do **not** leave `// TODO`, `// removed X`, or PR-context comments in code.
@@ -282,15 +282,15 @@ this pattern when editing the hero.
 
 ### SEO architecture
 
-| Concern | Owner |
-| --- | --- |
-| `metadataBase`, default OG / Twitter | [`app/layout.tsx`](app/layout.tsx) |
-| Per-page metadata | each `page.tsx` via `generateMetadata` |
-| JSON-LD schema generators | [`lib/schema.ts`](lib/schema.ts) |
-| JSON-LD rendering | `<StructuredData>` in [`components/shared/structured-data.tsx`](components/shared/structured-data.tsx) |
-| Sitemap | [`app/sitemap.ts`](app/sitemap.ts) (dynamic, currently 16 URLs) |
-| robots | [`app/robots.ts`](app/robots.ts) |
-| AI crawler guidance | [`public/llms.txt`](public/llms.txt) |
+| Concern                              | Owner                                                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `metadataBase`, default OG / Twitter | [`app/layout.tsx`](app/layout.tsx)                                                                     |
+| Per-page metadata                    | each `page.tsx` via `generateMetadata`                                                                 |
+| JSON-LD schema generators            | [`lib/schema.ts`](lib/schema.ts)                                                                       |
+| JSON-LD rendering                    | `<StructuredData>` in [`components/shared/structured-data.tsx`](components/shared/structured-data.tsx) |
+| Sitemap                              | [`app/sitemap.ts`](app/sitemap.ts) (dynamic, currently 16 URLs)                                        |
+| robots                               | [`app/robots.ts`](app/robots.ts)                                                                       |
+| AI crawler guidance                  | [`public/llms.txt`](public/llms.txt)                                                                   |
 
 Schemas in use today: `InteriorDesigner` (root), `WebSite` (root),
 `BreadcrumbList` (subpages), `Service` ×4 (services page), `CreativeWork` ×6
@@ -462,9 +462,9 @@ visual verification**.
 
 Today the site requires **no** env vars to run. The only documented variable is:
 
-| Variable | Purpose | Default | Required |
-| --- | --- | --- | --- |
-| `MAINTENANCE_MODE` | When `"true"`, [`middleware.ts`](middleware.ts) rewrites every non-asset URL to `/maintenance`. | unset (off) | No |
+| Variable           | Purpose                                                                                         | Default     | Required |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ----------- | -------- |
+| `MAINTENANCE_MODE` | When `"true"`, [`middleware.ts`](middleware.ts) rewrites every non-asset URL to `/maintenance`. | unset (off) | No       |
 
 Vercel Analytics and Speed Insights are auto-configured by the
 `@vercel/*` packages on Vercel deployments and require no keys.
@@ -513,16 +513,16 @@ Other rules:
 
 ## 14. Agent-Specific Behaviour
 
-This file is the *primary* spec. Some agents read additional files:
+This file is the _primary_ spec. Some agents read additional files:
 
-| Agent | Reads | Action |
-| --- | --- | --- |
-| Claude Code | `AGENTS.md` | Native support — the legacy `CLAUDE.md` has been removed in favour of this file. |
-| OpenAI Codex / Codex CLI | `AGENTS.md` | Native support — no extra action. |
-| Cursor | `.cursorrules` *or* `AGENTS.md` | Reads this file. |
-| Aider | `CONVENTIONS.md` *or* `AGENTS.md` | Reads this file. |
-| Sourcegraph Amp | `AGENTS.md` | Native support. |
-| Jules / Continue / Windsurf | `AGENTS.md` | Native support. |
+| Agent                       | Reads                             | Action                                                                           |
+| --------------------------- | --------------------------------- | -------------------------------------------------------------------------------- |
+| Claude Code                 | `AGENTS.md`                       | Native support — the legacy `CLAUDE.md` has been removed in favour of this file. |
+| OpenAI Codex / Codex CLI    | `AGENTS.md`                       | Native support — no extra action.                                                |
+| Cursor                      | `.cursorrules` _or_ `AGENTS.md`   | Reads this file.                                                                 |
+| Aider                       | `CONVENTIONS.md` _or_ `AGENTS.md` | Reads this file.                                                                 |
+| Sourcegraph Amp             | `AGENTS.md`                       | Native support.                                                                  |
+| Jules / Continue / Windsurf | `AGENTS.md`                       | Native support.                                                                  |
 
 If you are a new agent integrating with this repo and you need a different
 file name (e.g. `.cursorrules`), create it as a one-line pointer to this file
@@ -536,7 +536,7 @@ See AGENTS.md for project conventions.
 
 ## 15. Project Context for Better Decisions
 
-Knowing *why* something is the way it is helps you make better judgment
+Knowing _why_ something is the way it is helps you make better judgment
 calls on edge cases:
 
 - **Why no CMS?** The client values control, performance, and zero

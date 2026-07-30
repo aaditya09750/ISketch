@@ -28,41 +28,41 @@ Fill every field. Use `null` to explicitly opt out of an optional capability.
 
 ```yaml
 # === Identity ===
-PROJECT_NAME:         # e.g. "NivaasHMS", "Orbit Analytics", "Healance-AI"
-PROJECT_TAGLINE:      # one sentence, ≤15 words
-PROJECT_DOMAIN:       # e.g. "hospitality booking", "b2b analytics", "developer tooling"
-LICENSE:              # e.g. "MIT", "Apache-2.0", "proprietary"
+PROJECT_NAME: # e.g. "NivaasHMS", "Orbit Analytics", "Healance-AI"
+PROJECT_TAGLINE: # one sentence, ≤15 words
+PROJECT_DOMAIN: # e.g. "hospitality booking", "b2b analytics", "developer tooling"
+LICENSE: # e.g. "MIT", "Apache-2.0", "proprietary"
 
 # === Personas ===
-USER_PERSONAS:        # e.g. ["guest", "hotel_owner", "admin"]
-PRIMARY_WORKFLOW:     # 1–3 sentence description of the happy path
+USER_PERSONAS: # e.g. ["guest", "hotel_owner", "admin"]
+PRIMARY_WORKFLOW: # 1–3 sentence description of the happy path
 
 # === Stack ===
-PACKAGE_MANAGER:      # "npm" | "pnpm" | "yarn" | "bun"
-LANGUAGE:             # "typescript" | "javascript"
-NODE_VERSION:         # e.g. "22"
-FRONTEND:             # e.g. "nextjs-15-app-router" | "react-19-vite" | "remix" | "none"
-FRONTEND_STYLING:     # e.g. "tailwind-4" | "css-modules" | "vanilla-extract"
-FRONTEND_STATE:       # e.g. "react-query" | "zustand" | "context-only"
-BACKEND:              # e.g. "express-5" | "hono" | "fastify" | "nextjs-api-routes" | "nestjs"
-DATABASE:             # e.g. "postgres+prisma" | "postgres+drizzle" | "mongodb+mongoose" | "sqlite+drizzle"
-AUTH:                 # e.g. "clerk" | "auth.js" | "better-auth" | "jwt-custom" | "supabase-auth"
-PAYMENTS:             # e.g. "stripe-checkout" | "stripe-subscriptions" | "razorpay" | null
-FILE_STORAGE:         # e.g. "cloudinary" | "s3" | "r2" | null
-EMAIL:                # e.g. "resend" | "brevo-smtp" | "postmark" | null
-QUEUE:                # e.g. "bullmq+redis" | "inngest" | null
-OBSERVABILITY:        # e.g. "sentry+otel" | "sentry-only" | null
+PACKAGE_MANAGER: # "npm" | "pnpm" | "yarn" | "bun"
+LANGUAGE: # "typescript" | "javascript"
+NODE_VERSION: # e.g. "22"
+FRONTEND: # e.g. "nextjs-15-app-router" | "react-19-vite" | "remix" | "none"
+FRONTEND_STYLING: # e.g. "tailwind-4" | "css-modules" | "vanilla-extract"
+FRONTEND_STATE: # e.g. "react-query" | "zustand" | "context-only"
+BACKEND: # e.g. "express-5" | "hono" | "fastify" | "nextjs-api-routes" | "nestjs"
+DATABASE: # e.g. "postgres+prisma" | "postgres+drizzle" | "mongodb+mongoose" | "sqlite+drizzle"
+AUTH: # e.g. "clerk" | "auth.js" | "better-auth" | "jwt-custom" | "supabase-auth"
+PAYMENTS: # e.g. "stripe-checkout" | "stripe-subscriptions" | "razorpay" | null
+FILE_STORAGE: # e.g. "cloudinary" | "s3" | "r2" | null
+EMAIL: # e.g. "resend" | "brevo-smtp" | "postmark" | null
+QUEUE: # e.g. "bullmq+redis" | "inngest" | null
+OBSERVABILITY: # e.g. "sentry+otel" | "sentry-only" | null
 
 # === Scope ===
-CORE_ENTITIES:        # e.g. ["User", "Project", "Task"] — models that WILL exist
-CORE_ENDPOINTS:       # list of endpoints to implement, in "METHOD /path — purpose" form
-OUT_OF_SCOPE:         # features explicitly NOT to implement (mention them only in roadmap)
+CORE_ENTITIES: # e.g. ["User", "Project", "Task"] — models that WILL exist
+CORE_ENDPOINTS: # list of endpoints to implement, in "METHOD /path — purpose" form
+OUT_OF_SCOPE: # features explicitly NOT to implement (mention them only in roadmap)
 
 # === Non-functional ===
-DEPLOY_TARGET_WEB:    # e.g. "vercel" | "netlify" | "cloudflare-pages"
-DEPLOY_TARGET_API:    # e.g. "render" | "railway" | "fly" | "cloudflare-workers" | "ecs"
-CI_PROVIDER:          # e.g. "github-actions" | "gitlab-ci" | null
-TEST_FRAMEWORK:       # e.g. "vitest" | "jest" | "node-test-runner" | null
+DEPLOY_TARGET_WEB: # e.g. "vercel" | "netlify" | "cloudflare-pages"
+DEPLOY_TARGET_API: # e.g. "render" | "railway" | "fly" | "cloudflare-workers" | "ecs"
+CI_PROVIDER: # e.g. "github-actions" | "gitlab-ci" | null
+TEST_FRAMEWORK: # e.g. "vitest" | "jest" | "node-test-runner" | null
 ```
 
 ---
@@ -315,7 +315,7 @@ There is no standalone backend app in this repository. If `BACKEND` is effective
 - **Validation**: schemas at boundaries (HTTP, queue consumers, webhook handlers). Trust internal code.
 - **Security**: CORS restricted to known origins, secrets only in env, webhooks signature-verified, rate limits on auth/write endpoints, no SQL/NoSQL injection (parameterized queries only), no secrets in logs.
 - **Idempotency**: webhook handlers must be idempotent. Document the idempotency key.
-- **Comments**: default to none. Write a comment only when the *why* is non-obvious (a constraint, a workaround, a spec quirk). Never describe *what* the code does.
+- **Comments**: default to none. Write a comment only when the _why_ is non-obvious (a constraint, a workaround, a spec quirk). Never describe _what_ the code does.
 - **Naming**: business terms over generic ones (`Booking`, not `Record`). Nouns for entities, verbs for functions, imperative for commands.
 - **Files**: one responsibility per file; if a file crosses ~300 lines, consider splitting by responsibility.
 - **Imports**: absolute or aliased paths configured in `tsconfig`; no `../../../..` chains.

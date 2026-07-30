@@ -72,13 +72,7 @@ function GalleryImage({
 /* ------------------------------------------------------------------ */
 /*  Project Gallery with staggered layout + lightbox                   */
 /* ------------------------------------------------------------------ */
-export function ProjectGallery({
-  images,
-  title,
-}: {
-  images: string[]
-  title: string
-}) {
+export function ProjectGallery({ images, title }: { images: string[]; title: string }) {
   const galleryImages = images.slice(1)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
@@ -95,9 +89,7 @@ export function ProjectGallery({
         <Container>
           {/* Section label */}
           <div className="mb-10 sm:mb-12 lg:mb-16">
-            <p className="label-uppercase text-accent tracking-[0.25em] mb-4">
-              Gallery
-            </p>
+            <p className="label-uppercase text-accent tracking-[0.25em] mb-4">Gallery</p>
             <div className="h-px w-10 bg-accent-decorative/30" />
           </div>
 

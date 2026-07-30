@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 interface IsketchLogoProps {
-  className?: string;
+  className?: string
 }
 
 const IsketchLogo: React.FC<IsketchLogoProps> = ({ className }) => {
@@ -29,7 +29,7 @@ const IsketchLogo: React.FC<IsketchLogoProps> = ({ className }) => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}
 
-export default IsketchLogo;
+export default IsketchLogo

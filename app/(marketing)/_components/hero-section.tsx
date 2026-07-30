@@ -1,116 +1,112 @@
-"use client";
+"use client"
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 
-const ROTATING_WORDS = ["Interiors", "Elegance", "Spaces", "Luxury"];
+const ROTATING_WORDS = ["Interiors", "Elegance", "Spaces", "Luxury"]
 
 const HERO_VIDEOS = [
   "/videos/hero-1.mp4",
   "/videos/hero-2.mp4",
   "/videos/hero-3.mp4",
   "/videos/hero-4.mp4",
-];
+]
 
 export function HeroSection() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [activePlayer, setActivePlayer] = useState<"A" | "B">("A");
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [activePlayer, setActivePlayer] = useState<"A" | "B">("A")
 
-  const videoARef = useRef<HTMLVideoElement>(null);
-  const videoBRef = useRef<HTMLVideoElement>(null);
-  const indexRef = useRef(0);
-  const activeRef = useRef<"A" | "B">("A");
-  const transitioningRef = useRef(false);
-  const [wordIndex, setWordIndex] = useState(0);
+  const videoARef = useRef<HTMLVideoElement>(null)
+  const videoBRef = useRef<HTMLVideoElement>(null)
+  const indexRef = useRef(0)
+  const activeRef = useRef<"A" | "B">("A")
+  const transitioningRef = useRef(false)
+  const [wordIndex, setWordIndex] = useState(0)
 
   const getPlayer = useCallback(
-    (which: "A" | "B") =>
-      which === "A" ? videoARef.current : videoBRef.current,
+    (which: "A" | "B") => (which === "A" ? videoARef.current : videoBRef.current),
     [],
-  );
+  )
 
-  const handleFirstCanPlay = useCallback(() => setIsLoaded(true), []);
+  const handleFirstCanPlay = useCallback(() => setIsLoaded(true), [])
 
   const handleEnded = useCallback(() => {
-    if (transitioningRef.current) return;
-    transitioningRef.current = true;
+    if (transitioningRef.current) return
+    transitioningRef.current = true
 
-    const current = activeRef.current;
-    const next: "A" | "B" = current === "A" ? "B" : "A";
-    const nextPlayer = getPlayer(next);
+    const current = activeRef.current
+    const next: "A" | "B" = current === "A" ? "B" : "A"
+    const nextPlayer = getPlayer(next)
     if (!nextPlayer) {
-      transitioningRef.current = false;
-      return;
+      transitioningRef.current = false
+      return
     }
 
-    const advanceIndex = (indexRef.current + 1) % HERO_VIDEOS.length;
-    indexRef.current = advanceIndex;
+    const advanceIndex = (indexRef.current + 1) % HERO_VIDEOS.length
+    indexRef.current = advanceIndex
 
     // The next player already has the correct clip preloaded.
     // Start playing it while it's still invisible (opacity-0).
     // Once it renders a real frame we crossfade.
     const onPlaying = () => {
-      nextPlayer.removeEventListener("playing", onPlaying);
+      nextPlayer.removeEventListener("playing", onPlaying)
 
       // One extra rAF so the compositor has the decoded frame ready
       requestAnimationFrame(() => {
         // NOW swap visibility — CSS transition handles the crossfade
-        activeRef.current = next;
-        setActivePlayer(next);
+        activeRef.current = next
+        setActivePlayer(next)
 
         // After crossfade (1.2s), preload the NEXT clip on the now-idle player
         setTimeout(() => {
-          const idle = getPlayer(current);
-          const prepareIndex = (indexRef.current + 1) % HERO_VIDEOS.length;
+          const idle = getPlayer(current)
+          const prepareIndex = (indexRef.current + 1) % HERO_VIDEOS.length
           if (idle) {
-            idle.src = HERO_VIDEOS[prepareIndex];
-            idle.load();
+            idle.src = HERO_VIDEOS[prepareIndex]
+            idle.load()
           }
-          transitioningRef.current = false;
-        }, 1300);
-      });
-    };
+          transitioningRef.current = false
+        }, 1300)
+      })
+    }
 
-    nextPlayer.addEventListener("playing", onPlaying);
+    nextPlayer.addEventListener("playing", onPlaying)
     nextPlayer.play().catch(() => {
-      nextPlayer.removeEventListener("playing", onPlaying);
-      transitioningRef.current = false;
-    });
-  }, [getPlayer]);
+      nextPlayer.removeEventListener("playing", onPlaying)
+      transitioningRef.current = false
+    })
+  }, [getPlayer])
 
   // Rotate tagline word every 3s (only after hero fade-in)
   useEffect(() => {
-    if (!isLoaded) return;
-    const id = setInterval(
-      () => setWordIndex((i) => (i + 1) % ROTATING_WORDS.length),
-      3000,
-    );
-    return () => clearInterval(id);
-  }, [isLoaded]);
+    if (!isLoaded) return
+    const id = setInterval(() => setWordIndex((i) => (i + 1) % ROTATING_WORDS.length), 3000)
+    return () => clearInterval(id)
+  }, [isLoaded])
 
   // On mount: A plays first clip; B defers loading until A is halfway played
   useEffect(() => {
-    const a = videoARef.current;
-    const b = videoBRef.current;
+    const a = videoARef.current
+    const b = videoBRef.current
     if (a) {
-      a.src = HERO_VIDEOS[0];
-      a.load();
-      a.play().catch(() => {});
+      a.src = HERO_VIDEOS[0]
+      a.load()
+      a.play().catch(() => {})
     }
     if (a && b) {
-      let preloaded = false;
+      let preloaded = false
       const onTimeUpdate = () => {
         if (!preloaded && a.duration && a.currentTime > a.duration * 0.5) {
-          preloaded = true;
-          b.src = HERO_VIDEOS[1];
-          b.load();
-          a.removeEventListener("timeupdate", onTimeUpdate);
+          preloaded = true
+          b.src = HERO_VIDEOS[1]
+          b.load()
+          a.removeEventListener("timeupdate", onTimeUpdate)
         }
-      };
-      a.addEventListener("timeupdate", onTimeUpdate);
-      return () => a.removeEventListener("timeupdate", onTimeUpdate);
+      }
+      a.addEventListener("timeupdate", onTimeUpdate)
+      return () => a.removeEventListener("timeupdate", onTimeUpdate)
     }
-  }, []);
+  }, [])
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -150,9 +146,7 @@ export function HeroSection() {
           <div className="max-w-2xl">
             <h1
               className={`heading-display select-none text-3xl sm:text-5xl lg:text-6xl text-white transition-all duration-1000 ease-out ${
-                isLoaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-5"
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: "500ms" }}
             >
@@ -160,22 +154,15 @@ export function HeroSection() {
             </h1>
             <p
               className={`label-uppercase select-none text-white/80 mt-2 transition-all duration-1000 ease-out ${
-                isLoaded
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{ transitionDelay: "300ms" }}
             >
               Creating Timeless{" "}
               <span className="relative inline-flex items-center overflow-hidden h-[1em]">
                 {/* Invisible sizer — widest word sets container width */}
-                <span
-                  className="invisible whitespace-nowrap"
-                  aria-hidden="true"
-                >
-                  {ROTATING_WORDS.reduce((a, b) =>
-                    a.length > b.length ? a : b,
-                  )}
+                <span className="invisible whitespace-nowrap" aria-hidden="true">
+                  {ROTATING_WORDS.reduce((a, b) => (a.length > b.length ? a : b))}
                 </span>
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -205,11 +192,9 @@ export function HeroSection() {
         }`}
         style={{ transitionDelay: "10ms" }}
       >
-        <span className="label-uppercase select-none text-[8px]! text-white/80">
-          Scroll
-        </span>
+        <span className="label-uppercase select-none text-[8px]! text-white/80">Scroll</span>
         <div className="w-0.5 rounded-full mr-1 h-4 bg-white/25 animate-gentle-bounce" />
       </div>
     </section>
-  );
+  )
 }

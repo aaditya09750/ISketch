@@ -32,7 +32,7 @@ export function AboutApproachSection() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
@@ -42,7 +42,6 @@ export function AboutApproachSection() {
   return (
     <section ref={sectionRef} className="py-20 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-
         {/* Top section — heading left, body right */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-20 mb-16 lg:mb-24">
           <div className="lg:col-span-7 lg:flex lg:items-end lg:justify-end order-2 lg:order-1">
@@ -59,7 +58,10 @@ export function AboutApproachSection() {
                 }`}
                 style={{ transitionDelay: "550ms" }}
               >
-               At I Sketch, our approach is grounded in the belief that every interior should be a true reflection of the client’s unique identity. With a refined understanding that comes from dedicating ourselves to our craft, we transform spaces into living expressions of personal style.
+                At I Sketch, our approach is grounded in the belief that every interior should be a
+                true reflection of the client’s unique identity. With a refined understanding that
+                comes from dedicating ourselves to our craft, we transform spaces into living
+                expressions of personal style.
               </p>
             </div>
           </div>
@@ -111,7 +113,6 @@ export function AboutApproachSection() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

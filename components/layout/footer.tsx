@@ -1,27 +1,27 @@
-"use client";
+"use client"
 
-import { useRef, useState, useEffect } from "react";
-import Link from "next/link";
-import { footerLinks, socialLinks } from "@/data/navigation";
-import IsketchLogo from "@/components/shared/isketch-logo";
+import { useRef, useState, useEffect } from "react"
+import Link from "next/link"
+import { footerLinks, socialLinks } from "@/data/navigation"
+import IsketchLogo from "@/components/shared/isketch-logo"
 
 export function Footer() {
-  const footerRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const footerRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
+          setIsVisible(true)
+          observer.disconnect()
         }
       },
       { threshold: 0.1 },
-    );
-    if (footerRef.current) observer.observe(footerRef.current);
-    return () => observer.disconnect();
-  }, []);
+    )
+    if (footerRef.current) observer.observe(footerRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <footer
@@ -90,7 +90,7 @@ export function Footer() {
               </h3>
               <address className="font-sans text-[13px] text-surface-dark-foreground/60 not-italic flex flex-col gap-2">
                 <p className="leading-relaxed">
-                  The Courtyard, Asteria A/604, 
+                  The Courtyard, Asteria A/604,
                   <br />
                   Pokhran road no. 2, Thane west
                   <br />
@@ -117,8 +117,7 @@ export function Footer() {
         <div className="border-t border-surface-dark-foreground/10 pt-6 flex flex-col gap-3">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
             <p className="font-sans text-[10px] md:text-[11px] text-surface-dark-foreground/45 tracking-wide text-center sm:text-left">
-              &copy; {new Date().getFullYear()} I Sketch Interiors. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
             </p>
             <div className="flex items-center justify-center sm:justify-end gap-4">
               <Link
@@ -156,5 +155,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

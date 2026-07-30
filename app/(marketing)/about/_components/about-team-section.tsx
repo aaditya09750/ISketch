@@ -14,7 +14,7 @@ export function AboutTeamSection() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (sectionRef.current) observer.observe(sectionRef.current)
@@ -25,7 +25,6 @@ export function AboutTeamSection() {
     <section ref={sectionRef} className="py-20 lg:py-32 bg-surface-warm">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-
           {/* Left column — heading & intro */}
           <div className="lg:col-span-5">
             <p
@@ -59,10 +58,10 @@ export function AboutTeamSection() {
               }`}
               style={{ transitionDelay: "550ms" }}
             >
-              Passion for design starts from collaboration with a team whose expertise
-              and experience align seamlessly with your vision. Our team is dedicated
-              to delivering interior design services that inspire and elevate, ensuring
-              that every project is an extraordinary experience.
+              Passion for design starts from collaboration with a team whose expertise and
+              experience align seamlessly with your vision. Our team is dedicated to delivering
+              interior design services that inspire and elevate, ensuring that every project is an
+              extraordinary experience.
             </p>
           </div>
 
@@ -75,11 +74,11 @@ export function AboutTeamSection() {
               style={{ transitionDelay: "650ms" }}
             >
               <p className="body-text text-muted-foreground leading-[1.85] max-w-xl">
-                Comprising a handpicked group of interior and furniture designers, along
-                with expert textile and colour consultants, we offer a full-service approach
-                that allows us to deliver cohesive, high-end interiors globally. Our network
-                of trusted artisans, craftsmen, and suppliers ensures every product is
-                executed to the highest standard with meticulous attention to detail.
+                Comprising a handpicked group of interior and furniture designers, along with expert
+                textile and colour consultants, we offer a full-service approach that allows us to
+                deliver cohesive, high-end interiors globally. Our network of trusted artisans,
+                craftsmen, and suppliers ensures every product is executed to the highest standard
+                with meticulous attention to detail.
               </p>
             </div>
 
@@ -109,15 +108,12 @@ export function AboutTeamSection() {
                     style={{ transitionDelay: `${900 + i * 80}ms` }}
                   >
                     <span className="w-1 h-1 rounded-full bg-accent-decorative/50 shrink-0" />
-                    <span className="body-text text-foreground/70 text-sm">
-                      {discipline}
-                    </span>
+                    <span className="body-text text-foreground/70 text-sm">{discipline}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

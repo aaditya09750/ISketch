@@ -17,12 +17,20 @@ export const metadata: Metadata = {
     title: "Luxury Interior Designer in Thane & Mumbai — I Sketch Interiors",
     description:
       "Award-winning luxury interior design studio in Thane and Mumbai. Bespoke residential interiors, custom joinery, and full-service design across India and internationally.",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai" }],
+    images: [
+      {
+        url: "/images/hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Luxury Interior Designer in Thane & Mumbai — I Sketch Interiors",
-    description: "Award-winning luxury interior design studio. Bespoke residential interiors across Mumbai, Pune, and internationally.",
+    description:
+      "Award-winning luxury interior design studio. Bespoke residential interiors across Mumbai, Pune, and internationally.",
     images: ["/images/hero.jpg"],
   },
 }
@@ -30,12 +38,15 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <StructuredData data={getWebPageSchema({
-        name: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai",
-        description: "Award-winning luxury interior design studio based in Thane. Bespoke residential interiors across Mumbai, Pune, and internationally. 20+ years of experience, 125+ completed projects.",
-        url: "/",
-        type: "WebPage",
-      })} />
+      <StructuredData
+        data={getWebPageSchema({
+          name: "I Sketch Interiors — Luxury Interior Design Studio in Thane & Mumbai",
+          description:
+            "Award-winning luxury interior design studio based in Thane. Bespoke residential interiors across Mumbai, Pune, and internationally. 20+ years of experience, 125+ completed projects.",
+          url: "/",
+          type: "WebPage",
+        })}
+      />
       <HeroSection />
       <AboutSection />
       <ProjectsSection />

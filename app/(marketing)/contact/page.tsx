@@ -11,13 +11,17 @@ export const metadata: Metadata = {
   openGraph: {
     url: "/contact",
     title: "Contact I Sketch Interiors — Book a Consultation",
-    description: "Book an interior design consultation with I Sketch Interiors. Visit our Thane studio or call +91 99673 12203.",
-    images: [{ url: "/images/hero.jpg", width: 1200, height: 630, alt: "Contact I Sketch Interiors" }],
+    description:
+      "Book an interior design consultation with I Sketch Interiors. Visit our Thane studio or call +91 99673 12203.",
+    images: [
+      { url: "/images/hero.jpg", width: 1200, height: 630, alt: "Contact I Sketch Interiors" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact I Sketch Interiors — Book a Consultation",
-    description: "Book an interior design consultation. Visit our Thane studio or call +91 99673 12203. Serving Mumbai, Thane, Navi Mumbai, and Pune.",
+    description:
+      "Book an interior design consultation. Visit our Thane studio or call +91 99673 12203. Serving Mumbai, Thane, Navi Mumbai, and Pune.",
     images: ["/images/hero.jpg"],
   },
 }
@@ -25,12 +29,15 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <StructuredData data={getWebPageSchema({
-        name: "Contact I Sketch Interiors",
-        description: "Book an interior design consultation with I Sketch Interiors. Visit our Thane studio or call +91 99673 12203.",
-        url: "/contact",
-        type: "ContactPage",
-      })} />
+      <StructuredData
+        data={getWebPageSchema({
+          name: "Contact I Sketch Interiors",
+          description:
+            "Book an interior design consultation with I Sketch Interiors. Visit our Thane studio or call +91 99673 12203.",
+          url: "/contact",
+          type: "ContactPage",
+        })}
+      />
       <StructuredData
         data={getBreadcrumbSchema([
           { name: "Home", url: "/" },

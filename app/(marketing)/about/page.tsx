@@ -17,13 +17,22 @@ export const metadata: Metadata = {
   openGraph: {
     url: "/about",
     title: "About I Sketch Interiors — Luxury Interior Designers",
-    description: "Thane-based luxury interior design studio with 20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
-    images: [{ url: "/images/about-hero.jpg", width: 1200, height: 630, alt: "About I Sketch Interiors — Luxury Interior Design Studio" }],
+    description:
+      "Thane-based luxury interior design studio with 20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
+    images: [
+      {
+        url: "/images/about-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About I Sketch Interiors — Luxury Interior Design Studio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "About I Sketch Interiors — Luxury Interior Designers",
-    description: "20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally. 125+ completed projects.",
+    description:
+      "20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally. 125+ completed projects.",
     images: ["/images/about-hero.jpg"],
   },
 }
@@ -31,13 +40,21 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <StructuredData data={getWebPageSchema({
-        name: "About I Sketch Interiors — Luxury Interior Designers",
-        description: "Thane-based luxury interior design studio with 20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
-        url: "/about",
-        type: "AboutPage",
-      })} />
-      <StructuredData data={getBreadcrumbSchema([{ name: "Home", url: "/" }, { name: "About", url: "/about" }])} />
+      <StructuredData
+        data={getWebPageSchema({
+          name: "About I Sketch Interiors — Luxury Interior Designers",
+          description:
+            "Thane-based luxury interior design studio with 20+ years crafting bespoke residential interiors across Mumbai, Pune, and internationally.",
+          url: "/about",
+          type: "AboutPage",
+        })}
+      />
+      <StructuredData
+        data={getBreadcrumbSchema([
+          { name: "Home", url: "/" },
+          { name: "About", url: "/about" },
+        ])}
+      />
       <AboutHero />
 
       <AboutStorySection />

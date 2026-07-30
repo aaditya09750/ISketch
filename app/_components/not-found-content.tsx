@@ -28,7 +28,6 @@ export function NotFoundContent() {
 
   return (
     <section className="relative h-screen flex flex-col items-center justify-between overflow-hidden py-8 sm:py-10 lg:py-12">
-
       {/* ─── Top: Logo ─── */}
       <div
         className={`relative z-20 flex-shrink-0 transition-all duration-[1.2s] ease-out ${
@@ -43,7 +42,6 @@ export function NotFoundContent() {
 
       {/* ─── Center: Main content ─── */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6 sm:px-8 w-full max-w-md sm:max-w-lg lg:max-w-xl">
-
         {/* 404 watermark — positioned absolutely behind content */}
         <div
           className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[58%] pointer-events-none select-none transition-all duration-[1.8s] ease-out ${
@@ -94,9 +92,8 @@ export function NotFoundContent() {
             }`}
             style={{ transitionDelay: "650ms" }}
           >
-            The page you are looking for may have been moved or no
-            longer exists. Let us guide you back to a beautifully
-            designed space.
+            The page you are looking for may have been moved or no longer exists. Let us guide you
+            back to a beautifully designed space.
           </p>
 
           {/* CTA */}
@@ -106,10 +103,7 @@ export function NotFoundContent() {
             }`}
             style={{ transitionDelay: "800ms" }}
           >
-            <Link
-              href="/"
-              className="group relative inline-flex items-center gap-3 sm:gap-3.5"
-            >
+            <Link href="/" className="group relative inline-flex items-center gap-3 sm:gap-3.5">
               <span className="h-px w-5 sm:w-7 bg-accent-decorative/30 transition-all duration-500 ease-out group-hover:w-8 sm:group-hover:w-10 group-hover:bg-accent-decorative/70" />
               <span className="label-uppercase tracking-[0.25em] text-[0.6rem] sm:text-[0.65rem] text-foreground/50 transition-colors duration-500 group-hover:text-foreground">
                 Return Home
@@ -140,7 +134,6 @@ export function NotFoundContent() {
           ))}
         </nav>
       </div>
-
     </section>
   )
 }

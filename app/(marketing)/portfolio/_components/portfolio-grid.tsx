@@ -17,7 +17,13 @@ interface PortfolioGridProps {
 }
 
 export function PortfolioGrid({ projects }: PortfolioGridProps) {
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string; title: string; location: string; category: string } | null>(null)
+  const [lightbox, setLightbox] = useState<{
+    src: string
+    alt: string
+    title: string
+    location: string
+    category: string
+  } | null>(null)
 
   return (
     <>
@@ -38,7 +44,15 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                   image={project.image}
                   href={`/portfolio/${project.id}`}
                   aspectRatio={index % 3 === 0 ? "aspect-[4/3]" : "aspect-[4/5]"}
-                  onImageClick={(src, alt) => setLightbox({ src, alt, title: project.title, location: project.location, category: project.category })}
+                  onImageClick={(src, alt) =>
+                    setLightbox({
+                      src,
+                      alt,
+                      title: project.title,
+                      location: project.location,
+                      category: project.category,
+                    })
+                  }
                 />
               </div>
             ))}
