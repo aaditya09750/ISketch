@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { Instagram, Facebook } from "lucide-react"
+import { FaFacebookF, FaInstagram } from "react-icons/fa6"
 import { navigationLinks, socialLinks } from "@/data/navigation"
 import IsketchLogo from "@/components/shared/isketch-logo"
 import { cn } from "@/lib/utils"
@@ -304,7 +304,7 @@ export function Header() {
                         onClick={() => setIsMenuOpen(false)}
                         aria-label="Instagram"
                       >
-                        <Instagram size={20} strokeWidth={1.5} />
+                        <FaInstagram size={20} />
                       </Link>
                       <Link
                         href={socialLinks.find((l) => l.label === "Facebook")?.href ?? "#"}
@@ -312,7 +312,7 @@ export function Header() {
                         onClick={() => setIsMenuOpen(false)}
                         aria-label="Facebook"
                       >
-                        <Facebook size={20} strokeWidth={1.5} />
+                        <FaFacebookF size={20} />
                       </Link>
                     </nav>
                   </div>

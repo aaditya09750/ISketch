@@ -4,7 +4,8 @@ import { useRef, useEffect, useState } from "react"
 import { PageHeading } from "@/components/shared/page-heading"
 import { Container } from "@/components/shared/container"
 import { contactDetails, studioContact } from "@/data/contact"
-import { MapPin, Mail, Phone, Instagram, Facebook, Share2 } from "lucide-react"
+import { Mail, MapPin, Phone, Share2 } from "lucide-react"
+import { FaFacebookF, FaInstagram } from "react-icons/fa6"
 import { socialLinks } from "@/data/navigation"
 
 export function ContactContent() {
@@ -165,7 +166,7 @@ export function ContactContent() {
                 <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
                 <div className="flex flex-col gap-2.5">
                   {socialLinks.map((social) => {
-                    const Icon = social.label === "Instagram" ? Instagram : Facebook
+                    const Icon = social.label === "Instagram" ? FaInstagram : FaFacebookF
                     return (
                       <a
                         key={social.label}

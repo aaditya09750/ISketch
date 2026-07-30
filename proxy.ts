@@ -12,12 +12,12 @@ import { NextResponse, type NextRequest } from "next/server"
  */
 const MAINTENANCE_MODE = process.env.MAINTENANCE_MODE === "true"
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   if (!MAINTENANCE_MODE) return NextResponse.next()
 
   const { pathname } = request.nextUrl
 
-  // Already on the maintenance page — allow through
+  // Already on the maintenance page â€” allow through
   if (pathname === "/maintenance") return NextResponse.next()
 
   // Rewrite every other route to /maintenance (URL stays the same for the user)
