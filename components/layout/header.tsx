@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { FaFacebookF, FaInstagram } from "react-icons/fa6"
+import { motion } from "framer-motion"
 import { navigationLinks, socialLinks } from "@/data/navigation"
 import IsketchLogo from "@/components/shared/isketch-logo"
 import { cn } from "@/lib/utils"
@@ -14,12 +15,9 @@ export function Header() {
   const navRef = useRef<HTMLDivElement>(null)
   const [menuHeight, setMenuHeight] = useState(0)
 
-  // Scroll-aware header: hide on scroll down, show on scroll up
-  const [headerVisible, setHeaderVisible] = useState(true)
   const [scrolled, setScrolled] = useState(false)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const lastScrollY = useRef(0)
-  const scrollThreshold = 8
 
   // Hide header when lightbox is open
   useEffect(() => {
@@ -40,19 +38,7 @@ export function Header() {
       if (rafRef.current) return
       rafRef.current = requestAnimationFrame(() => {
         const currentY = window.scrollY
-        const delta = currentY - lastScrollY.current
-
         setScrolled(currentY > 20)
-
-        // Don't hide when menu is open
-        if (!isMenuOpen) {
-          if (delta > scrollThreshold && currentY > 80) {
-            setHeaderVisible(false)
-          } else if (delta < -scrollThreshold || currentY < 80) {
-            setHeaderVisible(true)
-          }
-        }
-
         lastScrollY.current = currentY
         rafRef.current = null
       })
@@ -109,27 +95,45 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
-          headerVisible && !lightboxOpen ? "translate-y-0" : "-translate-y-full",
-          scrolled ? "bg-background/95 backdrop-blur-md" : "bg-background",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)] pointer-events-none",
+          !lightboxOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0",
         )}
       >
-        {/* Desktop: lg and above — editorial layout */}
+        {/* Desktop: lg and above — Morphs into floating box/pill on scroll */}
         <div className="hidden lg:block">
-          <div className="max-w-350 mx-auto px-12 pt-6">
-            {/* Decorative line above content — extends beyond padding */}
-            <div className="h-px bg-border -mx-8" />
+          <motion.div
+            layout
+            transition={{
+              type: "spring",
+              stiffness: 220,
+              damping: 28,
+              mass: 0.8,
+            }}
+            className={cn(
+              "pointer-events-auto",
+              scrolled
+                ? "max-w-4xl xl:max-w-5xl mx-auto my-3.5 px-8 py-2.5 rounded-md bg-background border border-foreground/10"
+                : "w-full max-w-full mx-0 px-12 pt-6 pb-2 rounded-none border border-transparent bg-background shadow-none",
+            )}
+          >
+            {/* Decorative line above content — visible only when unscrolled */}
+            <div
+              className={cn(
+                "h-px bg-border -mx-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                scrolled ? "opacity-0 scale-x-95 pointer-events-none" : "opacity-100 scale-x-100",
+              )}
+            />
 
-            <div className="grid grid-cols-12 items-center h-14">
+            <div className={cn("grid grid-cols-12 items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]", scrolled ? "h-11" : "h-14")}>
               {/* Logo — left */}
               <div className="col-span-3 overflow-hidden h-full flex items-center">
                 <Link href="/" className="inline-block text-foreground">
-                  <IsketchLogo className="h-15 lg:h-10 w-auto" />
+                  <IsketchLogo className={cn("w-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]", scrolled ? "h-8" : "h-10")} />
                 </Link>
               </div>
 
-              {/* Navigation — right, aligned to baseline */}
-              <nav className="col-span-9 flex items-center justify-end gap-8 xl:gap-10">
+              {/* Navigation — right */}
+              <nav className="col-span-9 flex items-center justify-end gap-7 xl:gap-9">
                 {navigationLinks.map((link) => (
                   <Link
                     key={`${link.label}-${link.href}`}
@@ -147,16 +151,30 @@ export function Header() {
                 ))}
               </nav>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Mobile / Tablet: below lg */}
-        <div className="lg:hidden border-b border-border/50">
-          <div className="max-w-350 mx-auto px-6">
-            <div className="flex items-center justify-between h-16 sm:h-20 overflow-hidden">
+        <div className="lg:hidden">
+          <motion.div
+            layout
+            transition={{
+              type: "spring",
+              stiffness: 220,
+              damping: 28,
+              mass: 0.8,
+            }}
+            className={cn(
+              "pointer-events-auto",
+              scrolled
+                ? "max-w-[calc(100%-2rem)] sm:max-w-xl mx-auto my-2.5 px-5 rounded-md bg-background border border-foreground/10"
+                : "w-full max-w-full mx-0 px-6 bg-background border-b border-border/50 shadow-none",
+            )}
+          >
+            <div className={cn("flex items-center justify-between overflow-hidden transition-all duration-500", scrolled ? "h-12 sm:h-14" : "h-16 sm:h-20")}>
               {/* Logo */}
               <Link href="/" className="shrink-0 text-foreground h-full flex items-center">
-                <IsketchLogo className="h-10 sm:h-12 w-auto" />
+                <IsketchLogo className={cn("w-auto transition-all duration-500", scrolled ? "h-8 sm:h-9" : "h-10 sm:h-12")} />
               </Link>
 
               {/* Mobile Menu Button — animated hamburger/cross */}
@@ -195,12 +213,17 @@ export function Header() {
                 </span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Mobile Navigation — smooth height animation */}
           <div
             ref={navRef}
-            className="bg-background overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]"
+            className={cn(
+              "bg-background overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
+              scrolled
+                ? "max-w-[calc(100%-2rem)] sm:max-w-xl mx-auto rounded-md border border-foreground/10 shadow-2xl mt-1.5"
+                : "w-full border-b border-border/50",
+            )}
             style={{
               height: isMenuOpen ? menuHeight : 0,
               opacity: isMenuOpen ? 1 : 0,
