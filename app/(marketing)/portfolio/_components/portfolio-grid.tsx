@@ -5,6 +5,7 @@ import dynamic from "next/dynamic"
 import { Container } from "@/components/shared/container"
 import { ProjectCard } from "@/components/shared/project-card"
 import type { ProjectSummary } from "@/data/projects"
+import type { LightboxItem } from "@/components/shared/image-lightbox"
 
 const ImageLightbox = dynamic(
   () => import("@/components/shared/image-lightbox").then((m) => m.ImageLightbox),
@@ -17,17 +18,24 @@ interface PortfolioGridProps {
 }
 
 export function PortfolioGrid({ projects }: PortfolioGridProps) {
-  const [lightbox, setLightbox] = useState<{
-    src: string
-    alt: string
-    title: string
-    location: string
-    category: string
-  } | null>(null)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  // Build complete gallery list for prev/next lightbox navigation
+  const lightboxGallery: LightboxItem[] = projects.map((project) => ({
+    src: project.image,
+    alt: `${project.title} — ${project.location}`,
+    title: project.title,
+    location: project.location,
+    category: project.category,
+    href: `/portfolio/${project.id}`,
+  }))
+
+  // Pair each project with its original index for accurate navigation mapping
+  const indexedProjects = projects.map((project, index) => ({ project, index }))
 
   // Interleave items between Left and Right columns to guarantee perfectly balanced bottom baseline
-  const leftColumnProjects = projects.filter((_, i) => i % 2 === 0)
-  const rightColumnProjects = projects.filter((_, i) => i % 2 === 1)
+  const leftColumn = indexedProjects.filter((_, i) => i % 2 === 0)
+  const rightColumn = indexedProjects.filter((_, i) => i % 2 === 1)
 
   return (
     <>
@@ -37,7 +45,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start">
             {/* Left Column */}
             <div className="space-y-10 lg:space-y-14">
-              {leftColumnProjects.map((project, index) => (
+              {leftColumn.map(({ project, index }) => (
                 <div
                   key={project.id}
                   className="animate-fade-in-up"
@@ -50,15 +58,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                     image={project.image}
                     href={`/portfolio/${project.id}`}
                     aspectRatio={project.aspectRatio || "aspect-[4/5]"}
-                    onImageClick={(src, alt) =>
-                      setLightbox({
-                        src,
-                        alt,
-                        title: project.title,
-                        location: project.location,
-                        category: project.category,
-                      })
-                    }
+                    onImageClick={() => setLightboxIndex(index)}
                   />
                 </div>
               ))}
@@ -66,7 +66,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
 
             {/* Right Column */}
             <div className="space-y-10 lg:space-y-14">
-              {rightColumnProjects.map((project, index) => (
+              {rightColumn.map(({ project, index }) => (
                 <div
                   key={project.id}
                   className="animate-fade-in-up"
@@ -79,15 +79,7 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
                     image={project.image}
                     href={`/portfolio/${project.id}`}
                     aspectRatio={project.aspectRatio || "aspect-[4/5]"}
-                    onImageClick={(src, alt) =>
-                      setLightbox({
-                        src,
-                        alt,
-                        title: project.title,
-                        location: project.location,
-                        category: project.category,
-                      })
-                    }
+                    onImageClick={() => setLightboxIndex(index)}
                   />
                 </div>
               ))}
@@ -102,16 +94,14 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
         </Container>
       </section>
 
-      {/* Lightbox Modal — chunk only loads once the user opens an image */}
-      {lightbox && (
+      {/* Lightbox Modal — enables prev/next arrows, counter, keyboard & swipe gestures */}
+      {lightboxIndex !== null && (
         <ImageLightbox
-          src={lightbox.src}
-          alt={lightbox.alt}
-          title={lightbox.title}
-          location={lightbox.location}
-          category={lightbox.category}
-          isOpen={true}
-          onClose={() => setLightbox(null)}
+          gallery={lightboxGallery}
+          currentIndex={lightboxIndex}
+          onNavigate={setLightboxIndex}
+          isOpen={lightboxIndex !== null}
+          onClose={() => setLightboxIndex(null)}
         />
       )}
     </>

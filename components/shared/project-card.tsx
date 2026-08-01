@@ -58,8 +58,9 @@ export function ProjectCard({
             src={image}
             alt={alt}
             fill
+            quality={95}
             className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-105"
-            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            sizes="(max-width: 767px) 100vw, (max-width: 1536px) 75vw, 1200px"
           />
         ) : (
           <Image
@@ -68,7 +69,8 @@ export function ProjectCard({
             alt={alt}
             width={0}
             height={0}
-            sizes="(max-width: 767px) 100vw, 50vw"
+            quality={95}
+            sizes="(max-width: 767px) 100vw, (max-width: 1536px) 75vw, 1200px"
             className="w-full h-auto object-cover transition-transform duration-[800ms] ease-out lg:group-hover:scale-105"
           />
         )}

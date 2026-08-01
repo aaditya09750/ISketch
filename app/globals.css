@@ -153,6 +153,12 @@
   }
 }
 
+/* Sharp rendering for high-resolution project images */
+.project-card-reveal img,
+img.object-cover {
+  image-rendering: -webkit-optimize-contrast;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
