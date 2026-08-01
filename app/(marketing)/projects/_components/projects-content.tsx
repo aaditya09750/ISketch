@@ -8,13 +8,12 @@ import { Container } from "@/components/shared/container"
 import { CTASection } from "@/components/shared/cta-section"
 import { ProjectCard } from "@/components/shared/project-card"
 import IsketchLogo from "@/components/shared/isketch-logo"
-import { portfolioProjects } from "@/data/projects"
-import { projectDetails } from "@/data/projects"
+import { studioProjects, projectDetails } from "@/data/projects"
 
 /* ------------------------------------------------------------------ */
-/*  Enrich portfolio data with descriptions from projectDetails        */
+/*  Enrich studio projects data with details                          */
 /* ------------------------------------------------------------------ */
-const allProjects = portfolioProjects.map((p, i) => {
+const allProjects = studioProjects.map((p, i) => {
   const details = projectDetails[p.id]
   return {
     ...p,

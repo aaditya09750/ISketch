@@ -2,33 +2,68 @@ import type { ProjectSummary, ProjectDetail } from "@/types"
 
 export type { ProjectSummary, ProjectDetail }
 
-export const featuredProjects = [
+export const studioProjects: ProjectSummary[] = [
   {
-    id: 1,
+    id: "asteria-courtyard",
     title: "Asteria Courtyard",
     location: "Thane",
+    category: "Residential",
     image: "/images/projects/asteria-courtyard/cover.jpg",
-    href: "/portfolio/asteria-courtyard",
+    aspectRatio: "auto",
   },
   {
-    id: 2,
+    id: "nyati-chesterfield",
     title: "Nyati Chesterfield",
     location: "Pune",
+    category: "Residential",
     image: "/images/projects/nyati-chesterfield/cover.jpg",
-    href: "/portfolio/nyati-chesterfield",
+    aspectRatio: "auto",
   },
   {
-    id: 3,
+    id: "revanta-residence",
     title: "Revanta Residence",
     location: "Mumbai",
+    category: "Residential",
     image: "/images/projects/revanta-residence/cover.png",
-    href: "/portfolio/revanta-residence",
+    aspectRatio: "auto",
+  },
+  {
+    id: "rosehill-hiranandani",
+    title: "Rosehill Hiranandani Estate",
+    location: "Thane",
+    category: "Residential",
+    image: "/images/projects/rosehill-hiranandani/cover.jpg",
+    aspectRatio: "auto",
+  },
+  {
+    id: "rosemount-1601",
+    title: "Rosemount 1601 Hiranandani",
+    location: "Thane",
+    category: "Residential",
+    image: "/images/projects/rosemount-1601/cover.png",
+    aspectRatio: "auto",
+  },
+  {
+    id: "rosemount-1801",
+    title: "Rosemount 1801 Hiranandani",
+    location: "Thane",
+    category: "Residential",
+    image: "/images/projects/rosemount-1801/cover.jpg",
+    aspectRatio: "auto",
   },
 ]
 
+export const featuredProjects = studioProjects.slice(0, 3).map((p, idx) => ({
+  id: idx + 1,
+  title: p.title,
+  location: p.location,
+  image: p.image,
+  href: `/portfolio/${p.id}`,
+}))
+
 export const portfolioProjects: ProjectSummary[] = [
   {
-    id: "asteria-courtyard",
+    id: "asteria-courtyard-entry",
     title: "Asteria Entrance & Vestibule",
     location: "Thane",
     category: "Residential",
@@ -52,7 +87,7 @@ export const portfolioProjects: ProjectSummary[] = [
     aspectRatio: "auto",
   },
   {
-    id: "hiranandani-estate",
+    id: "asteria-courtyard-grounds",
     title: "Asteria Courtyard Grounds",
     location: "Thane",
     category: "Residential",
@@ -188,8 +223,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { label: "Location", value: "Thane, India" },
       { label: "Style", value: "Classic Luxury" },
     ],
-    nextProject: { slug: "luxury-living-suite", title: "Luxury Living Suite" },
-    prevProject: { slug: "nyati-royal-residency", title: "Nyati Royal Residency" },
+    nextProject: { slug: "nyati-chesterfield", title: "Nyati Chesterfield" },
+    prevProject: { slug: "rosemount-1801", title: "Rosemount 1801 Hiranandani" },
   },
   "nyati-chesterfield": {
     title: "Nyati Chesterfield",
@@ -340,6 +375,26 @@ export const projectDetails: Record<string, ProjectDetail> = {
     nextProject: { slug: "asteria-courtyard", title: "Asteria Courtyard" },
     prevProject: { slug: "rosemount-1601", title: "Rosemount 1601 Hiranandani" },
   },
+  "asteria-courtyard-entry": {
+    title: "Asteria Entrance & Vestibule",
+    location: "Thane, India",
+    category: "Residential",
+    year: "2024",
+    scope: "Foyer Design",
+    description:
+      "A sanctuary entry featuring intricate laser-cut art panels, mahogany trim, and ambient warm light.",
+    challenge:
+      "Creating an opulent entrance statement that balances privacy and open light flow.",
+    solution:
+      "Custom etched glass panels framed in mahogany and antique brass hardware.",
+    images: ["/images/gallery/gallery-01.jpg", "/images/gallery/gallery-04.jpg"],
+    details: [
+      { label: "Location", value: "Thane, India" },
+      { label: "Style", value: "Classic Luxury" },
+    ],
+    nextProject: { slug: "luxury-living-suite", title: "Luxury Living Suite" },
+    prevProject: { slug: "rosemount-1801", title: "Rosemount 1801 Hiranandani" },
+  },
   "luxury-living-suite": {
     title: "Luxury Living Suite",
     location: "Mumbai, India",
@@ -358,7 +413,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { label: "Style", value: "Modern Sophistication" },
     ],
     nextProject: { slug: "grand-reception-hall", title: "Grand Reception Hall" },
-    prevProject: { slug: "asteria-courtyard", title: "Asteria Courtyard" },
+    prevProject: { slug: "asteria-courtyard-entry", title: "Asteria Entrance & Vestibule" },
   },
   "grand-reception-hall": {
     title: "Grand Reception Hall",
@@ -377,10 +432,10 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { label: "Location", value: "Mumbai, India" },
       { label: "Style", value: "Contemporary Classic" },
     ],
-    nextProject: { slug: "hiranandani-estate", title: "Asteria Courtyard Grounds" },
+    nextProject: { slug: "asteria-courtyard-grounds", title: "Asteria Courtyard Grounds" },
     prevProject: { slug: "luxury-living-suite", title: "Luxury Living Suite" },
   },
-  "hiranandani-estate": {
+  "asteria-courtyard-grounds": {
     title: "Asteria Courtyard Grounds",
     location: "Thane, India",
     category: "Residential",
@@ -418,7 +473,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       { label: "Style", value: "Contemporary Luxury" },
     ],
     nextProject: { slug: "rosemount-royal-suite", title: "Rosemount Royal Residence" },
-    prevProject: { slug: "hiranandani-estate", title: "Asteria Courtyard Grounds" },
+    prevProject: { slug: "asteria-courtyard-grounds", title: "Asteria Courtyard Grounds" },
   },
   "rosemount-royal-suite": {
     title: "Rosemount Royal Residence",
