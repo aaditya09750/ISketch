@@ -114,40 +114,29 @@ export function Footer() {
         </div>
 
         {/* ── Bottom ── */}
-        <div className="border-t border-surface-dark-foreground/10 pt-6 flex flex-col gap-3">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-            <p className="font-sans text-[10px] md:text-[11px] text-surface-dark-foreground/45 tracking-wide text-center sm:text-left">
-              &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
-            </p>
-            <div className="flex items-center justify-center sm:justify-end gap-4">
-              <Link
-                href="/privacy-policy"
-                className="footer-link font-sans text-[10px] md:text-[11px] text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms-conditions"
-                className="footer-link font-sans text-[10px] md:text-[11px] text-surface-dark-foreground/45 hover:text-surface-dark-foreground/65"
-              >
-                Terms &amp; Conditions
-              </Link>
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5">
-            <a
-              href="https://digitalmarketing1722501367.website3.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/35 uppercase select-none hover:text-surface-dark-foreground/55 transition-colors text-center sm:text-left"
+        <div className="border-t border-surface-dark-foreground/10 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="font-sans text-[11px] text-surface-dark-foreground/50 tracking-wide text-center sm:text-left">
+            &copy; {new Date().getFullYear()} I Sketch Interiors. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 sm:gap-6">
+            <Link
+              href="/privacy-policy"
+              className="footer-link font-sans text-[11px] text-surface-dark-foreground/50 hover:text-surface-dark-foreground/75 transition-colors"
             >
-              Start with Digital
-            </a>
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-conditions"
+              className="footer-link font-sans text-[11px] text-surface-dark-foreground/50 hover:text-surface-dark-foreground/75 transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <span className="hidden sm:inline text-surface-dark-foreground/25 text-xs">•</span>
             <a
               href="https://aadityag975pf.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/35 uppercase select-none hover:text-surface-dark-foreground/55 transition-colors text-center sm:text-right"
+              className="font-sans text-[9px] tracking-[0.15em] text-surface-dark-foreground/50 uppercase select-none hover:text-surface-dark-foreground/80 transition-colors"
             >
               Developed by Aaditya Gunjal
             </a>

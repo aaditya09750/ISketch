@@ -5,6 +5,66 @@ import { Container } from "@/components/shared/container"
 import { cn } from "@/lib/utils"
 import type { LegalSection } from "@/data/legal"
 
+function renderParagraphContent(text: string) {
+  const isBullet = text.startsWith("• ")
+  const rawText = isBullet ? text.slice(2) : text
+
+  const urlRegex = /(https?:\/\/[^\s]+)/g
+
+  const renderFormattedText = (str: string) => {
+    if (str.includes("https://") || str.includes("http://")) {
+      const parts = str.split(urlRegex)
+      return parts.map((part, index) => {
+        if (part.match(urlRegex)) {
+          return (
+            <a
+              key={index}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent-decorative hover:underline font-medium transition-colors cursor-pointer"
+            >
+              {part}
+            </a>
+          )
+        }
+        return part
+      })
+    }
+
+    if (str.includes("+91 8433509521") || str.includes("8433509521")) {
+      const parts = str.split(/(\+91\s?8433509521|8433509521)/)
+      return parts.map((part, index) => {
+        if (part.includes("8433509521")) {
+          return (
+            <a
+              key={index}
+              href="tel:+918433509521"
+              className="text-accent-decorative hover:underline font-medium transition-colors cursor-pointer"
+            >
+              {part}
+            </a>
+          )
+        }
+        return part
+      })
+    }
+
+    return str
+  }
+
+  if (isBullet) {
+    return (
+      <span className="flex items-start gap-2.5 my-1 text-muted-foreground">
+        <span className="text-accent-decorative shrink-0 text-xs mt-1.5">•</span>
+        <span>{renderFormattedText(rawText)}</span>
+      </span>
+    )
+  }
+
+  return renderFormattedText(text)
+}
+
 /* ------------------------------------------------------------------ */
 /*  Collapsible section for mobile                                     */
 /* ------------------------------------------------------------------ */
@@ -71,7 +131,7 @@ function MobileSection({
           <div className="pb-6 sm:pb-8 space-y-4">
             {section.content.map((paragraph, i) => (
               <p key={i} className="body-text text-sm text-muted-foreground leading-[1.85]">
-                {paragraph}
+                {renderParagraphContent(paragraph)}
               </p>
             ))}
           </div>
@@ -138,7 +198,7 @@ function DesktopSection({ section, index }: { section: LegalSection; index: numb
             )}
             style={{ transitionDelay: `${350 + i * 100}ms` }}
           >
-            {paragraph}
+            {renderParagraphContent(paragraph)}
           </p>
         ))}
       </div>

@@ -75,6 +75,18 @@ export const privacyPolicySections: LegalSection[] = [
     ],
   },
   {
+    id: "website-development-maintenance",
+    title: "Engineering, Maintenance & Technical Operations",
+    content: [
+      "This website platform is designed, engineered, and maintained by Full Stack Developer Aaditya Gunjal. Built statically using Next.js 16, React 19, TypeScript, and Tailwind CSS, the platform operates with sub-second performance, strict security headers, and zero server-side attack surface.",
+      "All technical maintenance, accessibility compliance, performance optimizations, and infrastructure security for this website are managed under the direct oversight of the lead developer:",
+      "• Lead Developer & Technical Maintainer: Aaditya Gunjal",
+      "• Direct Contact & Support Line: +91 8433509521",
+      "• Developer Portfolio: https://aadityag975pf.netlify.app/",
+      "If you experience any technical issues, accessibility barriers, or security concerns regarding this website, please reach out to the technical maintainer directly via phone or portfolio channel.",
+    ],
+  },
+  {
     id: "contact-us",
     title: "Contact Us",
     content: [
