@@ -234,10 +234,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Full Interior Design",
     description:
       "A master suite and culinary living space featuring hand-upholstered wall paneling, muted earthy hues, and soft warm lighting.",
-    challenge:
-      "Creating a peaceful retreat that filters urban noise while maximizing daylight.",
-    solution:
-      "Double-glazed acoustic drapery and warm ambient perimeter LED cove bays.",
+    challenge: "Creating a peaceful retreat that filters urban noise while maximizing daylight.",
+    solution: "Double-glazed acoustic drapery and warm ambient perimeter LED cove bays.",
     images: [
       "/images/projects/nyati-chesterfield/hero.jpg",
       "/images/projects/nyati-chesterfield/01.jpg",
@@ -292,8 +290,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
       "A grand estate interior featuring organic wood textures, soft neutral upholstery, and sculpted art decor.",
     challenge:
       "Balancing formal host seating with informal family lounging options across multiple levels.",
-    solution:
-      "Modular curved seating layout centered around dual-tiered marble tables.",
+    solution: "Modular curved seating layout centered around dual-tiered marble tables.",
     images: [
       "/images/projects/rosehill-hiranandani/hero.png",
       "/images/projects/rosehill-hiranandani/02.jpg",
@@ -326,8 +323,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Luxury Residence Interior",
     description:
       "An extraordinary high-rise residence showcasing custom crown mouldings, coffered ceilings, and crystal pendant lighting.",
-    challenge:
-      "Delivering a regal heritage aesthetic in a modern high-rise residential structure.",
+    challenge: "Delivering a regal heritage aesthetic in a modern high-rise residential structure.",
     solution:
       "Intricate crown moulding and layered velvet drapes that soften modern window apertures.",
     images: [
@@ -355,8 +351,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Duplex Interior Architecture",
     description:
       "A penthouse sky suite featuring custom Italian marble flooring, floating glass staircase, and sweeping city vistas.",
-    challenge:
-      "Managing solar glare while preserving panoramic skyline vistas.",
+    challenge: "Managing solar glare while preserving panoramic skyline vistas.",
     solution:
       "Automated dual-roller sheer and blackout motorized shading integrated into ceiling pockets.",
     images: [
@@ -383,10 +378,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Foyer Design",
     description:
       "A sanctuary entry featuring intricate laser-cut art panels, mahogany trim, and ambient warm light.",
-    challenge:
-      "Creating an opulent entrance statement that balances privacy and open light flow.",
-    solution:
-      "Custom etched glass panels framed in mahogany and antique brass hardware.",
+    challenge: "Creating an opulent entrance statement that balances privacy and open light flow.",
+    solution: "Custom etched glass panels framed in mahogany and antique brass hardware.",
     images: ["/images/gallery/gallery-01.jpg", "/images/gallery/gallery-04.jpg"],
     details: [
       { label: "Location", value: "Thane, India" },
@@ -483,8 +476,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Full Interior Design",
     description:
       "An extraordinary luxury apartment featuring rich velvet furnishings, coffered ceilings, and crystal chandeliers.",
-    challenge:
-      "Delivering a regal heritage aesthetic in a modern high-rise residential structure.",
+    challenge: "Delivering a regal heritage aesthetic in a modern high-rise residential structure.",
     solution:
       "Intricate crown moulding and layered velvet drapes that soften modern window apertures.",
     images: ["/images/gallery/gallery-09.png", "/images/gallery/gallery-10.png"],
@@ -503,10 +495,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Suite Renovation",
     description:
       "A serene master bedroom suite boasting hand-upholstered headboard paneling, muted earthy hues, and soft warm lighting.",
-    challenge:
-      "Creating a peaceful retreat that filters urban noise while maximizing daylight.",
-    solution:
-      "Double-glazed acoustic drapery and warm ambient perimeter LED cove bays.",
+    challenge: "Creating a peaceful retreat that filters urban noise while maximizing daylight.",
+    solution: "Double-glazed acoustic drapery and warm ambient perimeter LED cove bays.",
     images: ["/images/gallery/gallery-06.jpg", "/images/gallery/gallery-11.png"],
     details: [
       { label: "Location", value: "Pune, India" },
@@ -523,8 +513,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Dining Room Design",
     description:
       "An intimate dining setting framed by custom mirror paneling, statement pendant lights, and bespoke dining chairs.",
-    challenge:
-      "Enhancing natural light reflection in an internal dining space.",
+    challenge: "Enhancing natural light reflection in an internal dining space.",
     solution:
       "Beveled antique mirror wall inserts that multiply ambient light and create an expansive feel.",
     images: ["/images/gallery/gallery-07.jpg", "/images/gallery/gallery-13.png"],
@@ -543,10 +532,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Millwork & Joinery",
     description:
       "Precision woodworking featuring laser-cut metal mesh inserts, soft-touch cabinetry, and concealed storage.",
-    challenge:
-      "Fusing traditional artisanal woodworking with modern minimalist hardware.",
-    solution:
-      "Concealed magnetic push-latches paired with hand-stained veneer paneling.",
+    challenge: "Fusing traditional artisanal woodworking with modern minimalist hardware.",
+    solution: "Concealed magnetic push-latches paired with hand-stained veneer paneling.",
     images: ["/images/gallery/gallery-08.jpg", "/images/gallery/gallery-01.jpg"],
     details: [
       { label: "Location", value: "Thane, India" },
@@ -563,8 +550,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Kitchen & Pantry Design",
     description:
       "A chef-grade culinary kitchen featuring seamless quartz countertops, integrated appliances, and warm accent lighting.",
-    challenge:
-      "Maximizing counter workspace while accommodating heavy cooking equipment.",
+    challenge: "Maximizing counter workspace while accommodating heavy cooking equipment.",
     solution:
       "A central preparation island with waterfall quartz edges and overhead task pendants.",
     images: ["/images/gallery/gallery-11.png", "/images/gallery/gallery-06.jpg"],
@@ -583,10 +569,8 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Formal Lounge Design",
     description:
       "A serene parlour space crafted with organic wood textures, soft neutral upholstery, and sculptural art pieces.",
-    challenge:
-      "Balancing formal host seating with informal family lounging options.",
-    solution:
-      "Modular curved seating layout centered around a dual-tiered marble coffee table.",
+    challenge: "Balancing formal host seating with informal family lounging options.",
+    solution: "Modular curved seating layout centered around a dual-tiered marble coffee table.",
     images: ["/images/gallery/gallery-10.png", "/images/gallery/gallery-09.png"],
     details: [
       { label: "Location", value: "Thane, India" },
@@ -643,8 +627,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Duplex Interior Architecture",
     description:
       "A grand double-height duplex sky villa showcasing floor-to-ceiling glass, floating glass staircase, and sweeping views.",
-    challenge:
-      "Managing solar glare while preserving panoramic skyline vistas.",
+    challenge: "Managing solar glare while preserving panoramic skyline vistas.",
     solution:
       "Automated dual-roller sheer and blackout motorized shading integrated into ceiling pockets.",
     images: ["/images/gallery/gallery-14.png", "/images/gallery/gallery-09.png"],
@@ -663,8 +646,7 @@ export const projectDetails: Record<string, ProjectDetail> = {
     scope: "Heritage Suite Interior",
     description:
       "A flagship luxury suite featuring custom marble flooring, handcrafted wall moldings, and warm architectural uplighting.",
-    challenge:
-      "Fusing classic royal heritage aesthetic with modern smart home automation.",
+    challenge: "Fusing classic royal heritage aesthetic with modern smart home automation.",
     solution:
       "Concealed linear HVAC diffusers and recessed smart lighting controls integrated into decorative wall paneling.",
     images: ["/images/gallery/gallery-15.jpg", "/images/gallery/gallery-04.jpg"],
