@@ -246,7 +246,7 @@ export function Header() {
           <div
             ref={navRef}
             className={cn(
-              "bg-background overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
+              "pointer-events-auto bg-background overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)]",
               scrolled
                 ? "max-w-[calc(100%-2rem)] sm:max-w-xl mx-auto rounded-md border border-foreground/10 shadow-2xl mt-1.5"
                 : "w-full border-b border-border/50",
@@ -319,12 +319,11 @@ export function Header() {
 
               {/* Contact & Connect — below lg */}
               <div
-                className="mt-8 pt-6 border-t border-border/50"
+                className="mt-8 pt-6 border-t border-border/50 transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]"
                 style={{
                   opacity: isMenuOpen ? 1 : 0,
                   transform: isMenuOpen ? "translateY(0px)" : "translateY(12px)",
                   transitionDelay: isMenuOpen ? `${contactBaseDelay}ms` : "0ms",
-                  transition: "all 400ms cubic-bezier(0.77, 0, 0.18, 1)",
                 }}
               >
                 <div className="grid grid-cols-2 gap-8">
