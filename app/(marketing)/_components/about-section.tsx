@@ -13,7 +13,7 @@ export function AboutSection() {
     imageRef,
     containerRef,
     shouldReveal: shouldRevealImage,
-  } = useImageReady("/images/team2.jpg")
+  } = useImageReady("/images/about-studio.png")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,8 +43,8 @@ export function AboutSection() {
           >
             <Image
               ref={imageRef}
-              src="/images/team2.jpg"
-              alt="Interior designer in studio"
+              src="/images/about-studio.png"
+              alt="I Sketch Interiors — Studio & Material Palette"
               fill
               className="object-cover image-hover"
               sizes="(max-width: 1023px) 100vw, 50vw"

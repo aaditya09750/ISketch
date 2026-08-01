@@ -81,46 +81,46 @@ export function ContactContent() {
             </div>
 
             {/* ── Contact Cards ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-accent-decorative/12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-accent-decorative/25">
               {/* Address */}
               <div
-                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 border-b md:border-r border-accent-decorative/12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 border-b md:border-r border-accent-decorative/25 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
                 style={delay(600)}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
-                    <MapPin className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/30 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/60 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.12)]">
+                    <MapPin className="w-[18px] h-[18px] text-accent-decorative/80 group-hover:text-accent-decorative transition-colors duration-600" />
                   </div>
-                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/85 font-medium">
                     Address
                   </h3>
                 </div>
-                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
-                <p className="body-text text-[0.8125rem] text-muted-foreground/65 whitespace-pre-line leading-[1.85]">
+                <div className="h-px w-8 bg-accent-decorative/30 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/50" />
+                <p className="body-text text-[0.875rem] text-foreground/90 font-medium whitespace-pre-line leading-[1.85]">
                   {contactDetails[0].content}
                 </p>
               </div>
 
               {/* Telephone */}
               <div
-                className={`group relative py-10 sm:py-12 lg:py-14 pl-0 md:pl-10 lg:pl-8 lg:pr-8 border-b lg:border-r border-accent-decorative/12 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                className={`group relative py-10 sm:py-12 lg:py-14 pl-0 md:pl-10 lg:pl-8 lg:pr-8 border-b lg:border-r border-accent-decorative/25 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
                 style={delay(740)}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
-                    <Phone className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/30 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/60 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.12)]">
+                    <Phone className="w-[18px] h-[18px] text-accent-decorative/80 group-hover:text-accent-decorative transition-colors duration-600" />
                   </div>
-                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/85 font-medium">
                     Telephone
                   </h3>
                 </div>
-                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <div className="h-px w-8 bg-accent-decorative/30 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/50" />
                 <div className="flex flex-col gap-1.5">
                   {studioContact.phones.map((phone) => (
                     <a
                       key={phone}
                       href={`tel:${phone.replace(/\s/g, "")}`}
-                      className="footer-link body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 w-fit"
+                      className="footer-link body-text text-[0.875rem] text-foreground/90 font-medium hover:text-accent-decorative transition-colors duration-500 w-fit"
                     >
                       {phone}
                     </a>
@@ -130,21 +130,21 @@ export function ContactContent() {
 
               {/* Email */}
               <div
-                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 lg:pl-8 md:border-r border-accent-decorative/12 border-b md:border-b-0 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
+                className={`group relative py-10 sm:py-12 lg:py-14 pr-0 md:pr-10 lg:pr-8 lg:pl-8 md:border-r border-accent-decorative/25 border-b md:border-b-0 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${animIn(detailsVisible)}`}
                 style={delay(880)}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
-                    <Mail className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/30 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/60 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.12)]">
+                    <Mail className="w-[18px] h-[18px] text-accent-decorative/80 group-hover:text-accent-decorative transition-colors duration-600" />
                   </div>
-                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/85 font-medium">
                     Email
                   </h3>
                 </div>
-                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <div className="h-px w-8 bg-accent-decorative/30 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/50" />
                 <a
                   href={`mailto:${studioContact.email}`}
-                  className="footer-link body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 inline-block break-all sm:break-normal"
+                  className="footer-link body-text text-[0.875rem] text-foreground/90 font-medium hover:text-accent-decorative transition-colors duration-500 inline-block break-all sm:break-normal"
                 >
                   {studioContact.email}
                 </a>
@@ -156,14 +156,14 @@ export function ContactContent() {
                 style={delay(1020)}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-11 h-11 rounded-full border border-accent-decorative/12 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/35 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.08)]">
-                    <Share2 className="w-[18px] h-[18px] text-accent-decorative/45 group-hover:text-accent-decorative transition-colors duration-600" />
+                  <div className="w-11 h-11 rounded-full border border-accent-decorative/30 flex items-center justify-center transition-all duration-600 group-hover:border-accent-decorative/60 group-hover:shadow-[0_4px_20px_rgba(160,120,86,0.12)]">
+                    <Share2 className="w-[18px] h-[18px] text-accent-decorative/80 group-hover:text-accent-decorative transition-colors duration-600" />
                   </div>
-                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/55">
+                  <h3 className="label-uppercase text-[0.6rem] tracking-[0.22em] text-foreground/85 font-medium">
                     Follow Us
                   </h3>
                 </div>
-                <div className="h-px w-8 bg-accent-decorative/15 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/30" />
+                <div className="h-px w-8 bg-accent-decorative/30 mb-5 transition-all duration-600 group-hover:w-12 group-hover:bg-accent-decorative/50" />
                 <div className="flex flex-col gap-2.5">
                   {socialLinks.map((social) => {
                     const Icon = social.label === "Instagram" ? FaInstagram : FaFacebookF
@@ -173,7 +173,7 @@ export function ContactContent() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="footer-link flex items-center gap-2.5 body-text text-[0.8125rem] text-muted-foreground/65 hover:text-accent-decorative transition-colors duration-500 w-fit"
+                        className="footer-link flex items-center gap-2.5 body-text text-[0.875rem] text-foreground/90 font-medium hover:text-accent-decorative transition-colors duration-500 w-fit"
                       >
                         <Icon className="w-3.5 h-3.5" />
                         {social.label}

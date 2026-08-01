@@ -11,6 +11,8 @@ export type ProjectSummary = {
   location: string
   category: string
   image: string
+  spanClass?: string
+  aspectRatio?: string
 }
 
 export type ProjectDetail = {

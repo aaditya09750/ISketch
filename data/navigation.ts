@@ -3,6 +3,7 @@ import type { NavLink } from "@/types"
 export type { NavLink }
 
 export const navigationLinks: NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Services", href: "/services" },
@@ -11,6 +12,7 @@ export const navigationLinks: NavLink[] = [
 ]
 
 export const footerLinks: NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Services", href: "/services" },

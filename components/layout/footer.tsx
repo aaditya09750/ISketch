@@ -37,7 +37,7 @@ export function Footer() {
           <div className="shrink-0">
             <IsketchLogo className="h-14 md:h-18 lg:h-22 w-auto" />
             <p
-              className={`${isVisible ? "animate-fade-up" : "opacity-0"} font-serif text-xs md:text-sm tracking-[0.03em] text-surface-dark-foreground/60 mt-4 max-w-50`}
+              className={`${isVisible ? "animate-fade-up" : "opacity-0"} font-serif text-xs md:text-sm tracking-[0.03em] text-surface-dark-foreground/80 mt-4 max-w-50`}
             >
               Crafting timeless interiors with intention
             </p>
@@ -47,7 +47,7 @@ export function Footer() {
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-8 sm:gap-x-12 lg:gap-x-16">
             {/* Explore */}
             <div>
-              <h3 className="label-uppercase select-none text-surface-dark-foreground/70 mb-4 md:mb-5">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/90 font-medium mb-4 md:mb-5">
                 Explore
               </h3>
               <nav className="flex flex-col gap-2">
@@ -55,7 +55,7 @@ export function Footer() {
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="footer-link font-sans text-[13px] text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                    className="footer-link font-sans text-[13px] text-surface-dark-foreground/80 font-medium hover:text-accent-light w-fit"
                   >
                     {link.label}
                   </Link>
@@ -65,7 +65,7 @@ export function Footer() {
 
             {/* Connect */}
             <div>
-              <h3 className="label-uppercase select-none text-surface-dark-foreground/70 mb-4 md:mb-5">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/90 font-medium mb-4 md:mb-5">
                 Connect
               </h3>
               <nav className="flex flex-col gap-2">
@@ -75,7 +75,7 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="footer-link font-sans text-[13px] text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                    className="footer-link font-sans text-[13px] text-surface-dark-foreground/80 font-medium hover:text-accent-light w-fit"
                   >
                     {link.label}
                   </Link>
@@ -85,10 +85,10 @@ export function Footer() {
 
             {/* Contact */}
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="label-uppercase select-none text-surface-dark-foreground/70 mb-4 md:mb-5">
+              <h3 className="label-uppercase select-none text-surface-dark-foreground/90 font-medium mb-4 md:mb-5">
                 Contact
               </h3>
-              <address className="font-sans text-[13px] text-surface-dark-foreground/60 not-italic flex flex-col gap-2">
+              <address className="font-sans text-[13px] text-surface-dark-foreground/85 font-medium not-italic flex flex-col gap-2">
                 <p className="leading-relaxed">
                   The Courtyard, Asteria A/604,
                   <br />
@@ -98,13 +98,13 @@ export function Footer() {
                 </p>
                 <Link
                   href="tel:+919967312203"
-                  className="footer-link text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                  className="footer-link text-surface-dark-foreground/85 hover:text-accent-light w-fit"
                 >
                   +91 99673 12203
                 </Link>
                 <Link
                   href="tel:+919892515655"
-                  className="footer-link text-surface-dark-foreground/60 hover:text-accent-light w-fit"
+                  className="footer-link text-surface-dark-foreground/85 hover:text-accent-light w-fit"
                 >
                   +91 98925 15655
                 </Link>

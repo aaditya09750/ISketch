@@ -35,18 +35,30 @@ function GalleryImage({
     <div
       ref={containerRef}
       onClick={onClick}
-      className={`project-card-reveal bg-surface-dark group/img cursor-pointer ${aspectClass} relative overflow-hidden ${
+      className={`project-card-reveal bg-surface-dark group/img cursor-pointer relative overflow-hidden ${
         shouldReveal ? "is-revealed" : ""
-      }`}
+      } ${aspectClass && aspectClass !== "w-full h-auto" ? aspectClass : ""}`}
     >
-      <Image
-        ref={imageRef}
-        src={src}
-        alt={alt}
-        fill
-        sizes={sizes}
-        className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover/img:scale-105"
-      />
+      {aspectClass === "w-full h-auto" ? (
+        <Image
+          ref={imageRef}
+          src={src}
+          alt={alt}
+          width={0}
+          height={0}
+          sizes={sizes}
+          className="w-full h-auto object-cover transition-transform duration-[800ms] ease-out lg:group-hover/img:scale-105"
+        />
+      ) : (
+        <Image
+          ref={imageRef}
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className="object-cover transition-transform duration-[800ms] ease-out lg:group-hover/img:scale-105"
+        />
+      )}
 
       {/* Logo watermark */}
       <div className="absolute top-5 right-5 sm:top-6 sm:right-6 lg:top-8 lg:right-8 z-10 pointer-events-none">
@@ -70,7 +82,7 @@ function GalleryImage({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Project Gallery with staggered layout + lightbox                   */
+/*  Project Gallery displaying ALL room images in project folder       */
 /* ------------------------------------------------------------------ */
 export function ProjectGallery({ images, title }: { images: string[]; title: string }) {
   const galleryImages = images.slice(1)
@@ -78,7 +90,7 @@ export function ProjectGallery({ images, title }: { images: string[]; title: str
 
   const lightboxGallery: LightboxItem[] = galleryImages.map((src, i) => ({
     src,
-    alt: `${title} — ${i + 1}`,
+    alt: `${title} — Photo ${i + 1}`,
     title,
     location: "",
   }))
@@ -89,42 +101,28 @@ export function ProjectGallery({ images, title }: { images: string[]; title: str
         <Container>
           {/* Section label */}
           <div className="mb-10 sm:mb-12 lg:mb-16">
-            <p className="label-uppercase text-accent tracking-[0.25em] mb-4">Gallery</p>
+            <p className="label-uppercase text-accent tracking-[0.25em] mb-4">Project Gallery</p>
             <div className="h-px w-10 bg-accent-decorative/30" />
           </div>
 
-          {/* Staggered offset layout */}
-          <div className="grid md:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-start">
-            {/* Left — larger image */}
-            {galleryImages[0] && (
-              <div className="md:col-span-7">
+          {/* All Gallery Images in 2-Column Responsive Masonry */}
+          <div className="columns-1 md:columns-2 gap-6 lg:gap-8 space-y-6 lg:space-y-8">
+            {galleryImages.map((src, index) => (
+              <div key={src} className="break-inside-avoid">
                 <GalleryImage
-                  src={galleryImages[0]}
-                  alt={`${title} - Image 2`}
-                  sizes="(max-width: 767px) 100vw, 58vw"
-                  aspectClass="aspect-[3/4]"
-                  onClick={() => setLightboxIndex(0)}
+                  src={src}
+                  alt={`${title} - Photo ${index + 1}`}
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  aspectClass="w-full h-auto"
+                  onClick={() => setLightboxIndex(index)}
                 />
               </div>
-            )}
-
-            {/* Right — smaller image offset downward */}
-            {galleryImages[1] && (
-              <div className="md:col-span-5 md:mt-24 lg:mt-32">
-                <GalleryImage
-                  src={galleryImages[1]}
-                  alt={`${title} - Image 3`}
-                  sizes="(max-width: 767px) 100vw, 42vw"
-                  aspectClass="aspect-[4/5]"
-                  onClick={() => setLightboxIndex(1)}
-                />
-              </div>
-            )}
+            ))}
           </div>
         </Container>
       </section>
 
-      {/* Lightbox — chunk only loads once the user opens an image */}
+      {/* Lightbox — opens full resolution preview */}
       {lightboxIndex !== null && (
         <ImageLightbox
           gallery={lightboxGallery}

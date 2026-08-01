@@ -25,37 +25,73 @@ export function PortfolioGrid({ projects }: PortfolioGridProps) {
     category: string
   } | null>(null)
 
+  // Interleave items between Left and Right columns to guarantee perfectly balanced bottom baseline
+  const leftColumnProjects = projects.filter((_, i) => i % 2 === 0)
+  const rightColumnProjects = projects.filter((_, i) => i % 2 === 1)
+
   return (
     <>
-      {/* Projects Grid */}
+      {/* Projects Grid — Balanced 2-Column Layout */}
       <section>
         <Container>
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 80}ms` }}
-              >
-                <ProjectCard
-                  title={project.title}
-                  location={project.location}
-                  category={project.category}
-                  image={project.image}
-                  href={`/portfolio/${project.id}`}
-                  aspectRatio={index % 3 === 0 ? "aspect-[4/3]" : "aspect-[4/5]"}
-                  onImageClick={(src, alt) =>
-                    setLightbox({
-                      src,
-                      alt,
-                      title: project.title,
-                      location: project.location,
-                      category: project.category,
-                    })
-                  }
-                />
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start">
+            {/* Left Column */}
+            <div className="space-y-10 lg:space-y-14">
+              {leftColumnProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${index * 80}ms` }}
+                >
+                  <ProjectCard
+                    title={project.title}
+                    location={project.location}
+                    category={project.category}
+                    image={project.image}
+                    href={`/portfolio/${project.id}`}
+                    aspectRatio={project.aspectRatio || "aspect-[4/5]"}
+                    onImageClick={(src, alt) =>
+                      setLightbox({
+                        src,
+                        alt,
+                        title: project.title,
+                        location: project.location,
+                        category: project.category,
+                      })
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Right Column */}
+            <div className="space-y-10 lg:space-y-14">
+              {rightColumnProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${(index + 1) * 80}ms` }}
+                >
+                  <ProjectCard
+                    title={project.title}
+                    location={project.location}
+                    category={project.category}
+                    image={project.image}
+                    href={`/portfolio/${project.id}`}
+                    aspectRatio={project.aspectRatio || "aspect-[4/5]"}
+                    onImageClick={(src, alt) =>
+                      setLightbox({
+                        src,
+                        alt,
+                        title: project.title,
+                        location: project.location,
+                        category: project.category,
+                      })
+                    }
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           {projects.length === 0 && (

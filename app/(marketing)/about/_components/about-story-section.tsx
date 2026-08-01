@@ -29,7 +29,7 @@ export function AboutStorySection() {
           {/* Image column — left */}
           <div className="lg:col-span-6">
             <RevealImage
-              src="/images/team2.jpg"
+              src="/images/about-studio.png"
               alt="I Sketch Interiors — Our Story"
               sizes="(max-width: 1023px) 100vw, 50vw"
               containerClassName="relative aspect-[4/5] overflow-hidden"
