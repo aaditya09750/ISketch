@@ -124,11 +124,21 @@ export function Header() {
               )}
             />
 
-            <div className={cn("grid grid-cols-12 items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]", scrolled ? "h-11" : "h-14")}>
+            <div
+              className={cn(
+                "grid grid-cols-12 items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                scrolled ? "h-11" : "h-14",
+              )}
+            >
               {/* Logo — left */}
               <div className="col-span-3 overflow-hidden h-full flex items-center">
                 <Link href="/" className="inline-block text-foreground">
-                  <IsketchLogo className={cn("w-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]", scrolled ? "h-8" : "h-10")} />
+                  <IsketchLogo
+                    className={cn(
+                      "w-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+                      scrolled ? "h-8" : "h-10",
+                    )}
+                  />
                 </Link>
               </div>
 
@@ -146,7 +156,14 @@ export function Header() {
                     )}
                   >
                     {link.label}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px w-[calc(100%+12px)] bg-current opacity-0 scale-x-0 group-hover:opacity-30 group-hover:scale-x-100 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)] origin-center" />
+                    <span
+                      className={cn(
+                        "absolute bottom-0 left-1/2 -translate-x-1/2 h-[1.5px] w-[calc(100%+8px)] bg-accent transition-all duration-500 ease-[cubic-bezier(0.77,0,0.18,1)] origin-center",
+                        isActiveLink(link.href)
+                          ? "opacity-100 scale-x-100"
+                          : "opacity-0 scale-x-0 group-hover:opacity-40 group-hover:scale-x-100",
+                      )}
+                    />
                   </Link>
                 ))}
               </nav>
@@ -171,10 +188,20 @@ export function Header() {
                 : "w-full max-w-full mx-0 px-6 bg-background border-b border-border/50 shadow-none",
             )}
           >
-            <div className={cn("flex items-center justify-between overflow-hidden transition-all duration-500", scrolled ? "h-12 sm:h-14" : "h-16 sm:h-20")}>
+            <div
+              className={cn(
+                "flex items-center justify-between overflow-hidden transition-all duration-500",
+                scrolled ? "h-12 sm:h-14" : "h-16 sm:h-20",
+              )}
+            >
               {/* Logo */}
               <Link href="/" className="shrink-0 text-foreground h-full flex items-center">
-                <IsketchLogo className={cn("w-auto transition-all duration-500", scrolled ? "h-8 sm:h-9" : "h-10 sm:h-12")} />
+                <IsketchLogo
+                  className={cn(
+                    "w-auto transition-all duration-500",
+                    scrolled ? "h-8 sm:h-9" : "h-10 sm:h-12",
+                  )}
+                />
               </Link>
 
               {/* Mobile Menu Button — animated hamburger/cross */}
@@ -237,8 +264,10 @@ export function Header() {
                     key={`mobile-${link.label}-${link.href}`}
                     href={link.href}
                     className={cn(
-                      "label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
-                      isActiveLink(link.href) ? "text-accent" : "text-foreground hover:text-accent",
+                      "relative w-fit label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
+                      isActiveLink(link.href)
+                        ? "text-accent font-medium"
+                        : "text-foreground hover:text-accent",
                     )}
                     style={{
                       opacity: isMenuOpen ? 1 : 0,
@@ -248,6 +277,12 @@ export function Header() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
+                    <span
+                      className={cn(
+                        "absolute -bottom-1 left-0 right-0 h-0.5 bg-accent transition-all duration-300",
+                        isActiveLink(link.href) ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0",
+                      )}
+                    />
                   </Link>
                 ))}
               </nav>
@@ -259,8 +294,10 @@ export function Header() {
                     key={`tablet-${link.label}-${link.href}`}
                     href={link.href}
                     className={cn(
-                      "label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
-                      isActiveLink(link.href) ? "text-accent" : "text-foreground hover:text-accent",
+                      "relative label-uppercase text-sm transition-all duration-400 ease-[cubic-bezier(0.77,0,0.18,1)]",
+                      isActiveLink(link.href)
+                        ? "text-accent font-medium"
+                        : "text-foreground hover:text-accent",
                     )}
                     style={{
                       opacity: isMenuOpen ? 1 : 0,
@@ -270,6 +307,12 @@ export function Header() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.label}
+                    <span
+                      className={cn(
+                        "absolute -bottom-1 left-0 right-0 h-0.5 bg-accent transition-all duration-300",
+                        isActiveLink(link.href) ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0",
+                      )}
+                    />
                   </Link>
                 ))}
               </nav>
